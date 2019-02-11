@@ -4,8 +4,11 @@
 
 RESOURCES:
 [Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
+
 [Adding Mapbox to Django](https://www.fullstackpython.com/blog/maps-django-web-applications-projects-mapbox.html)
+
 [Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+
 
 SETUP: setup ```virtualenv``` (linux: sudo apt-get install virtualenv)
 Once you've setup virtualenv and are running a virtual environment, run ```pip3 install -r requirements.txt``` If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
