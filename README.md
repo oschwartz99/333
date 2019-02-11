@@ -1,7 +1,13 @@
-# COS 333 Project
+# PICKUP Project
+### N.B. we will be using python3 (as Python 2.7 is soon to be deprecated). Currently using MapBox, Django, MongoDB
 
-## N.B. we will be using python3 (as Python 2.7 is soon to be deprecated). Currently using MapBox, Django, MongoDB
+CURRENT PROGRESS:
+- Creating user login page/sign up page (see tutorial below)
 
+TENTATIVE TO-DO:
+- Begin learning Mapbox API to add additional functionality
+- Begin fleshing out what we need to add to Mapbox (e.g. pop-up labels for pickup sites)
+- Brainstorm other functionality (do we want just a map interface?)
 
 RESOURCES:
 - [Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
@@ -9,8 +15,6 @@ RESOURCES:
 - [Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 - [Mapbox](https://www.mapbox.com/)
 - [User and Login tutorial](https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/)
-
-
 
 SETUP: 
 - setup ```virtualenv``` (linux: sudo apt-get install virtualenv)
