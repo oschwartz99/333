@@ -2,6 +2,7 @@
 
 ## N.B. we will be using python3 (as Python 2.7 is soon to be deprecated). Currently using MapBox, Django, MongoDB
 
+
 RESOURCES:
 [Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
 
