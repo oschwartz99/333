@@ -16,10 +16,10 @@ SETUP:
 - If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
 
 RUNNING:
-- ```**333/mysite$** python3 manage.py runserver```. Then go to ```http://127.0.0.1:8000/``` to view the webapp.
+- **```333/mysite$```** ```python3 manage.py runserver```. Then go to ```http://127.0.0.1:8000/``` to view the webapp.
 
 MIGRATING:
-- ```**333/mysite$** python3 manage.py migrate```
+- **```333/mysite$```** ```python3 manage.py migrate```
 
 EDITING THE README:
 - Install ```grip``` with ```sudo apt-get install grip```. Then, run ```grip README.md```
