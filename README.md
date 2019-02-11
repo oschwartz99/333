@@ -4,24 +4,24 @@
 
 
 RESOURCES:
-[Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
-
-[Adding Mapbox to Django](https://www.fullstackpython.com/blog/maps-django-web-applications-projects-mapbox.html)
-
-[Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+- [Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
+- [Adding Mapbox to Django](https://www.fullstackpython.com/blog/maps-django-web-applications-projects-mapbox.html)
+- [Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 
 
-SETUP: setup ```virtualenv``` (linux: sudo apt-get install virtualenv)
-Once you've setup virtualenv and are running a virtual environment, run ```pip3 install -r requirements.txt``` If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
+SETUP: 
+- setup ```virtualenv``` (linux: sudo apt-get install virtualenv)
+- Once you've setup virtualenv and are running a virtual environment, run ```pip3 install -r requirements.txt``` 
+- If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
 
 RUNNING:
-```333/mysite$ python3 manage.py runserver```
+- ```333/mysite$ python3 manage.py runserver```
 
 MIGRATING:
-```333/mysite$ python3 manage.py migrate```
+- ```333/mysite$ python3 manage.py migrate```
 
 EDITING THE README:
-Install ```grip``` with ```sudo apt-get install grip```. Then, run ```grip README.md```
+- Install ```grip``` with ```sudo apt-get install grip```. Then, run ```grip README.md```
 
 MAKING MODEL CHANGES:
 - change your models (in ```models.py```)
