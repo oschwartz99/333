@@ -7,6 +7,7 @@ RESOURCES:
 - [Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
 - [Adding Mapbox to Django](https://www.fullstackpython.com/blog/maps-django-web-applications-projects-mapbox.html)
 - [Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+- [Mapbox](https://www.mapbox.com/)
 
 
 SETUP: 
