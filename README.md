@@ -8,6 +8,8 @@ RESOURCES:
 - [Adding Mapbox to Django](https://www.fullstackpython.com/blog/maps-django-web-applications-projects-mapbox.html)
 - [Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 - [Mapbox](https://www.mapbox.com/)
+- [User and Login tutorial](https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/)
+
 
 
 SETUP: 
@@ -16,7 +18,8 @@ SETUP:
 - If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
 
 RUNNING:
-- **```333/mysite$```** ```python3 manage.py runserver```. Then go to ```http://127.0.0.1:8000/``` to view the webapp.
+- **```333/mysite$```** ```python3 manage.py runserver```. Then go to ```http://127.0.0.1:8000/accounts/login``` to view the webapp.
+- **username**: ollie, **password**: ollie
 
 MIGRATING:
 - **```333/mysite$```** ```python3 manage.py migrate```
