@@ -17,7 +17,9 @@ RESOURCES:
 - [User and Login tutorial](https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/)
 
 SETUP: 
-- setup ```virtualenv``` (linux: sudo apt-get install virtualenv)
+- Virtual environment creator: ```sudo apt-get install python3/venv```
+- create a directory to house venv: ```cd ~/; mkdir envs; mkdir/envs/pickup; python3 -m venv ~/envs/pickup```
+- activate venv: ```source ~/envs/pickup/bin/activate```
 - Once you've setup virtualenv and are running a virtual environment, run ```pip3 install -r requirements.txt``` 
 - If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
 
