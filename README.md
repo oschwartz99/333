@@ -1,5 +1,5 @@
 # PICKUP Project
-### N.B. we will be using python3 (as Python 2.7 is soon to be deprecated). Currently using MapBox, Django, MongoDB
+### N.B. we will be using python3 (3.6) (as Python 2.7 is soon to be deprecated). Currently using MapBox, Django (2.1.7), MongoDB
 
 CURRENT PROGRESS:
 - Creating user login page/sign up page (see tutorial below)

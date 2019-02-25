@@ -121,4 +121,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Redirect user to homepage upon successful login
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
