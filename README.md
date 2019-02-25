@@ -6,6 +6,8 @@ CURRENT PROGRESS:
 
 USEFUL (non-essential) COMMANDS:
 - ```tree``` lists directory structure in a tree-layout
+- ```python3 manage.py shell``` - can view database structure, view object models, manipulate things in the database
+- while in ```shell``` mode, use ```help(Object_name)``` to view the methods and fields of an object
 
 TENTATIVE TO-DO:
 - Begin learning Mapbox API to add additional functionality
