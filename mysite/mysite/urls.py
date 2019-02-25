@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic.base import TemplateView
+from users import views as user_views
 
 urlpatterns = [    
     # change url to '' to make blog home page the home page for the project
     path('blog/', include('blog.urls')), 
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    # path('', include('pickup.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home')
+    path('register/', user_views.register, name='register'),
 ]
