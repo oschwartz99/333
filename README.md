@@ -13,6 +13,7 @@ TENTATIVE TO-DO:
 - Brainstorm other functionality (do we want just a map interface?)
 
 RESOURCES:
+- Corey Schafer Django Python Tutorial (YouTube)
 - [Django Official Tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)
 - [Adding Mapbox to Django](https://www.fullstackpython.com/blog/maps-django-web-applications-projects-mapbox.html)
 - [Markdown cheatsheet for README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
