@@ -4,6 +4,9 @@
 CURRENT PROGRESS:
 - Creating user login page/sign up page (see tutorial below)
 
+USEFUL (non-essential) COMMANDS:
+- ```tree``` lists directory structure in a tree-layout
+
 TENTATIVE TO-DO:
 - Begin learning Mapbox API to add additional functionality
 - Begin fleshing out what we need to add to Mapbox (e.g. pop-up labels for pickup sites)
