@@ -28,6 +28,7 @@ SETUP:
 - create a directory to house venv: ```cd ~/; mkdir envs; mkdir/envs/pickup; python3 -m venv ~/envs/pickup```
 - activate venv: ```source ~/envs/pickup/bin/activate```
 - Once you've setup virtualenv and are running a virtual environment, run ```pip3 install -r requirements.txt``` 
+- If you are using a mac, run this command instead ```pip3 install -r requirementsMac.txt``` 
 - If you're adding requirements, then make sure to do ```pip3 freeze > requirements.txt```
 
 RUNNING:
