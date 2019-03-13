@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3643fce9-83c6-4fc3-85d7-9b057ae4cbd0" name="Default Changelist" comment="Update the readme for heroku instructions and the requirements.txt file">
+      <change afterPath="$PROJECT_DIR$/pickup/Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/Procfile.windows" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/requirementsUbuntu.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/autocomplete.781713f30664.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/autocomplete.781713f30664.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/autocomplete.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/autocomplete.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/base.4e3bba263270.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/base.4e3bba263270.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/base.7ea12481fb59.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/base.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/changelists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/changelists.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/changelists.f6dc691f8d62.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/changelists.f6dc691f8d62.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/dashboard.7ac78187c567.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/dashboard.7ac78187c567.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/dashboard.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/fonts.494e4ec545c9.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/fonts.494e4ec545c9.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/fonts.cc6140298ba7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/fonts.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/forms.2da17328804f.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/forms.2da17328804f.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/forms.4d944dc1c5f9.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/forms.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/forms.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/login.a846c0e2ef65.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/login.a846c0e2ef65.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/login.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive.d1e3572cb104.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive.d1e3572cb104.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive_rtl.2a6652327ccd.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive_rtl.2a6652327ccd.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive_rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/responsive_rtl.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/rtl.306dbf6d5df6.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/rtl.306dbf6d5df6.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/rtl.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/LICENSE-SELECT2.7cf1de939f3b.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/LICENSE-SELECT2.7cf1de939f3b.md.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/LICENSE-SELECT2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/LICENSE-SELECT2.md.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.3805311d5fc1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.3805311d5fc1.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.min.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.min.d44571114a90.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/vendor/select2/select2.min.d44571114a90.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/widgets.5e372b41c483.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/widgets.5e372b41c483.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/widgets.a7251c097987.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/widgets.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/css/widgets.css.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.d273d63619c9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.d273d63619c9.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/README.2c3d0bcdede2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/Roboto-Bold-webfont.2ad99072841e.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/Roboto-Bold-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/Roboto-Light-webfont.b446c2399bb6.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/Roboto-Light-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/Roboto-Regular-webfont.ec39515ae8c6.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/Roboto-Regular-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/LICENSE.2c54f4e1ca1c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/LICENSE.2c54f4e1ca1c.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/LICENSE.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/README.a70711a38d87.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/README.a70711a38d87.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/README.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/calendar-icons.39b290681a8b.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/calendar-icons.39b290681a8b.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/calendar-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/calendar-icons.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_off.7a23bf31ef8a.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_off.7a23bf31ef8a.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_off.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_off.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_on.0047eba25b67.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_on.0047eba25b67.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_on.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/gis/move_vertex_on.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-addlink.d519b3bab011.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-addlink.d519b3bab011.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-addlink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-addlink.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-alert.034cc7d8a67f.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-alert.034cc7d8a67f.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-alert.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-alert.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-calendar.ac7aea671bea.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-calendar.ac7aea671bea.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-calendar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-calendar.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-changelink.18d2fd706348.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-changelink.18d2fd706348.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-changelink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-changelink.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-clock.e1d4dfac3f2b.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-clock.e1d4dfac3f2b.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-clock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-clock.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-deletelink.564ef9dc3854.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-deletelink.564ef9dc3854.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-deletelink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-deletelink.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-no.439e821418cd.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-no.439e821418cd.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-no.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-no.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown-alt.81536e128bb6.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown-alt.81536e128bb6.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown-alt.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown.a18cb4398978.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown.a18cb4398978.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-unknown.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-viewlink.41eb31f7826e.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-viewlink.41eb31f7826e.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-viewlink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-viewlink.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-yes.d2f9f035226a.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-yes.d2f9f035226a.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-yes.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/icon-yes.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/inline-delete.fec1b761f254.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/inline-delete.fec1b761f254.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/inline-delete.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/inline-delete.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/search.7cf54ff789c6.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/search.7cf54ff789c6.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/search.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/selector-icons.b4555096cea2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/selector-icons.b4555096cea2.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/selector-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/selector-icons.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/sorting-icons.3a097b59f104.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/sorting-icons.3a097b59f104.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/sorting-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/sorting-icons.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-add.e59d620a9742.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-add.e59d620a9742.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-add.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-add.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-arrowright.bbfb788a849e.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-arrowright.bbfb788a849e.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-arrowright.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/img/tooltag-arrowright.svg.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectBox.b49f008d186b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectBox.b49f008d186b.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectBox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectBox.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectFilter2.bf63c55b78f6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectFilter2.bf63c55b78f6.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectFilter2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/SelectFilter2.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.2fb8e8349c22.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.2fb8e8349c22.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.min.5fa8cb0403f1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.min.5fa8cb0403f1.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/actions.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/DateTimeShortcuts.e3407a6ea666.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/DateTimeShortcuts.e3407a6ea666.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/DateTimeShortcuts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/DateTimeShortcuts.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/RelatedObjectLookups.ea0683bea064.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/RelatedObjectLookups.ea0683bea064.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/RelatedObjectLookups.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/RelatedObjectLookups.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/autocomplete.cfd2c4dc8981.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/autocomplete.cfd2c4dc8981.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/autocomplete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/autocomplete.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/calendar.aae57adab5f6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/calendar.aae57adab5f6.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/calendar.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/cancel.d6b4b556c3aa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/cancel.d6b4b556c3aa.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/cancel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/cancel.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/change_form.9e85003a1a38.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/change_form.9e85003a1a38.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/change_form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/change_form.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.acba97a53595.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.acba97a53595.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.min.2ee8a0086864.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.min.2ee8a0086864.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/collapse.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/core.9c3bce7d1006.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/core.9c3bce7d1006.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/core.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.3b3fb199b064.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.3b3fb199b064.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.min.4d23f8660b21.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.min.4d23f8660b21.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/inlines.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/jquery.init.95b62fa19378.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/jquery.init.95b62fa19378.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/jquery.init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/jquery.init.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/popup_response.6ce3197f8fc8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/popup_response.6ce3197f8fc8.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/popup_response.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/popup_response.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.2f90da7170ec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.2f90da7170ec.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.min.85fd5e0fb706.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.min.85fd5e0fb706.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate_init.0d3b53c37074.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate_init.0d3b53c37074.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate_init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/prepopulate_init.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/timeparse.51258861a46a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/timeparse.51258861a46a.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/timeparse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/timeparse.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/urlify.4087f3e18796.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/urlify.4087f3e18796.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/urlify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/urlify.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/LICENSE.a158210a2737.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/LICENSE.a158210a2737.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/LICENSE.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.6a07da9fae93.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.6a07da9fae93.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.min.a09e13ee94d5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.min.a09e13ee94d5.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/jquery/jquery.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/LICENSE.7cf1de939f3b.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/LICENSE.7cf1de939f3b.md.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/LICENSE.md.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ar.a8bb27ec698c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ar.a8bb27ec698c.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ar.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/az.498dc667b34e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/az.498dc667b34e.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/az.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/bg.89cba4df3c86.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/bg.89cba4df3c86.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/bg.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ca.2eaad4eb1950.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ca.2eaad4eb1950.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ca.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/cs.a68bcd293adc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/cs.a68bcd293adc.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/cs.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/da.cbf897a0ae53.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/da.cbf897a0ae53.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/da.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/de.366d0aacb55f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/de.366d0aacb55f.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/de.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/el.5629ce65500f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/el.5629ce65500f.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/el.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/en.05649b26c086.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/en.05649b26c086.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/en.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/es.dc9dbf9d65df.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/es.dc9dbf9d65df.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/es.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/et.c3953fb90b6b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/et.c3953fb90b6b.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/et.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/eu.11b925456433.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/eu.11b925456433.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/eu.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fa.98e52839b583.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fa.98e52839b583.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fa.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fi.659847deefdc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fi.659847deefdc.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fi.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fr.b06a3340de45.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fr.b06a3340de45.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/fr.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/gl.78a87f7c0a51.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/gl.78a87f7c0a51.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/gl.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/he.222d90ee0344.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/he.222d90ee0344.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/he.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hi.116a90b7111b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hi.116a90b7111b.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hi.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hr.e1d2c70b4df5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hr.e1d2c70b4df5.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hr.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hu.db45641f10b2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hu.db45641f10b2.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/hu.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/id.6ee6c9c64b94.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/id.6ee6c9c64b94.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/id.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/is.808c7d47acb5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/is.808c7d47acb5.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/is.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/it.bae1661dbb77.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/it.bae1661dbb77.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/it.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ja.19cf1ce8a03d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ja.19cf1ce8a03d.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ja.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/km.6074a9c5575c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/km.6074a9c5575c.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/km.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ko.74b17541834f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ko.74b17541834f.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ko.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lt.a0783b1bd159.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lt.a0783b1bd159.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lt.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lv.07fe2a580d17.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lv.07fe2a580d17.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/lv.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/mk.4986d7fc3ff3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/mk.4986d7fc3ff3.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/mk.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ms.23e7b4369579.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ms.23e7b4369579.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ms.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nb.137e184004aa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nb.137e184004aa.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nb.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nl.c363ace8aa05.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nl.c363ace8aa05.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/nl.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pl.76465b54a6b0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pl.76465b54a6b0.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pl.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt-BR.9efbbac4fda8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt-BR.9efbbac4fda8.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt-BR.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt.5d6ccc53b347.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt.5d6ccc53b347.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/pt.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ro.1ddc2b9980dc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ro.1ddc2b9980dc.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ro.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ru.d83609abf2e0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ru.d83609abf2e0.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/ru.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sk.a0f1a818d092.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sk.a0f1a818d092.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sk.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr-Cyrl.2f3047aad49e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr-Cyrl.2f3047aad49e.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr-Cyrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr-Cyrl.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr.157bc6eb978e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr.157bc6eb978e.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sr.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sv.2b21bb3f6110.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sv.2b21bb3f6110.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/sv.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/th.2a4ece4c4355.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/th.2a4ece4c4355.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/th.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/tr.c1925d8817db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/tr.c1925d8817db.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/tr.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/uk.3d56f311192d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/uk.3d56f311192d.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/uk.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/vi.3520aa7bdea8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/vi.3520aa7bdea8.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/vi.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-CN.419002d3c6c1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-CN.419002d3c6c1.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-CN.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-TW.c021537edf2c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-TW.c021537edf2c.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/i18n/zh-TW.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.a95323cb4760.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.a95323cb4760.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.min.da607360bcc6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.min.da607360bcc6.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/select2/select2.full.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/LICENSE.d64cecf4f157.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/LICENSE.d64cecf4f157.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/LICENSE.txt.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.1865b1cf5085.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.1865b1cf5085.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/js/vendor/xregexp/xregexp.min.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pickup/staticfiles/staticfiles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickup/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/pickup/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickup/pickup/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pickup/pickup/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.d273d63619c9.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.d273d63619c9.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pickup/staticfiles/admin/fonts/LICENSE.txt" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SECOND">
+              <first_editor relative-caret-position="465">
+                <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pickup/pickup/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#307#316#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pickup/maps/views.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pickup/pickup/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pickup/pickup/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pickup/Procfile.windows">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pickup/staticfiles/staticfiles.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>csv</find>
+      <find>gob</find>
+      <find>guni</find>
+      <find>gunicor</find>
+      <find>psyc</find>
+      <find>psyco</find>
+      <find>STATIC</find>
+      <find>STATIC_RO</find>
+      <find>request</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="David Zuluaga &lt;davidzuluaga@yahoo.com&gt;" />
+      </list>
+    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/pickup" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="zulu" />
+      </map>
+    </option>
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/temp.txt" />
+        <option value="$PROJECT_DIR$/pickup/requirementsMac.txt" />
+        <option value="$PROJECT_DIR$/requirementsMac.txt" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/pickup/maps/views.py" />
+        <option value="$PROJECT_DIR$/pickup/requirements.txt" />
+        <option value="$PROJECT_DIR$/pickup/Procfile" />
+        <option value="$PROJECT_DIR$/pickup/pickup/settings.py" />
+        <option value="$PROJECT_DIR$/pickup/Procfile.windows" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="333" type="b2602c69:ProjectViewProjectNode" />
+              <item name="333" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="333" type="b2602c69:ProjectViewProjectNode" />
+              <item name="333" type="462c0819:PsiDirectoryNode" />
+              <item name="pickup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="333" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pickup" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3643fce9-83c6-4fc3-85d7-9b057ae4cbd0" name="Default Changelist" comment="" />
+      <created>1552417662876</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552417662876</updated>
+      <workItem from="1552417664108" duration="2807000" />
+      <workItem from="1552421406384" duration="1004000" />
+      <workItem from="1552422925405" duration="259000" />
+      <workItem from="1552450715901" duration="11497000" />
+      <workItem from="1552489549122" duration="327000" />
+    </task>
+    <task id="LOCAL-00001" summary="This add a new requirements file that allows for the project to run on &#10;Mac OS X">
+      <created>1552421194212</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552421194212</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update the readme for heroku instructions and the requirements.txt file">
+      <created>1552460471272</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552460471272</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15894000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21959943" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32866243" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32981133" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32981133" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30318472" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32981133" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.27214566" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="This add a new requirements file that allows for the project to run on &#10;Mac OS X" />
+    <MESSAGE value="Update the readme for heroku instructions and the requirements.txt file" />
+    <MESSAGE value="Heroku Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Heroku Changes" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/temp.txt" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8fd350c0-1e80-4e10-8819-b4793ca654d6/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/migrations/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/templates/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/sent_emails/20190311-180115-139624891508440.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/sent_emails/20190312-174352-139784228719752.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/sent_emails/20190312-201039-139750991371792.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/sent_emails/20190312-003254-140275518011600.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/sent_emails/20190311-190745-139624890796296.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/templates/signup.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/templates/registration/password_reset_complete.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/templates/registration/password_reset_confirm.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/templates/registration/password_reset_done.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/pickup/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/sent_emails/20190312-203444-4478858856.log">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Assignments/a4/untitled1/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#17#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/migrations/0002_auto_20190312_0046.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/migrations/0003_auto_20190312_0050.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/migrations/0004_auto_20190312_0120.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-122" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/users/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/requirementsUbuntu.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/staticfiles/admin/js/admin/DateTimeShortcuts.e3407a6ea666.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="208" column="19" selection-start-line="208" selection-start-column="19" selection-end-line="208" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirementsMac.txt" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor relative-caret-position="465">
+            <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/pickup/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/pickup/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/Procfile.windows">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/staticfiles/staticfiles.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/pickup/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#307#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pickup/maps/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>
