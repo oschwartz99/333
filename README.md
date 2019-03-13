@@ -22,6 +22,7 @@ RESOURCES:
 - [Mapbox](https://www.mapbox.com/)
 - [User and Login tutorial](https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/)
 - [Deploying Python and Django Apps on Heroku](https://devcenter.heroku.com/articles/deploying-python)
+- [Deploying Django to Heroku from Scratch](https://medium.com/@BennettGarner/deploying-django-to-heroku-procfile-static-root-other-pitfalls-e7ab8b2ba33b)
 
 SETUP: 
 - Make sure you have Python 3.6.3. Check with: ```python --version```
