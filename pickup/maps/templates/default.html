@@ -1,4 +1,4 @@
-<!-- templates/home.html -->
+<!-- maps/templates/default.html -->
 {% extends 'base.html' %}
 
 {% block title %}Pickup{% endblock title %}
@@ -8,17 +8,58 @@
   Hi {{ user.username }}!
   <p><a href="{% url 'logout' %}">logout</a></p>
   <p><a href="{% url 'password_reset' %}">reset password</a></p>
-  <div class="container auto" id='map' style='width: 100%; height: 600px; '></div>
-    <script>
-      mapboxgl.accessToken = '{{ mapbox_access_token }}';
-      var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v10',
-        center: [-77.03, 38.91],
-        zoom: 9,
-        bearing: 180
-      });
-    </script>
+  <div id='map' style='width: 100%; height: 600px;'></div>
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/cos333/cjt7j4fzg2nnf1flca4a7rwrj'
+  });
+
+  map.on('load', function () {
+    map.addControl(new mapboxgl.NavigationControl());
+ 
+    map.addLayer({
+    "id"    : "points",
+    "type"  : "symbol",
+    "source": {
+    "type": "geojson",
+    "data": {
+    "type"    : "FeatureCollection",
+    "features": [{
+    "type"    : "Feature",
+    "geometry": {
+    "type"       : "Point",
+    "coordinates": [-77.03238901390978, 38.913188059745586]
+    },
+    "properties": {
+    "title": "Mapbox DC",
+    "icon" : "monument"
+    }
+    }, {
+    "type"    : "Feature",
+    "geometry": {
+    "type"       : "Point",
+    "coordinates": [-122.414, 37.776]
+    },
+    "properties": {
+    "title": "Mapbox SF",
+    "icon" : "harbor"
+    }
+    }]
+    }
+    },
+    "layout": {
+    "icon-image" : "{icon}-15",
+    "text-field" : "{title}",
+    "text-font"  : ["Open Sans Semibold", "Arial Unicode MS Bold"],
+    "text-offset": [0, 0.6],
+    "text-anchor": "top"
+    }
+    });
+    });
+
+  </script>
 
 <!-- LANDING PAGE -->
 {% else %}
@@ -26,4 +67,5 @@
   <a href="{% url 'login' %}">login</a> |
   <a href="{% url 'signup' %}">signup</a>
 {% endif %}
+
 {% endblock content %}
