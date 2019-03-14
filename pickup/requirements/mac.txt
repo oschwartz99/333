@@ -1,0 +1,2 @@
+ptyprocess==0.6.0
+testresources==2.0.1
