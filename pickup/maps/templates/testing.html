@@ -10,7 +10,9 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form|crispy }}
+    {{ event_form|crispy }}
+
+
     <button type="Add Event">Add Event</button>
 </form>
 

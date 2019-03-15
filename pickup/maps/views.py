@@ -2,6 +2,7 @@ from django.shortcuts import render, render_to_response
 from .models import Event
 from .forms import CreateEvent
 from django.template.context_processors import csrf
+from django.template import RequestContext
 
 def default_map(request):
     print('default map being called')
@@ -24,5 +25,5 @@ def testing_view(request):
             new_event = Event(event_name=event_name, event_descri=event_descri, number_going=number_going, location=location, icon=icon, user=user)
             new_event.save()
             return render_to_response('testing.html', {'csrf_token': csrf_token})
-    return render_to_response('testing.html', {'event_form': event_form})
+    return render_to_response('testing.html', {'event_form': event_form}, RequestContext(request))
     
