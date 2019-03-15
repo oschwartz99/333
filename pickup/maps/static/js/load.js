@@ -8,7 +8,7 @@ const map = new mapboxgl.Map({
     zoom: 8,
 });
 
-/* Perform once map is loaded */
+/* Modify map with icons & other settings */
 map.on('load', function () {
     // Add compass and zoom control
     map.addControl(new mapboxgl.NavigationControl());
@@ -28,7 +28,7 @@ map.on('load', function () {
                         "features": [{
                             "type": "Feature",
                             "properties": {
-                                "description": "<form><input></input></form>",
+                                "description": "<p>Hello</p>",
                             },
                             "geometry": {
                                 "type": "Point",
@@ -60,12 +60,12 @@ map.on('load', function () {
     });
 
 
-    // Change the cursor to a pointer when the mouse is over the places layer.
+    // Change cursor to pointer when mouse is over 'points' layer
     map.on('mouseenter', 'points', function () {
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    // Change it back to a pointer when it leaves.
+    // Change it back when mouse leaves
     map.on('mouseleave', 'points', function () {
         map.getCanvas().style.cursor = '';
     });

@@ -3,6 +3,7 @@
 *.pot
 *.jsc
 *.pyc
+.idea
 local_settings.py
 staticfiles
 .idea/workspace.xml
