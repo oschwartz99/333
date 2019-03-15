@@ -12,8 +12,9 @@ def default_map(request):
     return render(request, 'default.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 
 def testing_list_events(request):
-    all_events = DebugEvent.objects.all()
-    return render_to_response('testing.html', {'all_events': all_events})
+    all_debug_events = DebugEvent.objects.all()
+    all_events = Event.objects.all()
+    return render_to_response('testing.html', {'all_events': all_events, 'all_debug_events': all_debug_events})
 
 def testing_view(request):
     if request.method == 'GET':
