@@ -1,9 +1,17 @@
 <!-- maps/templates/testing.html -->
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <a href="{% url 'maps' %}">take me home</a>
 <p>You're at the testing page</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="Add Event">Add Event</button>
+</form>
 
 {% endblock content %}
