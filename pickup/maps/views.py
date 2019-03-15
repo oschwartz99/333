@@ -29,8 +29,8 @@ def testing_view(request):
             number_going = event_form.cleaned_data['number_going']
             location     = event_form.cleaned_data['location']
             user         = request.user
-            new_event = Event(event_name=event_name, event_descri=event_descri, number_going=number_going, location=location, icon=icon, user=user)
+            new_event = Event(event_name=event_name, event_descr=event_descri, number_going=number_going, location=location, user=user)
             new_event.save()
-            return render_to_response('testing.html', {'csrf_token': csrf_token})
-    return render_to_response('testing.html', {'event_form': event_form})
+            return render(request, 'testing.html', {'csrf_token': csrf_token})
+    return render(request, 'testing.html', {'event_form': event_form})
     
