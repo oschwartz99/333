@@ -1,6 +1,7 @@
 ### Django ###
 *.log
 *.pot
+*.jsc
 *.pyc
 local_settings.py
 staticfiles
