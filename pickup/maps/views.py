@@ -1,12 +1,19 @@
 from django.shortcuts import render, render_to_response
-from .models import Event
-from .forms import CreateEvent
-from django.template.context_processors import csrf
 from django.template import RequestContext
+from django.template.context_processors import csrf
+
+from .forms import CreateEvent
+from .models import Event, DebugEvent
+import django
+
 
 def default_map(request):
     print('default map being called')
     return render(request, 'default.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
+
+def testing_list_events(request):
+    all_events = DebugEvent.objects.all()
+    return render_to_response('testing.html', {'all_events': all_events})
 
 def testing_view(request):
     if request.method == 'GET':
@@ -26,4 +33,5 @@ def testing_view(request):
             new_event.save()
             return render_to_response('testing.html', {'csrf_token': csrf_token})
     return render_to_response('testing.html', {'event_form': event_form}, RequestContext(request))
-    
+
+

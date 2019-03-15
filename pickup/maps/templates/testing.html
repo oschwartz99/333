@@ -5,15 +5,30 @@
 
 {% block content %}
 
-<a href="{% url 'maps' %}">take me home</a>
+<a href="{% url 'maps' %}">Home</a>
+<br>
+<a href="{% url 'list_events' %}"> List all events in database</a>
 <p>You're at the testing page</p>
 
+{%  if event_form %}
 <form method="post">
     {% csrf_token %}
     {{ event_form|crispy }}
-
-
     <button type="Add Event">Add Event</button>
 </form>
+{% elif all_events %}
+    {% for event in all_events%}
+    <h3> Event: {{event.event_name}}</h1>
+
+        {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
+        {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
+        {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
+
+    <br>
+    {% endfor %}
+
+
+{% endif %}
+
 
 {% endblock content %}
