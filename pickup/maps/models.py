@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Event(models.Model):
+    event_name = models.CharField(max_length = 50)
+    event_type = models.CharField(max_length=50)
+    number_going = models.IntegerField()
