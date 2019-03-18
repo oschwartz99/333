@@ -1,32 +1,24 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ';
 
-/* Get location of user */
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    }
-}
-
-function showPosition(position) {
-    alert("Lat: " + position.coords.latitude + " Lon: " + position.coords.longitude); 
-}
-
-getLocation();
-
 /* Initialize map object */
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [151.21, -33.86],
+    center: [0,0], // doesn't matter what these are
     zoom: 8,
 });
 
-
-
 /* Modify map with icons & other settings */
 map.on('load', function () {
-    // Add compass and zoom control
-    map.addControl(new mapboxgl.NavigationControl());
+    // Add compass, zoom, and geolocate
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    });
+    map.addControl(geolocate);
+    setTimeout(function() {geolocate.trigger();}, 10);
 
     // Display wine bottle icon
     map.loadImage('https://image.flaticon.com/icons/png/512/45/45637.png', 
