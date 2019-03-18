@@ -34,4 +34,6 @@ def testing_view(request):
             new_event.save()
             return render(request, 'testing.html', {'csrf_token': csrf_token})
     return render(request, 'testing.html', {'event_form': event_form})
-    
+
+def testing_map_def(request):
+    return render(request, "map_def.html")
