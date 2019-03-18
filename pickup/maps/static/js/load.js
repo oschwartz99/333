@@ -1,5 +1,18 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ';
 
+/* Get location of user */
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+}
+
+function showPosition(position) {
+    alert("Lat: " + position.coords.latitude + " Lon: " + position.coords.longitude); 
+}
+
+getLocation();
+
 /* Initialize map object */
 const map = new mapboxgl.Map({
     container: 'map',
@@ -7,6 +20,8 @@ const map = new mapboxgl.Map({
     center: [151.21, -33.86],
     zoom: 8,
 });
+
+
 
 /* Modify map with icons & other settings */
 map.on('load', function () {
