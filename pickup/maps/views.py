@@ -14,7 +14,7 @@ def default_map(request):
 def testing_list_events(request):
     all_debug_events = DebugEvent.objects.all()
     all_events = Event.objects.all()
-    return render_to_response('testing.html', {'all_events': all_events, 'all_debug_events': all_debug_events})
+    return render(request, 'testing.html', {'all_events': all_events, 'all_debug_events': all_debug_events})
 
 def testing_view(request):
     if request.method == 'GET':
@@ -34,6 +34,7 @@ def testing_view(request):
             new_event.save()
             return render(request, 'testing.html', {'csrf_token': csrf_token})
     return render(request, 'testing.html', {'event_form': event_form})
+
 
 def testing_map_def(request):
     return render(request, "map_def.html")
