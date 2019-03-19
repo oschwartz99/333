@@ -1,44 +1,49 @@
 <!-- maps/templates/testing.html -->
-{% extends 'base.html' %}
+{% extends 'standard_page.html' %}
 
 {% load crispy_forms_tags %}
 
-{% block content %}
+{% block title %}Testing Page{% endblock title %}
 
-<a href="{% url 'maps' %}">Home</a>
-<br>
-<a href="{% url 'list_events' %}"> List all events in database</a>
-<p>You're at the testing page</p>
+{% block page %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-{%  if event_form %}
-<form method="post">
-    {% csrf_token %}
-    {{ event_form|crispy }}
-    <button type="Add Event">Add Event</button>
-</form>
-{% elif all_debug_events %}
-    <h1>Debug Events:</h1>
-    {% for event in all_debug_events%}
-    <h3> ({{forloop.counter}})  {{event.event_name}}</h1>
+    <div id ="testing" class="map" >
+        <a href="{% url 'maps' %}">Home</a>
+        <br>
+        <a href="{% url 'list_events' %}"> List all events in database</a>
+        <p>You're at the testing page</p>
 
-        {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
-        {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
-        {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
+        {%  if event_form %}
+            <form method="post">
+                {% csrf_token %}
+                {{ event_form|crispy }}
+                <button type="Add Event">Add Event</button>
+            </form>
+        {% elif all_debug_events %}
+            <h1>Debug Events:</h1>
+            {% for event in all_debug_events%}
+                <h1> ({{forloop.counter}})  {{event.event_name}}</h1>
 
-    <br>
-    {% endfor %}
-{% endif %}
+                {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
+                {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
+                {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
 
-{% if all_events %}
-    <h1>Real Events:</h1>
-    {% for event in all_events%}
-    <h3> ({{forloop.counter}}) {{event.event_name}}</h1>
-        {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
-        {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
-        {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
-    <br>
-    {% endfor %}
-{% endif %}
+                <br>
+            {% endfor %}
+        {% endif %}
 
+        {% if all_events %}
+            <h1>Real Events:</h1>
+            {% for event in all_events%}
+                <h1> ({{forloop.counter}}) {{event.event_name}}</h1>
+                {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
+                {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
+                {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
+                <br>
+            {% endfor %}
+        {% endif %}
+    </div>
 
-{% endblock content %}
+{% endblock page %}
