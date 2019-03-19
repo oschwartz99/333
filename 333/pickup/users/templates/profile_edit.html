@@ -3,7 +3,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}Profile Page{% endblock title %}
+{% block title %}Edit Profile Page{% endblock title %}
 
 {% block page %}
     {% load static %}
@@ -13,16 +13,14 @@
     <div id='profile' class='map'>
         <a href="{% url 'maps' %}">Home</a>
         <br>
-        <p> This is the Profile Page</p>
+        <p> This is the Edit Profile Page</p>
 
-        <h1>Profile</h1>
-        <p>Username: {{ user.username }}</p>
-        <p>First Name: {{ user.first_name }}</p>
-        <p>Last Name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email  }}</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
 
-        <br>
-        <a href="{% url 'profile_edit' %}">Edit Profile</a>
+        </form>
         <br>
     </div>
 
