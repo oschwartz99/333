@@ -1,7 +1,6 @@
 <!-- templates/signup.html -->
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
@@ -12,3 +11,25 @@
     <button type="submit">Sign up</button>
   </form>
 {% endblock %}
+
+{% block js %}
+  <script>
+    $("#id_username").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+
+    });
+  </script>
+{% endblock js%}
