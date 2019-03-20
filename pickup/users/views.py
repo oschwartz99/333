@@ -21,5 +21,6 @@ def validate_username(request):
     data = {
         'is_taken': CustomUser.objects.filter(username__iexact=username).exists()
     }
-    print(data)
+    if data['is_taken']:
+        data['error_message'] = 'A user with this username already exists.'
     return JsonResponse(data)
