@@ -25,7 +25,10 @@
         dataType: 'json',
         success: function (data) {
           if (data.is_taken) {
-            document.getElementById("hint_id_username").innerHTML = "That username is already taken!";
+            document.getElementById("hint_id_username").innerHTML = "<p style='color:red;'>That username is already taken!</p>";
+          }
+          else {
+            document.getElementById("hint_id_username").innerHTML = "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.";
           }
         }
       });
