@@ -5,7 +5,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [0,0], // doesn't matter what these are
-    zoom: 8,
+    zoom: 1,
 });
 
 /* Modify map with icons & other settings */
@@ -92,11 +92,11 @@ map.on('load', function () {
         var number_going = e.features[0].properties.number_going;
         var location     = e.features[0].properties.location;
 
-        var html = "<p>" + event_name + "</p>" + 
+        var html = "<div style='text-align:center'><p style='font-weight:bold;'>" + event_name + "</p>" + 
                    "<p>Created by: " + created_by + "</p>" +
                    "<p>" + event_descr + "</p>" +
                    "<p>Number attending: " + number_going + "</p>" +
-                   "<p>Location: " + location + "</p>";
+                   "<p>Location: " + location + "</p></div>";
 
         while (Math.abs(e.lngLat.lng - coors[0]) > 180) {
             coors[0] += e.lngLat.lng > coors[0] ? 360 : -360;
