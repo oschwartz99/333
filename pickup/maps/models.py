@@ -10,6 +10,9 @@ class Event(models.Model):
     event_type = models.CharField(max_length=50, default='')
     number_going = models.IntegerField(default=-1)
     location = models.CharField(max_length=50, default='')
+    lng = models.FloatField(default=-1)
+    lat = models.FloatField(default=-1)
+
 
 
 class DebugEvent(models.Model):

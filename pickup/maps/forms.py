@@ -6,3 +6,5 @@ class CreateEvent(forms.Form):
     event_type   = forms.CharField(max_length=50)
     number_going = forms.IntegerField()
     location     = forms.CharField(max_length = 50)
+    lng          = forms.FloatField()
+    lat          = forms.FloatField()

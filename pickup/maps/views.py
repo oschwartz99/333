@@ -29,8 +29,10 @@ def testing_view(request):
             event_type   = event_form.cleaned_data['event_type']
             number_going = event_form.cleaned_data['number_going']
             location     = event_form.cleaned_data['location']
+            lat          = event_form.cleaned_data['lat']
+            lng          = event_form.cleaned_data['lng']
             user         = request.user
-            new_event = Event(event_name=event_name, event_descr=event_descri, number_going=number_going, location=location, user=user)
+            new_event = Event(event_name=event_name, event_descr=event_descri, number_going=number_going, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             return render(request, 'testing.html', {'csrf_token': csrf_token})
     return render(request, 'testing.html', {'event_form': event_form})
@@ -38,12 +40,21 @@ def testing_view(request):
 def testing_map_def(request):
     return render(request, "map_def.html")
 
+# Return all events from the database as a JSON object
 def fetch_from_db(request):
     all_events = Event.objects.all()
-    print(type(all_events))
     data = {
         'events':{}
     }
     for event in all_events:
-        data['events'][event.event_name] = event.event_descr
+        dict = {
+            'created_by': event.user.username,
+            'event_descr': event.event_descr,
+            'event_type': event.event_type,
+            'number_going': event.number_going,
+            'location': event.location,
+            'lng': event.lng,
+            'lat': event.lat,
+        }
+        data['events'][event.event_name] = dict
     return JsonResponse(data)

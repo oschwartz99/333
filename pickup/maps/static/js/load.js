@@ -21,19 +21,45 @@ map.on('load', function () {
     map.addControl(new mapboxgl.NavigationControl());
     setTimeout(function() {geolocate.trigger();}, 10);
 
-    events = []
+    
+    features = [];
+    function displayEvents(callback) {
+        console.log("doing ajax request")
+        $.ajax({
+            url: '/ajax/fetch_from_db/',
+            data: {}, // empty query - just fetch all events
+            dataType: 'json',
+            success: function (data) {
+                for (var key in data.events) {
+                    feature = {};
+                    if (data.events.hasOwnProperty(key)) {
+                        feature["geometry"] = {
+                            "type": "Point", 
+                            "coordinates": [data.events[key].lng, data.events[key].lat],
+                        };
+                        feature["type"] = "feature";
+                        feature["properties"] = {
+                            "created_by": data.events[key].created_by,
+                            "event_name": key.toString(),
+                            "event_descr": data.events[key].event_descr,
+                            "event_type": data.events[key].event_key,
+                            "number_going": data.events[key].number_going,
+                            "location": data.events[key].location,
+                        }
+                    }
+                    features.push(feature);
+                    console.log(feature["geometry"]["coordinates"]);
+                }
+            }
+        });
+        callback();
+    }
 
-    $.ajax({
-        url: '/ajax/fetch_from_db/',
-        data: {}, // empty query - just fetch all events
-        dataType: 'json',
-        success: function (data) {
-            events.push(data.events)
-        }
-    });
-
-    // Display wine bottle icon
-    map.loadImage('https://image.flaticon.com/icons/png/512/45/45637.png', 
+    displayEvents(function() {
+        // Display wine bottle icon
+        console.log("displaying icons");
+        console.log(features);
+        map.loadImage('https://image.flaticon.com/icons/png/512/45/45637.png', 
         function(error, image) {
             if (error) throw error;
             map.addImage('bottle', image);
@@ -44,16 +70,7 @@ map.on('load', function () {
                     "type": "geojson",
                     "data": {
                         "type": "FeatureCollection",
-                        "features": [{
-                            "type": "Feature",
-                            "properties": {
-                                "description": events[0],
-                            },
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [-74.6672, 40.3573]
-                            }
-                        }]
+                        "features": features,
                     }
                 },
                 "layout": {
@@ -61,12 +78,25 @@ map.on('load', function () {
                     "icon-size": 0.1
                 }
             });
+        });
     });
+
+    
 
     // Handle clicks on icons
     map.on('click', 'points', function (e) {
         var coors = e.features[0].geometry.coordinates.slice();
-        var descr = e.features[0].properties.description;
+        var created_by   = e.features[0].properties.created_by;
+        var event_descr  = e.features[0].properties.event_descr;
+        var event_name   = e.features[0].properties.event_name;
+        var number_going = e.features[0].properties.number_going;
+        var location     = e.features[0].properties.location;
+
+        var html = "<p>" + event_name + "</p>" + 
+                   "<p>Created by: " + created_by + "</p>" +
+                   "<p>" + event_descr + "</p>" +
+                   "<p>Number attending: " + number_going + "</p>" +
+                   "<p>Location: " + location + "</p>";
 
         while (Math.abs(e.lngLat.lng - coors[0]) > 180) {
             coors[0] += e.lngLat.lng > coors[0] ? 360 : -360;
@@ -74,7 +104,7 @@ map.on('load', function () {
 
         new mapboxgl.Popup()
             .setLngLat(coors)
-            .setHTML(descr)
+            .setHTML(html)
             .addTo(map);
     });
 
