@@ -18,16 +18,17 @@ map.on('load', function () {
         trackUserLocation: true
     });
     map.addControl(geolocate);
+    map.addControl(new mapboxgl.NavigationControl());
     setTimeout(function() {geolocate.trigger();}, 10);
+
+    events = []
 
     $.ajax({
         url: '/ajax/fetch_from_db/',
-        data: {
-            'text': text
-        },
+        data: {}, // empty query - just fetch all events
         dataType: 'json',
         success: function (data) {
-            alert("here is the event title" + text)
+            events.push(data.events)
         }
     });
 
@@ -46,11 +47,11 @@ map.on('load', function () {
                         "features": [{
                             "type": "Feature",
                             "properties": {
-                                "description": "<p>Hello</p>",
+                                "description": events[0],
                             },
                             "geometry": {
                                 "type": "Point",
-                                "coordinates": [151, -33]
+                                "coordinates": [-74, 40]
                             }
                         }]
                     }

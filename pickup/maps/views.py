@@ -40,8 +40,10 @@ def testing_map_def(request):
 
 def fetch_from_db(request):
     all_events = Event.objects.all()
-    text = all_events[0].event_name
+    print(type(all_events))
     data = {
-        'text': text
+        'events':{}
     }
+    for event in all_events:
+        data['events'][event.event_name] = event.event_descr
     return JsonResponse(data)
