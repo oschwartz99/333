@@ -20,6 +20,17 @@ map.on('load', function () {
     map.addControl(geolocate);
     setTimeout(function() {geolocate.trigger();}, 10);
 
+    $.ajax({
+        url: '/ajax/fetch_from_db/',
+        data: {
+            'text': text
+        },
+        dataType: 'json',
+        success: function (data) {
+            alert("here is the event title" + text)
+        }
+    });
+
     // Display wine bottle icon
     map.loadImage('https://image.flaticon.com/icons/png/512/45/45637.png', 
         function(error, image) {

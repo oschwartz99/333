@@ -1,11 +1,11 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.template.context_processors import csrf
-
 from .forms import CreateEvent
 from .models import Event, DebugEvent
 import django
 from django.middleware.csrf import get_token
+from django.http import JsonResponse
 
 
 def default_map(request):
@@ -35,6 +35,13 @@ def testing_view(request):
             return render(request, 'testing.html', {'csrf_token': csrf_token})
     return render(request, 'testing.html', {'event_form': event_form})
 
-
 def testing_map_def(request):
     return render(request, "map_def.html")
+
+def fetch_from_db(request):
+    all_events = Event.objects.all()
+    text = all_events[0].event_name
+    data = {
+        'text': text
+    }
+    return JsonResponse(data)
