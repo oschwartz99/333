@@ -127,11 +127,22 @@ map.on('load', function () {
    user to position */
 $(document).ready(function() {
     $("#add_event").click(function() {
+        var eventInfo = document.getElementById("add_event");
+        
         var marker = new mapboxgl.Marker({
             draggable: true
         })
             .setLngLat(map.getCenter())
             .addTo(map);
+    
+    
+        function onDragEnd() {
+            eventInfo.style.display = 'block';
+            eventInfo.innerHTML = 'Is this where your event will occur?';
+        }
+         
+        marker.on('dragend', onDragEnd);
+
     });
 });
 

@@ -1,11 +1,11 @@
 <!-- maps/templates/testing.html -->
-{% extends 'standard_page.html' %}
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}Testing Page{% endblock title %}
 
-{% block page %}
+{% block content %}
     {% load static %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
@@ -46,4 +46,4 @@
         {% endif %}
     </div>
 
-{% endblock page %}
+{% endblock content %}
