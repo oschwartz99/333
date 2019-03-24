@@ -21,10 +21,11 @@ map.on('load', function () {
     map.addControl(new mapboxgl.NavigationControl());
     setTimeout(function() {geolocate.trigger();}, 10);
 
-    
+    /* Create a call back function. First, it queries the database with an 
+       AJAX request. Following this, it calls the callback function argument
+       (see next code block). */
     features = [];
     function displayEvents(callback) {
-        console.log("doing ajax request")
         $.ajax({
             url: '/ajax/fetch_from_db/',
             data: {}, // empty query - just fetch all events
@@ -48,17 +49,18 @@ map.on('load', function () {
                         }
                     }
                     features.push(feature);
-                    console.log(feature["geometry"]["coordinates"]);
                 }
             }
         });
         callback();
     }
 
+    /* Executes an instance of the above function, complete with a callback. 
+       Here the callback function adds all of the features to the map (i.e. 
+        annotated markers). */
     displayEvents(function() {
-        // Display wine bottle icon
-        console.log("displaying icons");
-        console.log(features);
+
+        // Need to update image based on event_type
         map.loadImage('https://image.flaticon.com/icons/png/512/45/45637.png', 
         function(error, image) {
             if (error) throw error;
@@ -120,3 +122,16 @@ map.on('load', function () {
     });
     
 });
+
+/* Create an event: create a draggable marker for the 
+   user to position */
+$(document).ready(function() {
+    $("#add_event").click(function() {
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat(map.getCenter())
+            .addTo(map);
+    });
+});
+
