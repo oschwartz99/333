@@ -6,8 +6,9 @@ from .models import CustomUser
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models  import User
-from django.contrib.auth.forms import UserChangeForm
-from .forms import CustomUserCreationForm
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
@@ -29,11 +30,27 @@ def validate_username(request):
 
 def profile_edit(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
+        form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             return redirect('/users/profile/')
+        else:
+            return redirect('/users/edit/')
     else:
-        form = UserChangeForm(instance=request.user)
+        form = CustomUserChangeForm(instance=request.user)
         args = {'form': form}
         return render(request, 'profile_edit.html', args)
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user) # Prevents you from getting logged out
+            return redirect('/users/profile/')
+        else:
+            return redirect('/users/change_password/')
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'profile_edit.html', args) # Still uses profile_edit.html as it simply takes a form
