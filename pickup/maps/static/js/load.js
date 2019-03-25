@@ -123,26 +123,41 @@ map.on('load', function () {
     
 });
 
+var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_event'>Remove</button>");
+var marker = new mapboxgl.Marker({
+    draggable: true
+})
+    .setPopup(popup);
+
 /* Create an event: create a draggable marker for the 
    user to position */
 $(document).ready(function() {
-    $("#add_event").click(function() {
+    /* Handler for clicking the "Add an event" */
+    $("#add_anchor").click(function() {
         var eventInfo = document.getElementById("add_event");
-        
-        var marker = new mapboxgl.Marker({
-            draggable: true
-        })
-            .setLngLat(map.getCenter())
-            .addTo(map);
-    
-    
+        marker.setLngLat(map.getCenter()).addTo(map);
         function onDragEnd() {
             eventInfo.style.display = 'block';
-            eventInfo.innerHTML = 'Is this where your event will occur?';
+            eventInfo.innerHTML = "Click <a id='goto_event' style='color: #00ffff;' href='/testing/'>here</a> to add event details once you've positioned your marker. \
+                                <br>To delete the event, click the icon.";
         }
-         
         marker.on('dragend', onDragEnd);
 
+        /* Continually save the coordinates of the marker */
+        setInterval(function() {
+            localStorage.setItem("lng", marker.getLngLat().lng);
+            localStorage.setItem("lat", marker.getLngLat().lat);
+        }, 10);
     });
+
+        
 });
 
+/* Handler for removing the event */
+$("#map").on('click', "#delete_event", function(){
+    console.log("hello")
+    marker.remove();
+    var eventInfo = document.getElementById("add_event");
+    eventInfo.innerHTML = "";      // remove prompt
+    eventInfo.style.display = '';
+});
