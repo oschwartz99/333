@@ -25,6 +25,7 @@ map.on('load', function () {
        AJAX request. Following this, it calls the callback function argument
        (see next code block). */
     features = [];
+    featureNumber = 0;
     function displayEvents(callback) {
         $.ajax({
             url: '/ajax/fetch_from_db/',
@@ -49,38 +50,52 @@ map.on('load', function () {
                         }
                     }
                     features.push(feature);
+                    featureNumber++;
                 }
             }
         });
-        callback();
+
+        /* Give the AJAX enough time to complete before loading images */
+        setTimeout(function() {
+            callback();
+        }, 50);
     }
 
     /* Executes an instance of the above function, complete with a callback. 
        Here the callback function adds all of the features to the map (i.e. 
         annotated markers). */
     displayEvents(function() {
+        imageURLs = {
+            "Party": "http://icons.iconarchive.com/icons/iconsmind/outline/256/Wine-Glass-icon.png",
+            "Concert": "https://cdn3.iconfinder.com/data/icons/simple-transparent-guitars/100/Acoustic_Guitar-512.png",
+        }
 
-        // Need to update image based on event_type
-        map.loadImage('https://image.flaticon.com/icons/png/512/45/45637.png', 
-        function(error, image) {
-            if (error) throw error;
-            map.addImage('bottle', image);
-            map.addLayer({
-                "id": "points",
-                "type": "symbol",
-                "source" : {
-                    "type": "geojson",
-                    "data": {
-                        "type": "FeatureCollection",
-                        "features": features,
+        for (i = 0; i < featureNumber; i++) {
+            map.loadImage("https://image.flaticon.com/icons/png/512/45/45637.png", 
+            function(error, image) {
+                if (error) throw error;
+                map.addImage('bottle', image);
+                map.addLayer({
+                    "id": "points",
+                    "type": "symbol",
+                    "source" : {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": features[i],
+                        }
+                    },
+                    "layout": {
+                        "icon-image": 'bottle',
+                        "icon-size": 0.1
                     }
-                },
-                "layout": {
-                    "icon-image": 'bottle',
-                    "icon-size": 0.1
-                }
+                });
             });
-        });
+
+        }
+
+
+            
     });
 
     
