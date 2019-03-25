@@ -138,6 +138,9 @@ map.on('load', function () {
     
 });
 
+/* Create a marker, and a popup associated with that marker.
+   These will be displayed if an event is created. (The popup
+    is for deleting the marker) */
 var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_event'>Remove</button>");
 var marker = new mapboxgl.Marker({
     draggable: true
