@@ -8,6 +8,6 @@ urlpatterns = [
     url('profile/', views.profile_page, name='profile_page'),
     url('ajax/validate_username/', views.validate_username, name='validate_username'),
     url('edit/', views.profile_edit, name='profile_edit'),
-    url('password/', views.change_password, name='change_password')
-
+    url('password/', views.change_password, name='change_password'),
+    url('friends/', views.friends_page, name='friends')
 ]

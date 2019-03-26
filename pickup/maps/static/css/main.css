@@ -65,6 +65,17 @@ a:hover {
     bottom: 0;
 }
 
+.bodycontent {
+    position: absolute;
+    color: #404040;
+    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+    left:15%;
+    top: 1%;
+    width: 75%;
+    bottom: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
 .nav {
     display: inline-block;
     text-align: center;

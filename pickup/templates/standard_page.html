@@ -21,12 +21,13 @@
                     <li><a href="{% url 'logout' %}" class="nav">Logout</a></li>
                     <li><a href="{% url 'password_reset' %}" class="nav">Reset Password</a></li>
                     <li><a href="{% url 'profile_page' %}" class = "nav"> Profile Page </a></li>
+                    <li><a href="{% url 'friends' %}" class="nav">Friends</a> </li>
                 </ul>
             </div>
         </div>
 
         <!-- Page Information -->
-        <div id='page' class='nav'>
+        <div id='page' class='bodycontent'>
             {% block page %} {% endblock %}
         </div>
 
