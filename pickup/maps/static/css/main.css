@@ -34,6 +34,13 @@ h1 {
     padding: 20px 2px;
 }
 
+h2 {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 20px 2px;
+    margin-left: 35px;
+}
+
 a {
     color: #404040;
     text-decoration: none;
@@ -79,7 +86,7 @@ a:hover {
 .nav {
     display: inline-block;
     text-align: center;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .heading {
@@ -102,6 +109,7 @@ a:hover {
     border-bottom: 1px solid #eee;
     padding: 10px;
     text-decoration: none;
+    font-size: medium;
 }
 
 .listings .item:last-child {
