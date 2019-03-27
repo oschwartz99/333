@@ -44,7 +44,7 @@ map.on('load', function () {
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
                             "event_descr": data.events[key].event_descr,
-                            "event_type": data.events[key].event_key,
+                            "event_type": data.events[key].event_type,
                             "number_going": data.events[key].number_going,
                             "location": data.events[key].location,
                         }
@@ -70,6 +70,7 @@ map.on('load', function () {
             "Concert": "https://cdn3.iconfinder.com/data/icons/simple-transparent-guitars/100/Acoustic_Guitar-512.png",
         }
 
+        console.log(features);
         for (i = 0; i < featureNumber; i++) {
             map.loadImage("https://image.flaticon.com/icons/png/512/45/45637.png", 
             function(error, image) {

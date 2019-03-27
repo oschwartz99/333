@@ -58,4 +58,6 @@ def fetch_from_db(request):
             'lat': event.lat,
         }
         data['events'][event.event_name] = dict
+    print("event type is: ", end='')
+    print(dict['event_type'])
     return JsonResponse(data)
