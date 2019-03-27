@@ -23,7 +23,6 @@ def testing_view(request):
         event_form = CreateEvent(request.POST)
         if event_form.is_valid():
             csrf_token   = get_token(request)
-            print(csrf_token)
             event_descr = event_form.cleaned_data['event_descr']
             event_name   = event_form.cleaned_data['event_name']
             event_type   = event_form.cleaned_data['event_type']
@@ -32,7 +31,6 @@ def testing_view(request):
             lat          = event_form.cleaned_data['lat']
             lng          = event_form.cleaned_data['lng']
             user         = request.user
-            print(event_type)
             new_event = Event(event_name=event_name, event_type=event_type, event_descr=event_descr, number_going=number_going, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             return render(request, 'testing.html', {'csrf_token': csrf_token})
@@ -58,6 +56,4 @@ def fetch_from_db(request):
             'lat': event.lat,
         }
         data['events'][event.event_name] = dict
-    print("event type is: ", end='')
-    print(dict['event_type'])
     return JsonResponse(data)

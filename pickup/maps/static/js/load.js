@@ -24,8 +24,8 @@ map.on('load', function () {
     /* Create a call back function. First, it queries the database with an 
        AJAX request. Following this, it calls the callback function argument
        (see next code block). */
-    features = [];
-    featureNumber = 0;
+    events = [];
+    eventNumber = 0;
     function displayEvents(callback) {
         $.ajax({
             url: '/ajax/fetch_from_db/',
@@ -33,24 +33,24 @@ map.on('load', function () {
             dataType: 'json',
             success: function (data) {
                 for (var key in data.events) {
-                    feature = {};
+                    event = {};
                     if (data.events.hasOwnProperty(key)) {
-                        feature["geometry"] = {
-                            "type": "Point", 
-                            "coordinates": [data.events[key].lng, data.events[key].lat],
+                        event["type"] = "Feature";
+                        event["geometry"] = {
+                            type: "Point",
+                            coordinates: [data.events[key].lng, data.events[key].lat],
                         };
-                        feature["type"] = "feature";
-                        feature["properties"] = {
+                        event["properties"] = {
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
                             "event_descr": data.events[key].event_descr,
                             "event_type": data.events[key].event_type,
                             "number_going": data.events[key].number_going,
                             "location": data.events[key].location,
-                        }
+                        };
                     }
-                    features.push(feature);
-                    featureNumber++;
+                    events.push(event);
+                    eventNumber++;
                 }
             }
         });
@@ -66,34 +66,36 @@ map.on('load', function () {
         annotated markers). */
     displayEvents(function() {
         imageURLs = {
-            "Party": "http://icons.iconarchive.com/icons/iconsmind/outline/256/Wine-Glass-icon.png",
-            "Concert": "https://cdn3.iconfinder.com/data/icons/simple-transparent-guitars/100/Acoustic_Guitar-512.png",
+            "Party": "https://imageog.flaticon.com/icons/png/512/65/65667.png",
+            "Concert": "https://image.flaticon.com/icons/png/512/199/199361.png",
         }
 
-        console.log(features);
-        for (i = 0; i < featureNumber; i++) {
-            map.loadImage("https://image.flaticon.com/icons/png/512/45/45637.png", 
-            function(error, image) {
-                if (error) throw error;
-                map.addImage('bottle', image);
-                map.addLayer({
-                    "id": "points",
-                    "type": "symbol",
-                    "source" : {
-                        "type": "geojson",
-                        "data": {
-                            "type": "FeatureCollection",
-                            "features": features[i],
-                        }
-                    },
-                    "layout": {
-                        "icon-image": 'bottle',
-                        "icon-size": 0.1
-                    }
-                });
-            });
-
+        var geojson = {
+            type: "FeatureCollection",
+            features: [],
+        };
+        for (i = 0; i < eventNumber; i++) {
+            geojson["features"].push(events[i]);
         }
+
+        // add markers to map
+        geojson.features.forEach(function(marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+            el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
+        
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup()
+                    .setHTML("<h2>" + marker.properties.event_name + "</h2>"
+                             + "<p>" + marker.properties.event_descr + "</p>"
+                             + "<p>Number Attending: " + marker.properties.number_going + "</p>")
+                )
+                .addTo(map);
+        });
 
 
             
