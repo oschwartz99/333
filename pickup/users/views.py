@@ -7,8 +7,9 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models  import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, AddFriendForm
 from django.contrib.auth import update_session_auth_hash
+from friendship.models import Friend, Follow, Block
 
 
 class SignUp(generic.CreateView):
@@ -64,3 +65,17 @@ def change_password(request):
 def friends_page(request):
     args = {'user': request.user}
     return render(request, 'friends_page.html')
+
+
+def add_friend(request):
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = AddFriendForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            username = AddFriendForm.cleaned_data['username']
+            return render(request, 'friends_page.html')
+    else:
+        form = AddFriendForm()
+
+    return render(request, 'add_friend.html', {'form': form})

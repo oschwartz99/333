@@ -22,3 +22,7 @@ class CustomUserChangeForm(UserChangeForm):
                   'first_name',
                   'last_name',
                   'password')
+
+class AddFriendForm(forms.Form):
+    username   = forms.CharField(label="Username", max_length=50)
+
