@@ -26,13 +26,13 @@ def testing_view(request):
             event_descr = event_form.cleaned_data['event_descr']
             event_name   = event_form.cleaned_data['event_name']
             event_type   = event_form.cleaned_data['event_type']
-            number_going = event_form.cleaned_data['number_going']
             location     = event_form.cleaned_data['location']
             lat          = event_form.cleaned_data['lat']
             lng          = event_form.cleaned_data['lng']
             user         = request.user
-            new_event = Event(event_name=event_name, event_type=event_type, event_descr=event_descr, number_going=number_going, location=location, lat=lat, lng=lng, user=user)
+            new_event = Event(event_name=event_name, event_type=event_type, event_descr=event_descr, number_going=1, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
+            new_event.users_going.add(user)
             return render(request, 'testing.html', {'csrf_token': csrf_token})
     return render(request, 'testing.html', {'event_form': event_form})
 

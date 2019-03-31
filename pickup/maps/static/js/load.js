@@ -92,53 +92,16 @@ map.on('load', function () {
                 .setPopup(new mapboxgl.Popup()
                     .setHTML("<h2>" + marker.properties.event_name + "</h2>"
                              + "<p>" + marker.properties.event_descr + "</p>"
-                             + "<p>Number Attending: " + marker.properties.number_going + "</p>")
+                             + "<p>Number Attending: " + marker.properties.number_going + "</p>"
+                             + "<button class='btn btn-success'>Going</button>"
+                             + "<button class='btn btn-danger'>Going</button>")
                 )
                 .addTo(map);
         });
 
 
             
-    });
-
-    
-
-    // Handle clicks on icons
-    map.on('click', 'points', function (e) {
-        var coors = e.features[0].geometry.coordinates.slice();
-        var created_by   = e.features[0].properties.created_by;
-        var event_descr  = e.features[0].properties.event_descr;
-        var event_name   = e.features[0].properties.event_name;
-        var number_going = e.features[0].properties.number_going;
-        var location     = e.features[0].properties.location;
-
-        var html = "<div style='text-align:center'><p style='font-weight:bold;'>" + event_name + "</p>" + 
-                   "<p>Created by: " + created_by + "</p>" +
-                   "<p>" + event_descr + "</p>" +
-                   "<p>Number attending: " + number_going + "</p>" +
-                   "<p>Location: " + location + "</p></div>";
-
-        while (Math.abs(e.lngLat.lng - coors[0]) > 180) {
-            coors[0] += e.lngLat.lng > coors[0] ? 360 : -360;
-        }
-
-        new mapboxgl.Popup()
-            .setLngLat(coors)
-            .setHTML(html)
-            .addTo(map);
-    });
-
-
-    // Change cursor to pointer when mouse is over 'points' layer
-    map.on('mouseenter', 'points', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-
-    // Change it back when mouse leaves
-    map.on('mouseleave', 'points', function () {
-        map.getCanvas().style.cursor = '';
-    });
-    
+    });    
 });
 
 /* Create a marker, and a popup associated with that marker.
