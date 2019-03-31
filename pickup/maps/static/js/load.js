@@ -70,6 +70,7 @@ map.on('load', function () {
         imageURLs = {
             "Party": "https://imageog.flaticon.com/icons/png/512/65/65667.png",
             "Concert": "https://image.flaticon.com/icons/png/512/199/199361.png",
+            
         }
 
         var geojson = {
