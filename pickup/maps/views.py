@@ -5,8 +5,7 @@ from .forms import CreateEvent
 from .models import Event, DebugEvent
 import django
 from django.middleware.csrf import get_token
-from django.http import JsonResponse
-
+from django.http import JsonResponse, HttpResponse
 
 def default_map(request):
     return render(request, 'default.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
@@ -66,3 +65,25 @@ def fetch_from_db(request):
         }
         data['events'][event.event_name] = dict
     return JsonResponse(data)
+
+# Update the given event to show the user is going
+def user_going(request):
+    event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
+    if len(event_list) == 1: # error checking
+        event_list[0].users_going.add(request.user)
+        event_list[0].save()
+        print(event_list[0].users_going.all())
+        return HttpResponse('')
+    else: 
+        return HttpResponse('something failed')
+
+# Update given event to show the user isn't going
+def user_cancelled(request):
+    event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
+    if len(event_list) == 1: # error checking
+        event_list[0].users_going.remove(request.user)
+        event_list[0].save()
+        print(event_list[0].users_going.all())
+        return HttpResponse('')
+    else: 
+        return HttpResponse('something failed')
