@@ -95,9 +95,11 @@ map.on('load', function () {
            
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
-                html += "<button class='btn btn-danger'>Cancel</button>";
+                html += "<button class='btn btn-danger event-action'" + 
+                        "id='" + marker.properties.event_id + "'" + ">Cancel</button>";
             else 
-                html += "<button class='btn btn-success'>Going</button>";
+                html += "<button class='btn btn-success event-action'" + 
+                        "id='" + marker.properties.event_id + "'" + ">Going</button>";
         
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
@@ -111,16 +113,17 @@ map.on('load', function () {
 });
 
 /* Create a marker, and a popup associated with that marker.
-   These will be displayed if an event is created. (The popup
-    is for deleting the marker) */
+    These will be displayed if an event is created. (The popup
+    is for deleting the marker).
+    These are only displayed if the listener below runs. */
 var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_event'>Remove</button>");
 var marker = new mapboxgl.Marker({
     draggable: true
 })
     .setPopup(popup);
 
-/* Create an event: create a draggable marker for the 
-   user to position */
+/* LISTENER: Create an event -create a draggable marker 
+    for the user to position */
 $(document).ready(function() {
     /* Handler for clicking the "Add an event" */
     $("#add_anchor").click(function() {
@@ -139,15 +142,17 @@ $(document).ready(function() {
             localStorage.setItem("lat", marker.getLngLat().lat);
         }, 10);
     });
-
-        
 });
 
-/* Handler for removing the event */
+/* LISTENER: Removing the event */
 $("#map").on('click', "#delete_event", function(){
-    console.log("hello")
     marker.remove();
     var eventInfo = document.getElementById("add_event");
     eventInfo.innerHTML = "";      // remove prompt
     eventInfo.style.display = '';
 });
+
+$(".event-action").click(function() {
+    console.log("triggered");
+})
+
