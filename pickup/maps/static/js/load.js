@@ -161,28 +161,26 @@ $("#map").on('click', ".event-action", function(event) {
     
     // User clicked cancel
     if (button.classList.contains("btn-danger")) {
-        button.className="btn btn-success event-action";
-        button.innerHTML="Going";
         $.ajax({
             url: '/ajax/user_cancelled/',
             data: {"event_id": button.id},
             success: function() {
-                console.log("success!")
+                button.className="btn btn-success event-action";
+                button.innerHTML="Going";
             }
-        })
+        });
     }
     
     // User clicked going
     else if (button.classList.contains("btn-success")) {
-        button.className="btn btn-danger event-action";
-        button.innerHTML="Cancel";
         $.ajax({
             url: '/ajax/user_going/',
             data: {"event_id": button.id},
             success: function() {
-                console.log("success!")
+                button.className="btn btn-danger event-action";
+                button.innerHTML="Cancel";
             }
-        })
+        });
     }
 });
 

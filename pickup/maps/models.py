@@ -19,16 +19,3 @@ class Event(models.Model):
     lng = models.FloatField(default=-1)
     lat = models.FloatField(default=-1)
     users_going = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="upcoming_events")
-
-class DebugEvent(models.Model):
-    user = models.CharField(max_length=50, default='')
-    event_descr = models.CharField(max_length=100, default='')
-    event_name = models.CharField(max_length=50, default='')
-    event_type = models.CharField(max_length=50, default='')
-    number_going = models.IntegerField(default=-1)
-    location = models.CharField(max_length=50, default='')
-    lng = models.FloatField(default=-1)
-    lat = models.FloatField(default=-1)
-
-    def __str__(self):
-        return self.event_name + ": " + self.event_descr
