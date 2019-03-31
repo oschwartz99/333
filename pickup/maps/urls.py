@@ -4,6 +4,8 @@ from . import views
 
 urlpatterns = [ 
     url('ajax/fetch_from_db/', views.fetch_from_db, name='fetch_from_db'),    
+    url('ajax/user_going/', views.user_going, name='user_going'),
+    url('ajax/user_cancelled/', views.user_cancelled, name='user_cancelled'),
     url('testing/list_events/', views.testing_list_events, name = "list_events"),
     url('testing/map_def', views.testing_map_def, name='map_def'),
     url('testing/', views.testing_view, name="testing"),

@@ -144,7 +144,10 @@ $(document).ready(function() {
     });
 });
 
-/* LISTENER: Removing the event */
+/* LISTENER: Removing the event (created here because
+    the popup is a dynamically created element so we 
+    have to make sure JQuery is listening to interactions 
+    with it). */
 $("#map").on('click', "#delete_event", function(){
     marker.remove();
     var eventInfo = document.getElementById("add_event");
@@ -152,7 +155,36 @@ $("#map").on('click', "#delete_event", function(){
     eventInfo.style.display = '';
 });
 
-$(".event-action").click(function() {
-    console.log("triggered");
-})
+/* LISTENER: RSVPing/Cancelling event */
+$("#map").on('click', ".event-action", function(event) {
+    var button = event.target;
+    
+    // User clicked cancel
+    if (button.classList.contains("btn-danger")) {
+        button.className="btn btn-success event-action";
+        button.innerHTML="Going";
+        $.ajax({
+            url: '/ajax/user_cancelled/',
+            data: {"event_id": button.id},
+            success: function() {
+                console.log("success!")
+            }
+        })
+    }
+    
+    // User clicked going
+    else if (button.classList.contains("btn-success")) {
+        button.className="btn btn-danger event-action";
+        button.innerHTML="Cancel";
+        $.ajax({
+            url: '/ajax/user_going/',
+            data: {"event_id": button.id},
+            success: function() {
+                console.log("success!")
+            }
+        })
+    }
+});
+
+
 
