@@ -1,9 +1,5 @@
 from django import forms
-
-EVENT_CHOICES = (
-    ("Party", "Party"),
-    ("Concert", "Concert"),
-)
+from maps.icons import *
 
 class CreateEvent(forms.Form):
     event_name   = forms.CharField(label="Give your event a name.", max_length = 50)
