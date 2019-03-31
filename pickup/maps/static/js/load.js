@@ -41,6 +41,8 @@ map.on('load', function () {
                             coordinates: [data.events[key].lng, data.events[key].lat],
                         };
                         event["properties"] = {
+                            "user_going": data.events[key].user_going,
+                            "event_id": data.events[key].event_id,
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
                             "event_descr": data.events[key].event_descr,
@@ -85,22 +87,26 @@ map.on('load', function () {
             var el = document.createElement('div');
             el.className = 'marker';
             el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
+            
+            // Set the HTML in the popup
+            html = "<h2>" + marker.properties.event_name + "</h2>"
+                   + "<p>" + marker.properties.event_descr + "</p>"
+                   + "<p>Number Attending: " + marker.properties.number_going + "</p>";
+           
+            // "Going" or "Cancel" button, depending on if user is attending
+            if (marker.properties.user_going) 
+                html += "<button class='btn btn-danger'>Cancel</button>";
+            else 
+                html += "<button class='btn btn-success'>Going</button>";
         
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
                 .setLngLat(marker.geometry.coordinates)
                 .setPopup(new mapboxgl.Popup()
-                    .setHTML("<h2>" + marker.properties.event_name + "</h2>"
-                             + "<p>" + marker.properties.event_descr + "</p>"
-                             + "<p>Number Attending: " + marker.properties.number_going + "</p>"
-                             + "<button class='btn btn-success'>Going</button>"
-                             + "<button class='btn btn-danger'>Going</button>")
+                    .setHTML(html)
                 )
                 .addTo(map);
         });
-
-
-            
     });    
 });
 

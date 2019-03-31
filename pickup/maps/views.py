@@ -46,7 +46,16 @@ def fetch_from_db(request):
         'events':{}
     }
     for event in all_events:
+        # Set a boolean value is the logged-in user 
+        # is going to a given event
+        going = False
+        for user_going in event.users_going.all():
+            if user_going.id == request.user.id:
+                going = True
+        
         dict = {
+            'user_going': going,
+            'event_id':event.id,
             'created_by': event.user.username,
             'event_descr': event.event_descr,
             'event_type': event.event_type,
