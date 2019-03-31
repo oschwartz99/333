@@ -2,11 +2,8 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import User
 from django.conf import settings
+from maps.icons import *
 
-EVENT_CHOICES = (
-    ("Party", "Party"),
-    ("Concert", "Concert"),
-)
 
 class Event(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
