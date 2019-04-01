@@ -56,7 +56,7 @@ def fetch_from_db(request):
             'number_going': number_going,
             'user_going': going,
             'event_id':event.id,
-            'created_by': event.user.username,
+            'created_by': event.user == request.user, # if user created given event
             'event_descr': event.event_descr,
             'event_type': event.event_type,
             'location': event.location,
@@ -86,6 +86,7 @@ def user_cancelled(request):
     else: 
         return HttpResponse('something failed')
 
+# Return the number of users going to a given event
 def get_number_going(request):
     event_list = list(Event.objects.filter(id=request.GET.get("event_id")))    
     if len(event_list) == 1: # error checking
@@ -95,3 +96,8 @@ def get_number_going(request):
         return JsonResponse(data)
     else:
         return HttpResponse('something failed')
+
+# Delete a given event from DB
+def delete_event(request):
+    Event.objects.filter(id=request.GET.get("event_id")).delete()
+    return HttpResponse('')

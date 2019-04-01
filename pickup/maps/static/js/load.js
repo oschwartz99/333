@@ -1,5 +1,10 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ';
 
+/* Dict containing all markers.
+   Stored as key:value pairs, with the key being 
+   the event_id, and the value being the JS object. */
+markers = {}
+
 /* Initialize map object */
 const map = new mapboxgl.Map({
     container: 'map',
@@ -101,14 +106,23 @@ map.on('load', function () {
             else 
                 html += "<button class='btn btn-success event-action'" + 
                         "id='" + marker.properties.event_id + "'" + ">Going</button>";
+            
+            // If logged-in user created the event, add a 'delete' button
+            if (marker.properties.created_by)
+                html += "<button style='margin-top:10px;'"
+                        + "class='btn btn-danger delete_event'"
+                        + "id='delete-" + marker.properties.event_id + "'>Delete Event</button>";
         
             // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
+            var new_marker = new mapboxgl.Marker(el)
                 .setLngLat(marker.geometry.coordinates)
                 .setPopup(new mapboxgl.Popup()
                     .setHTML(html)
                 )
                 .addTo(map);
+
+            // append marker to markers dict
+            markers[marker.properties.event_id] = new_marker;
         });
     });    
 });
@@ -117,7 +131,7 @@ map.on('load', function () {
     These will be displayed if an event is created. (The popup
     is for deleting the marker).
     These are only displayed if the listener below runs. */
-var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_event'>Remove</button>");
+var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_add_event'>Remove</button>");
 var marker = new mapboxgl.Marker({
     draggable: true
 })
@@ -145,18 +159,18 @@ $(document).ready(function() {
     });
 });
 
-/* LISTENER: Removing the event (created here because
-    the popup is a dynamically created element so we 
+/* LISTENER: Removing the newly added event (created here 
+    because the popup is a dynamically created element so we 
     have to make sure JQuery is listening to interactions 
     with it). */
-$("#map").on('click', "#delete_event", function(){
+$("#map").on('click', "#delete_add_event", function(){
     marker.remove();
     var eventInfo = document.getElementById("add_event");
     eventInfo.innerHTML = "";      // remove prompt
     eventInfo.style.display = '';
 });
 
-/* LISTENER: RSVPing/Cancelling event */
+/* LISTENER: Going to/Cancelling an event */
 $("#map").on('click', ".event-action", function(event) {
     var button = event.target;
     
@@ -168,9 +182,7 @@ $("#map").on('click', ".event-action", function(event) {
             success: function() {
                 button.className="btn btn-success event-action";
                 button.innerHTML="Going";
-                
-                // Update number going on event popup 
-                $.ajax({
+                $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},
                     success: function(data) {
@@ -189,9 +201,7 @@ $("#map").on('click', ".event-action", function(event) {
             success: function() {
                 button.className="btn btn-danger event-action";
                 button.innerHTML="Cancel";
-
-                // Update number going on event popup 
-                $.ajax({
+                $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},
                     success: function(data) {
@@ -203,5 +213,23 @@ $("#map").on('click', ".event-action", function(event) {
     }
 });
 
+/* LISTENER: an event was deleted by its creator */
+$("#map").on('click', ".delete_event", function(event) {
+    // Display an alert message, and check if user wants to continue    
+    if (confirm("Do you want to delete this event?")) {
+        var event_id = event.target.id.slice(7);
+
+        // remove the marker from map and markers dict
+        markers[event_id].remove();
+        delete markers[event_id];
+
+        // make an ajax request to delete the event from DB
+        $.ajax({
+            url: '/ajax/delete_event/',
+            data: {"event_id": event_id},
+            success: function() {}
+        })
+    }
+});
 
 
