@@ -41,13 +41,13 @@ map.on('load', function () {
                             coordinates: [data.events[key].lng, data.events[key].lat],
                         };
                         event["properties"] = {
+                            "number_going": data.events[key].number_going,
                             "user_going": data.events[key].user_going,
                             "event_id": data.events[key].event_id,
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
                             "event_descr": data.events[key].event_descr,
                             "event_type": data.events[key].event_type,
-                            "number_going": data.events[key].number_going,
                             "location": data.events[key].location,
                         };
                     }
@@ -92,7 +92,7 @@ map.on('load', function () {
             // Set the HTML in the popup
             html = "<h2>" + marker.properties.event_name + "</h2>"
                    + "<p>" + marker.properties.event_descr + "</p>"
-                   + "<p>Number Attending: " + marker.properties.number_going + "</p>";
+                   + "<p id='number_going'>Number Attending: " + marker.properties.number_going + "</p>";
            
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
@@ -168,6 +168,15 @@ $("#map").on('click', ".event-action", function(event) {
             success: function() {
                 button.className="btn btn-success event-action";
                 button.innerHTML="Going";
+                
+                // Update number going on event popup 
+                $.ajax({
+                    url: 'ajax/get_number_going/',
+                    data: {"event_id": button.id},
+                    success: function(data) {
+                        document.getElementById("number_going").innerHTML = "Number Attending: " + data.number_going;
+                    }
+                });
             }
         });
     }
@@ -180,6 +189,15 @@ $("#map").on('click', ".event-action", function(event) {
             success: function() {
                 button.className="btn btn-danger event-action";
                 button.innerHTML="Cancel";
+
+                // Update number going on event popup 
+                $.ajax({
+                    url: 'ajax/get_number_going/',
+                    data: {"event_id": button.id},
+                    success: function(data) {
+                        document.getElementById("number_going").innerHTML = "Number Attending: " + data.number_going;
+                    }
+                });
             }
         });
     }

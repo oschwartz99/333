@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.template.context_processors import csrf
 from .forms import CreateEvent
-from .models import Event, DebugEvent
+from .models import Event
 import django
 from django.middleware.csrf import get_token
 from django.http import JsonResponse, HttpResponse
@@ -11,9 +11,8 @@ def default_map(request):
     return render(request, 'default.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 
 def testing_list_events(request):
-    all_debug_events = DebugEvent.objects.all()
     all_events = Event.objects.all()
-    return render(request, 'testing.html', {'all_events': all_events, 'all_debug_events': all_debug_events})
+    return render(request, 'testing.html', {'all_events': all_events})
 
 def testing_view(request):
     if request.method == 'GET':
@@ -29,7 +28,7 @@ def testing_view(request):
             lat          = event_form.cleaned_data['lat']
             lng          = event_form.cleaned_data['lng']
             user         = request.user
-            new_event = Event(event_name=event_name, event_type=event_type, event_descr=event_descr, number_going=1, location=location, lat=lat, lng=lng, user=user)
+            new_event = Event(event_name=event_name, event_type=event_type, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             new_event.users_going.add(user)
             return render(request, 'testing.html', {'csrf_token': csrf_token})
@@ -51,14 +50,15 @@ def fetch_from_db(request):
         for user_going in event.users_going.all():
             if user_going.id == request.user.id:
                 going = True
+        number_going = event.users_going.count()
         
         dict = {
+            'number_going': number_going,
             'user_going': going,
             'event_id':event.id,
             'created_by': event.user.username,
             'event_descr': event.event_descr,
             'event_type': event.event_type,
-            'number_going': event.number_going,
             'location': event.location,
             'lng': event.lng,
             'lat': event.lat,
@@ -72,7 +72,6 @@ def user_going(request):
     if len(event_list) == 1: # error checking
         event_list[0].users_going.add(request.user)
         event_list[0].save()
-        print(event_list[0].users_going.all())
         return HttpResponse('')
     else: 
         return HttpResponse('something failed')
@@ -83,7 +82,16 @@ def user_cancelled(request):
     if len(event_list) == 1: # error checking
         event_list[0].users_going.remove(request.user)
         event_list[0].save()
-        print(event_list[0].users_going.all())
         return HttpResponse('')
     else: 
+        return HttpResponse('something failed')
+
+def get_number_going(request):
+    event_list = list(Event.objects.filter(id=request.GET.get("event_id")))    
+    if len(event_list) == 1: # error checking
+        data = {
+            'number_going': event_list[0].users_going.count(),
+        }
+        return JsonResponse(data)
+    else:
         return HttpResponse('something failed')
