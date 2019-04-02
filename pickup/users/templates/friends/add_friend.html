@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 {% load friendshiptags %}
 
-{% block title %}Friends{% endblock title %}
+{% block title %}Add Friends{% endblock title %}
 
 {% block page %}
     {% load static %}
@@ -12,8 +12,14 @@
 
     <!-- Profile Information -->
     <div id='friends' class="bodycontent">
-        <p> This is the friends page </p>
-        <a href="{% url 'add_friend' %}"> Add a friend</a>
+        <a href="{% url 'friends' %}"> Go to Friend Page </a> <br>
+        <p> This is the add friends page </p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Add Friend</button>
+        </form>
     </div>
 
 {% endblock page %}

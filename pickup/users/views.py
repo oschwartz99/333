@@ -1,15 +1,14 @@
 # users/views.py
 from django.urls import reverse_lazy
 from django.views import generic
-from django.shortcuts import render
 from .models import CustomUser
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth.models  import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from .forms import CustomUserCreationForm, CustomUserChangeForm, AddFriendForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, AddFriendForm, RemoveFriendForm
 from django.contrib.auth import update_session_auth_hash
-from friendship.models import Friend, Follow, Block
+from friendship.models import Friend, Block, FriendshipRequest
+from friendship.exceptions import AlreadyExistsError, AlreadyFriendsError
 
 
 class SignUp(generic.CreateView):
@@ -64,7 +63,13 @@ def change_password(request):
 
 def friends_page(request):
     args = {'user': request.user}
-    return render(request, 'friends_page.html')
+    return render(request, 'friends/friends_page.html')
+
+
+def username_present(username):
+    if CustomUser.objects.filter(username=username).exists():
+        return True
+    return False
 
 
 def add_friend(request):
@@ -73,9 +78,53 @@ def add_friend(request):
         form = AddFriendForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            username = AddFriendForm.cleaned_data['username']
-            return render(request, 'friends_page.html')
+            new_friend_username = form.cleaned_data['username']
+            # check whether requested user exists.
+            if username_present(new_friend_username):
+                new_friend = CustomUser.objects.get(username=new_friend_username)
+                # catch error for when friend request has already been sent
+                if (not Friend.objects.are_friends(request.user, new_friend)
+                        and not Friend.objects.can_request_send(request.user, new_friend)):
+                    Friend.objects.add_friend(request.user,  new_friend, message='Hi! I would like to add you')
+            # create a blank form
+            form = AddFriendForm()
+            return render(request, 'friends/add_friend.html', {'form': form})
     else:
         form = AddFriendForm()
 
-    return render(request, 'add_friend.html', {'form': form})
+    return render(request, 'friends/add_friend.html', {'form': form})
+
+
+def remove_friend(request):
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = RemoveFriendForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            friend_username = form.cleaned_data['username']
+            # check whether requested user exists.
+            if username_present(friend_username):
+                friend = CustomUser.objects.get(username=friend_username)
+                # catch error for when friend request has already been sent
+                if Friend.objects.are_friends(request.user, friend):
+                    Friend.objects.remove_friend(request.user, friend)
+            # create a blank form
+            form = RemoveFriendForm()
+            return render(request, 'friends/remove_friend.html', {'form': form})
+    else:
+        form = RemoveFriendForm()
+
+    return render(request, 'friends/remove_friend.html', {'form': form})
+
+
+def accept_friend_request(request):
+
+    return render(request, 'add_friend.html')
+
+
+def view_friend_requests(request):
+    return render(request, 'friends/view_friend_requests.html')
+
+
+def view_friends(request):
+    return render(request, 'friends/view_friends.html')

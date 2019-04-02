@@ -1,0 +1,24 @@
+<!-- users/templates/profile_page.html -->
+{% extends 'standard_page.html' %}
+
+{% load crispy_forms_tags %}
+{% load friendshiptags %}
+
+{% block title %}Friends{% endblock title %}
+
+{% block page %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- Profile Information -->
+    <div id='friends' class="bodycontent">
+        <p> This is the friends page </p>
+        <a href="{% url 'add_friend' %}"> Add a friend</a> <br>
+        <a href="{% url 'view_friend_requests' %}"> View friend requests</a> <br>
+        <a href="{% url 'view_friends' %}"> View friends</a> <br>
+        <a href="{% url 'remove_friend' %}"> Remove friend</a>
+
+
+    </div>
+
+{% endblock page %}

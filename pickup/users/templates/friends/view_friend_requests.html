@@ -12,8 +12,10 @@
 
     <!-- Profile Information -->
     <div id='friends' class="bodycontent">
-        <p> This is the add friends page </p>
+        <a href="{% url 'friends' %}"> Go to Friend Page </a> <br>
+        <p> This is the view friend requests page </p>
 
+        {% friend_requests request.user %}
     </div>
 
 {% endblock page %}
