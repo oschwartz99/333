@@ -1,14 +1,17 @@
 # users/views.py
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import CustomUser
+from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from .forms import CustomUserCreationForm, CustomUserChangeForm, AddFriendForm, RemoveFriendForm
 from django.contrib.auth import update_session_auth_hash
 from friendship.models import Friend, Block, FriendshipRequest
 from friendship.exceptions import AlreadyExistsError, AlreadyFriendsError
+from friendship.models import Friend, Follow, Block
+from django.contrib.auth import update_session_auth_hash
+from .models import CustomUser
+from .forms import CustomUserCreationForm, CustomUserChangeForm, AddFriendForm, RemoveFriendForm
 
 
 class SignUp(generic.CreateView):

@@ -1,5 +1,10 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ';
 
+/* Dict containing all markers.
+   Stored as key:value pairs, with the key being 
+   the event_id, and the value being the JS object. */
+markers = {}
+
 /* Initialize map object */
 const map = new mapboxgl.Map({
     container: 'map',
@@ -41,11 +46,13 @@ map.on('load', function () {
                             coordinates: [data.events[key].lng, data.events[key].lat],
                         };
                         event["properties"] = {
+                            "number_going": data.events[key].number_going,
+                            "user_going": data.events[key].user_going,
+                            "event_id": data.events[key].event_id,
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
                             "event_descr": data.events[key].event_descr,
                             "event_type": data.events[key].event_type,
-                            "number_going": data.events[key].number_going,
                             "location": data.events[key].location,
                         };
                     }
@@ -68,6 +75,7 @@ map.on('load', function () {
         imageURLs = {
             "Party": "https://imageog.flaticon.com/icons/png/512/65/65667.png",
             "Concert": "https://image.flaticon.com/icons/png/512/199/199361.png",
+            
         }
 
         var geojson = {
@@ -85,73 +93,52 @@ map.on('load', function () {
             var el = document.createElement('div');
             el.className = 'marker';
             el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
+            
+            // Set the HTML in the popup
+            html = "<div class='bg-dark text-white'><h3>" + marker.properties.event_name + "</h3></div>"
+                   + "<p class='bg-dark text-white'>" + marker.properties.event_descr + "</p>"
+                   + "<p class='bg-dark text-white' id='number_going'>Number Attending: " + marker.properties.number_going + "</p>";
+           
+            // "Going" or "Cancel" button, depending on if user is attending
+            if (marker.properties.user_going) 
+                html += "<button class='btn btn-danger event-action'" + 
+                        "id='" + marker.properties.event_id + "'" + ">Cancel</button>";
+            else 
+                html += "<button class='btn btn-success event-action'" + 
+                        "id='" + marker.properties.event_id + "'" + ">Going</button>";
+            
+            // If logged-in user created the event, add a 'delete' button
+            if (marker.properties.created_by)
+                html += "<button style='margin-top:10px;'"
+                        + "class='btn btn-danger delete_event'"
+                        + "id='delete-" + marker.properties.event_id + "'>Delete Event</button>";
         
             // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
+            var new_marker = new mapboxgl.Marker(el)
                 .setLngLat(marker.geometry.coordinates)
                 .setPopup(new mapboxgl.Popup()
-                    .setHTML("<h2>" + marker.properties.event_name + "</h2>"
-                             + "<p>" + marker.properties.event_descr + "</p>"
-                             + "<p>Number Attending: " + marker.properties.number_going + "</p>")
+                    .setHTML(html)
                 )
                 .addTo(map);
+
+            // append marker to markers dict
+            markers[marker.properties.event_id] = new_marker;
         });
-
-
-            
-    });
-
-    
-
-    // Handle clicks on icons
-    map.on('click', 'points', function (e) {
-        var coors = e.features[0].geometry.coordinates.slice();
-        var created_by   = e.features[0].properties.created_by;
-        var event_descr  = e.features[0].properties.event_descr;
-        var event_name   = e.features[0].properties.event_name;
-        var number_going = e.features[0].properties.number_going;
-        var location     = e.features[0].properties.location;
-
-        var html = "<div style='text-align:center'><p style='font-weight:bold;'>" + event_name + "</p>" + 
-                   "<p>Created by: " + created_by + "</p>" +
-                   "<p>" + event_descr + "</p>" +
-                   "<p>Number attending: " + number_going + "</p>" +
-                   "<p>Location: " + location + "</p></div>";
-
-        while (Math.abs(e.lngLat.lng - coors[0]) > 180) {
-            coors[0] += e.lngLat.lng > coors[0] ? 360 : -360;
-        }
-
-        new mapboxgl.Popup()
-            .setLngLat(coors)
-            .setHTML(html)
-            .addTo(map);
-    });
-
-
-    // Change cursor to pointer when mouse is over 'points' layer
-    map.on('mouseenter', 'points', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-
-    // Change it back when mouse leaves
-    map.on('mouseleave', 'points', function () {
-        map.getCanvas().style.cursor = '';
-    });
-    
+    });    
 });
 
 /* Create a marker, and a popup associated with that marker.
-   These will be displayed if an event is created. (The popup
-    is for deleting the marker) */
-var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_event'>Remove</button>");
+    These will be displayed if an event is created. (The popup
+    is for deleting the marker).
+    These are only displayed if the listener below runs. */
+var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_add_event'>Remove</button>");
 var marker = new mapboxgl.Marker({
     draggable: true
 })
     .setPopup(popup);
 
-/* Create an event: create a draggable marker for the 
-   user to position */
+/* LISTENER: Create an event -create a draggable marker 
+    for the user to position */
 $(document).ready(function() {
     /* Handler for clicking the "Add an event" */
     $("#add_anchor").click(function() {
@@ -170,15 +157,79 @@ $(document).ready(function() {
             localStorage.setItem("lat", marker.getLngLat().lat);
         }, 10);
     });
-
-        
 });
 
-/* Handler for removing the event */
-$("#map").on('click', "#delete_event", function(){
-    console.log("hello")
+/* LISTENER: Removing the newly added event (created here 
+    because the popup is a dynamically created element so we 
+    have to make sure JQuery is listening to interactions 
+    with it). */
+$("#map").on('click', "#delete_add_event", function(){
     marker.remove();
     var eventInfo = document.getElementById("add_event");
     eventInfo.innerHTML = "";      // remove prompt
     eventInfo.style.display = '';
 });
+
+/* LISTENER: Going to/Cancelling an event */
+$("#map").on('click', ".event-action", function(event) {
+    var button = event.target;
+    
+    // User clicked cancel
+    if (button.classList.contains("btn-danger")) {
+        $.ajax({
+            url: '/ajax/user_cancelled/',
+            data: {"event_id": button.id},
+            success: function() {
+                button.className="btn btn-success event-action";
+                button.innerHTML="Going";
+                $.ajax({ // update number going
+                    url: 'ajax/get_number_going/',
+                    data: {"event_id": button.id},
+                    success: function(data) {
+                        document.getElementById("number_going").innerHTML = "Number Attending: " + data.number_going;
+                    }
+                });
+            }
+        });
+    }
+    
+    // User clicked going
+    else if (button.classList.contains("btn-success")) {
+        $.ajax({
+            url: '/ajax/user_going/',
+            data: {"event_id": button.id},
+            success: function() {
+                button.className="btn btn-danger event-action";
+                button.innerHTML="Cancel";
+                $.ajax({ // update number going
+                    url: 'ajax/get_number_going/',
+                    data: {"event_id": button.id},
+                    success: function(data) {
+                        document.getElementById("number_going").innerHTML = "Number Attending: " + data.number_going;
+                    }
+                });
+            }
+        });
+    }
+});
+
+/* LISTENER: an event was deleted by its creator */
+$("#map").on('click', ".delete_event", function(event) {
+    // Display an alert message, and check if user wants to continue    
+    if (confirm("Do you want to delete this event?")) {
+        var event_id = event.target.id.slice(7);
+
+        // remove the marker from map and markers dict
+        markers[event_id].remove();
+        delete markers[event_id];
+
+        // make an ajax request to delete the event from DB
+        $.ajax({
+            url: '/ajax/delete_event/',
+            data: {"event_id": event_id},
+            success: function() {}
+        })
+    }
+});
+
+
