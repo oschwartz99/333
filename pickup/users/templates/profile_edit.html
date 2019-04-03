@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <!-- Profile Information -->
-    <div id='profile' class='map'>
+    <div id='profile' class='bodycontent'>
         <a href="{% url 'maps' %}">Home</a>
         <br>
         <p> This is the Edit Profile Page</p>
@@ -19,7 +19,6 @@
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>
-
         </form>
         <br>
     </div>
