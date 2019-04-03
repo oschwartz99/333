@@ -17,10 +17,15 @@
         <p>You're at the testing page</p>
 
         {%  if event_form %}
+            {% load bootstrap4 %}
+            {% bootstrap_css %}
+            {% bootstrap_javascript jquery='full' %}
+            
             <form method="post">
                 {% csrf_token %}
                 {{ event_form|crispy }}
-                <button type="Add Event">Add Event</button>
+                {{ event_form.media }}
+                <button type="Add Event" class='btn btn-success'>Add Event</button>
             </form>
         {% endif %}
 

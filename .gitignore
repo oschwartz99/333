@@ -12,6 +12,7 @@ node_modules
 .vscode
 .history/
 db.sqlite3
+migrations/*
 users/__pycache*
 users/migrations/*
 

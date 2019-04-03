@@ -1,11 +1,12 @@
+import django
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.template.context_processors import csrf
-from .forms import CreateEvent
-from .models import Event
-import django
 from django.middleware.csrf import get_token
 from django.http import JsonResponse, HttpResponse
+from bootstrap_datepicker_plus import DateTimePickerInput
+from .forms import CreateEvent
+from .models import Event
 
 def default_map(request):
     return render(request, 'default.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
@@ -17,6 +18,7 @@ def testing_list_events(request):
 def testing_view(request):
     if request.method == 'GET':
         event_form = CreateEvent()
+        event_form.fields['datetime'].widget = DateTimePickerInput()
     elif request.method == 'POST':
         event_form = CreateEvent(request.POST)
         if event_form.is_valid():
@@ -24,11 +26,12 @@ def testing_view(request):
             event_descr = event_form.cleaned_data['event_descr']
             event_name   = event_form.cleaned_data['event_name']
             event_type   = event_form.cleaned_data['event_type']
+            datetime    = event_form.cleaned_data['datetime']
             location     = event_form.cleaned_data['location']
             lat          = event_form.cleaned_data['lat']
             lng          = event_form.cleaned_data['lng']
             user         = request.user
-            new_event = Event(event_name=event_name, event_type=event_type, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
+            new_event = Event(event_name=event_name, event_type=event_type, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             new_event.users_going.add(user)
             return render(request, 'testing.html', {'csrf_token': csrf_token})

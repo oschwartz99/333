@@ -10,6 +10,7 @@ class Event(models.Model):
     event_descr = models.CharField(max_length=100, default='')
     event_name = models.CharField(max_length=50, default='')
     event_type = models.CharField(max_length=50, choices=EVENT_CHOICES)
+    datetime = models.DateTimeField(blank=False, null=True)
     location = models.CharField(max_length=50, default='')
     lng = models.FloatField(default=-1)
     lat = models.FloatField(default=-1)
