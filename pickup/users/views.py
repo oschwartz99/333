@@ -61,7 +61,7 @@ def change_password(request):
     else:
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
-        return render(request, 'profile_edit.html', args) # Still uses profile_edit.html as it simply takes a form
+        return render(request, 'profile_password.html', args)
 
 
 def friends_page(request):
