@@ -11,7 +11,7 @@
 <!-- Login Form -->
 <form class='form-signin' method="post">
   {% csrf_token %}
-  <div class="container" style="margin-top: 15%">
+  <div class="container" style="margin-top: 10%">
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6 text-center">
@@ -24,12 +24,15 @@
         {{ form.password|as_crispy_field }}
       </div>
     </div>
+      <div class="col-9 text-right">
+        <a href="{% url 'password_reset' %}">Forgot Password?</a><br>
+      </div>
     <div class="text-center">
       <button class='btn btn-primary' type="submit">Login</button>
     </div>
   </div>
 </form>
-<a href="{% url 'password_reset' %}">Forgot Password?</a><br>
-<a href="{% url 'signup' %}">Make New Account</a>
-
+    <div class="text-center" style="margin-top: 2%">
+        <a href="{% url 'signup' %}">New to Pickup? Make a new account here!</a>
+    </div>
 {% endblock content %}
