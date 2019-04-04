@@ -12,9 +12,10 @@ node_modules
 .vscode
 .history/
 db.sqlite3
-migrations/*
-users/__pycache*
-users/migrations/*
+pickup/maps/migrations/*
+pickup/users/__pycache*
+pickup/users/migrations/*
+pickup/maps/__pycache*
 
 # Compiled source #
 ###################
