@@ -2,7 +2,19 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 from maps.icons import *
+
+def validate_datetime(dt):
+    print("validator running")
+    print(type(dt))
+    print(dt)
+    if dt < timezone.now():
+        raise ValidationError(
+            ('Date must be in the future! Please refresh the page.')
+        )
 
 class Event(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -10,7 +22,7 @@ class Event(models.Model):
     event_descr = models.CharField(max_length=100, default='')
     event_name = models.CharField(max_length=50, default='')
     event_type = models.CharField(max_length=50, choices=EVENT_CHOICES)
-    datetime = models.DateTimeField(blank=False, null=True)
+    datetime = models.DateTimeField(blank=False, null=True, validators=[validate_datetime])
     location = models.CharField(max_length=50, default='')
     lng = models.FloatField(default=-1)
     lat = models.FloatField(default=-1)
