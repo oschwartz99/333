@@ -1,5 +1,5 @@
 from django import forms
-from maps.icons import *
+from .choices import *
 from bootstrap_datepicker_plus import DatePickerInput
 from .models import *
 

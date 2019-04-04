@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-from maps.icons import *
+from .choices import *
 
 def validate_datetime(dt):
     print("validator running")
@@ -23,6 +23,7 @@ class Event(models.Model):
     event_name = models.CharField(max_length=50, default='')
     event_type = models.CharField(max_length=50, choices=EVENT_CHOICES)
     datetime = models.DateTimeField(blank=False, null=True, validators=[validate_datetime])
+    duration = models.TimeField(blank=False, null=True)
     location = models.CharField(max_length=50, default='')
     lng = models.FloatField(default=-1)
     lat = models.FloatField(default=-1)
