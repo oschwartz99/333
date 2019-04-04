@@ -11,18 +11,17 @@
 
     <!-- Profile Information -->
     <div id='profile' class="bodycontent" >
+        <div class="text-center" style="margin-top: 10%">
 
-        <p> This is the Profile Page</p>
-
-        <h1>Profile</h1>
-        <p>Username: {{ user.username }}</p>
-        <p>First Name: {{ user.first_name }}</p>
-        <p>Last Name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email  }}</p>
+        <h1>My Profile</h1><br>
+        <p><b>Username:</b> {{ user.username }}</p>
+        <p><b>First Name:</b> {{ user.first_name }}</p>
+        <p><b>Last Name:</b> {{ user.last_name }}</p>
+        <p><b>Email:</b> {{ user.email  }}</p>
 
         <br>
-        <a href="{% url 'profile_edit' %}">Edit Profile</a>
-
+        <a href="{% url 'profile_edit' %}">Edit My Profile</a>
+        </div>
     </div>
 
 
