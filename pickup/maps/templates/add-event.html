@@ -1,11 +1,11 @@
 <!-- maps/templates/testing.html -->
-{% extends 'standard_page.html' %}
+{% extends 'main.html' %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}Testing Page{% endblock title %}
 
-{% block page %}
+{% block sidebar-content %}
     {% load static %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
          <script src="{% static 'js/add-event.js' %}" type="text/javascript"></script>
@@ -13,8 +13,7 @@
     <div id ="testing" class="bodycontent" >
         <a href="{% url 'maps' %}">Home</a>
         <br>
-        <a href="{% url 'list_events' %}"> List all events in database</a>
-        <p>You're at the testing page</p>
+        <a href="{% url 'list_events' %}">All Events</a>
 
         {%  if event_form %}
             {% load bootstrap4 %}
@@ -41,4 +40,4 @@
         {% endif %}
     </div>
 
-{% endblock page %}
+{% endblock sidebar-content %}

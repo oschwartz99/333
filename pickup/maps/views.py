@@ -9,13 +9,13 @@ from .forms import CreateEvent
 from .models import Event
 
 def default_map(request):
-    return render(request, 'default.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
+    return render(request, 'main.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 
-def testing_list_events(request):
+def list_events(request):
     all_events = Event.objects.all()
-    return render(request, 'testing.html', {'all_events': all_events})
+    return render(request, 'add-event.html', {'all_events': all_events})
 
-def testing_view(request):
+def add_event(request):
     if request.method == 'GET':
         event_form = CreateEvent()
         event_form.fields['datetime'].widget = DateTimePickerInput()
@@ -34,11 +34,8 @@ def testing_view(request):
             new_event = Event(event_name=event_name, event_type=event_type, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             new_event.users_going.add(user)
-            return render(request, 'testing.html', {'csrf_token': csrf_token})
-    return render(request, 'testing.html', {'event_form': event_form})
-
-def testing_map_def(request):
-    return render(request, "map_def.html")
+            return render(request, 'add-event.html', {'csrf_token': csrf_token})
+    return render(request, 'add-event.html', {'event_form': event_form})
 
 # Return all events from the database as a JSON object
 def fetch_from_db(request):
