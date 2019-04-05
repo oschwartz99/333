@@ -25,8 +25,8 @@ map.on('load', function () {
     });
     
     /* Trigger geolocate (i.e. zoom in to user's position) */
-    map.addControl(geolocate);
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(geolocate, 'bottom-right');
+    map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     setTimeout(function() {
         geolocate.trigger();
     }, 10);
@@ -35,7 +35,7 @@ map.on('load', function () {
     setTimeout(function() {
         coors['lat'] = geolocate._lastKnownPosition.coords.latitude;
         coors['lng'] = geolocate._lastKnownPosition.coords.longitude;
-    }, 1000);
+    }, 100);
 
     /* Create a call back function. First, it queries the database with an 
        AJAX request. Following this, it calls the callback function argument

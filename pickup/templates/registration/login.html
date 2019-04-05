@@ -24,15 +24,17 @@
         {{ form.password|as_crispy_field }}
       </div>
     </div>
-      <div class="col-9 text-right">
-        <a href="{% url 'password_reset' %}">Forgot Password?</a><br>
-      </div>
     <div class="text-center">
-      <button class='btn btn-primary' type="submit">Login</button>
+      <a href="{% url 'password_reset' %}">Forgot Password?</a><br>    
     </div>
+
+    <div class="col-md-12 text-center" style="margin-top:1%;">
+      <button class='btn btn-success text-center' type="submit">Login</button>
+    </div>
+      
   </div>
 </form>
     <div class="text-center" style="margin-top: 2%">
-        <a href="{% url 'signup' %}">New to Pickup? Make a new account here!</a>
+        <a href="{% url 'signup' %}">If you don't have an account, sign up here instead.</a>
     </div>
 {% endblock content %}

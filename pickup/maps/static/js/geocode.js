@@ -8,8 +8,9 @@ function loadGeocoder() {
             proximity: {
                 longitude: coors['lng'],
                 latitude: coors['lat'],
+            },
         });
-        map.addControl(geocoder);
+        map.addControl(geocoder, 'top-right');
     }
     else
         setTimeout(loadGeocoder, 10);
