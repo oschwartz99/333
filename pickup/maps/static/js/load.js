@@ -3,7 +3,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczd
 /* Dict containing all markers.
    Stored as key:value pairs, with the key being 
    the event_id, and the value being the JS object. */
-markers = {}
+markers = {};
+var coors = {};
 
 /* Initialize map object */
 const map = new mapboxgl.Map({
@@ -22,9 +23,19 @@ map.on('load', function () {
         },
         trackUserLocation: true
     });
+    
+    /* Trigger geolocate (i.e. zoom in to user's position) */
     map.addControl(geolocate);
     map.addControl(new mapboxgl.NavigationControl());
-    setTimeout(function() {geolocate.trigger();}, 10);
+    setTimeout(function() {
+        geolocate.trigger();
+    }, 10);
+
+    /* Save lat and lng of current position (for geocode.js) */
+    setTimeout(function() {
+        coors['lat'] = geolocate._lastKnownPosition.coords.latitude;
+        coors['lng'] = geolocate._lastKnownPosition.coords.longitude;
+    }, 1000);
 
     /* Create a call back function. First, it queries the database with an 
        AJAX request. Following this, it calls the callback function argument
@@ -231,5 +242,3 @@ $("#map").on('click', ".delete_event", function(event) {
         })
     }
 });
-
-
