@@ -34,7 +34,7 @@ def add_event(request):
             new_event = Event(event_name=event_name, event_type=event_type, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             new_event.users_going.add(user)
-            return render(request, 'add-event.html', {'csrf_token': csrf_token})
+            return render(request, 'main.html', {'csrf_token': csrf_token})
     return render(request, 'add-event.html', {'event_form': event_form})
 
 # Return all events from the database as a JSON object

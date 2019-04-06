@@ -35,6 +35,16 @@ def validate_username(request):
     return JsonResponse(data)
 
 
+def validate_email(request):
+    email = request.GET.get('email', None)
+    data = {
+        'is_taken': CustomUser.objects.filter(email__iexact=email).exists()
+    }
+    if data['is_taken']:
+        data['error_message'] = 'A user with this email already exists.'
+    return JsonResponse(data)
+
+
 def profile_edit(request):
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)

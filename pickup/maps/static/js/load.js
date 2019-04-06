@@ -25,7 +25,7 @@ map.on('load', function () {
     });
     
     /* Trigger geolocate (i.e. zoom in to user's position) */
-    map.addControl(geolocate, 'bottom-right');
+    map.addControl(geolocate, 'top-left');
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     setTimeout(function() {
         geolocate.trigger();
@@ -35,7 +35,7 @@ map.on('load', function () {
     setTimeout(function() {
         coors['lat'] = geolocate._lastKnownPosition.coords.latitude;
         coors['lng'] = geolocate._lastKnownPosition.coords.longitude;
-    }, 100);
+    }, 200);
 
     /* Create a call back function. First, it queries the database with an 
        AJAX request. Following this, it calls the callback function argument
@@ -113,7 +113,7 @@ map.on('load', function () {
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
                 html += "<button class='btn btn-danger event-action'" + 
-                        "id='" + marker.properties.event_id + "'" + ">Cancel</button>";
+                        "id='" + marker.properties.event_id + "'" + ">Not Going</button>";
             else 
                 html += "<button class='btn btn-success event-action'" + 
                         "id='" + marker.properties.event_id + "'" + ">Going</button>";
@@ -157,7 +157,7 @@ $(document).ready(function() {
         marker.setLngLat(map.getCenter()).addTo(map);
         function onDragEnd() {
             eventInfo.style.display = 'block';
-            eventInfo.innerHTML = "Click <a id='goto_event' style='color: #00ffff;' href='/testing/'>here</a> to add event details once you've positioned your marker. \
+            eventInfo.innerHTML = "Click <a id='goto_event' style='color: #00ffff;' href='/add_event/'>here</a> to add event details once you've positioned your marker. \
                                 <br>To delete the event, click the icon.";
         }
         marker.on('dragend', onDragEnd);
@@ -211,7 +211,7 @@ $("#map").on('click', ".event-action", function(event) {
             data: {"event_id": button.id},
             success: function() {
                 button.className="btn btn-danger event-action";
-                button.innerHTML="Cancel";
+                button.innerHTML="Not Going";
                 $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},

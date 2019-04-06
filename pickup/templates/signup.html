@@ -32,6 +32,8 @@
         <div class="col-6 text-center">
             {{ form.email|as_crispy_field }}
         </div>
+        <small id="id_hint_email" class="form-text text-muted text-center">
+        </small>
         </div>
         <div class="row">
         <div class="col-3"></div>
@@ -67,6 +69,7 @@
 
 {% block js %}
   <script>
+    // Check if username is taken
     $("#id_username").change(function () {
       var username = $(this).val();
 
@@ -82,6 +85,30 @@
           }
           else {
             document.getElementById("hint_id_username").innerHTML = "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.";
+          }
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // Check if email is taken
+    $("#id_email").change(function () {
+      var email = $(this).val();
+
+      $.ajax({
+        url: '{% url "validate_email" %}',
+        data: {
+          'email': email
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            document.getElementById("id_hint_email").innerHTML = "<p style='color:red;'>That email is already in use!</p>";
+            console.log("taken!");
+          }
+          else {
+            document.getElementById("id_hint_email").innerHTML = "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.";
           }
         }
       });

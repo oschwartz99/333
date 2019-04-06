@@ -7,6 +7,7 @@ urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
     url('profile/', views.profile_page, name='profile_page'),
     url('ajax/validate_username/', views.validate_username, name='validate_username'),
+    url('ajax/validate_email/', views.validate_email, name='validate_email'),
     url('edit/', views.profile_edit, name='profile_edit'),
     url('password/', views.change_password, name='change_password'),
     url('friends/', views.friends_page, name='friends'),
