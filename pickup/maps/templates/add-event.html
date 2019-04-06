@@ -1,11 +1,5 @@
-<!-- maps/templates/testing.html -->
-{% extends 'main.html' %}
-
-{% load crispy_forms_tags %}
-
-{% block title %}Testing Page{% endblock title %}
-
 {% block sidebar-content %}
+    {% load crispy_forms_tags %}
     {% load static %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
          <script src="{% static 'js/add-event.js' %}" type="text/javascript"></script>
@@ -16,9 +10,7 @@
         <a href="{% url 'list_events' %}">All Events</a>
 
         {%  if event_form %}
-            {% load bootstrap4 %}
-            {% bootstrap_css %}
-            {% bootstrap_javascript jquery='full' %}
+            {{ event_form.media }}
             
             <form method="post">
                 {% csrf_token %}

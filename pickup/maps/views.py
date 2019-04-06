@@ -8,14 +8,13 @@ from django.template.loader import render_to_string
 from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
-from django.core import serializers
 
-def test_ajax(request):
+def ajax_add_event(request):
     event_form = CreateEvent()
     event_form.fields['datetime'].widget = DateTimePickerInput()
-    rendered = render_to_string('test.html', {'event_form': event_form}, request=request)
+    rendered = render_to_string('add-event.html', {'event_form': event_form}, request=request)
     data = {
-        'key': rendered,
+        'page': rendered,
     }
     return JsonResponse(data)
 
