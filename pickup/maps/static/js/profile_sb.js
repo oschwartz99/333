@@ -1,5 +1,5 @@
 
-    $("#profile_sb_link").click(function() {
+ $("#sidebar").on('click', "#profile_sb_link", function() {
         console.log("clicked view prof");
         $.ajax({
             data: {"which": "orig"},

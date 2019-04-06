@@ -27,6 +27,13 @@ def ajax_add_event(request):
     }
     return JsonResponse(data)
 
+def ajax_home_sb(request):
+    rendered = render_to_string('home_sb.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
 def ajax_profile_sb(request):
     rendered = render_to_string('profile/profile_sb.html', request=request)
     if request.GET.get("which") == "edit":

@@ -2,4 +2,5 @@
 function toggleUnderline() { 
     $(this).toggleClass('underline');
 }
+
 $("#add_event_link").hover(toggleUnderline, toggleUnderline);

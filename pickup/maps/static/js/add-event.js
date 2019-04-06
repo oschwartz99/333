@@ -1,5 +1,4 @@
-$(document).ready(function() {
-    $("#add_event_link").click(function() {
+$("#sidebar").on('click', "#add_event_link", function() {
         $.ajax({
             url: '/ajax/add_event/',
             success: function(data) {
@@ -38,4 +37,3 @@ $(document).ready(function() {
             }
         });
     });
-});

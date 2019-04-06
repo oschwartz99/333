@@ -1,0 +1,16 @@
+{% block sidebar-content %}
+            <div class='heading'>
+                <h2> Pickup </h2>
+                <ul style="list-style-type: none; font-size: medium">
+                    <li>COS333 Project Version Alpha </li>
+                    <li><a href="#" id="home_sb_link" class="nav">Home</a></li>
+                    <li><a href="{% url 'logout' %}" class="nav">Logout</a></li>
+                    <li><a href="{% url 'password_reset' %}" class="nav">Reset Password</a></li>
+                    <li><a href="{% url 'profile_page' %}" class = "nav"> Profile Page </a></li>
+                    <li><a href="{% url 'friends' %}" class="nav">Friends</a></li>
+                    <li><a href="#" id="profile_sb_link" class="nav">Profile</a></li>
+                    <li><a href="#" id="add_event_link" class="nav">Add an event</a></li>
+                    <li><p id="add_event_link" class="nav">Add an event</p></li>
+                </ul>
+            </div>
+{% endblock sidebar-content %}
