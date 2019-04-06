@@ -4,14 +4,18 @@ from django.template import RequestContext
 from django.template.context_processors import csrf
 from django.middleware.csrf import get_token
 from django.http import JsonResponse, HttpResponse
+from django.template.loader import render_to_string
 from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
+from django.core import serializers
 
 def test_ajax(request):
-    print(request.GET.get("info"))
+    event_form = CreateEvent()
+    event_form.fields['datetime'].widget = DateTimePickerInput()
+    rendered = render_to_string('test.html', {'event_form': event_form})
     data = {
-        'key': 'value',
+        'key': rendered,
     }
     return JsonResponse(data)
 

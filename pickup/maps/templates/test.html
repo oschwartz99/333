@@ -1,0 +1,37 @@
+{% block sidebar-content %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+         <script src="{% static 'js/add-event.js' %}" type="text/javascript"></script>
+
+    <div id ="testing" class="bodycontent" >
+        <a href="{% url 'maps' %}">Home</a>
+        <br>
+        <a href="{% url 'list_events' %}">All Events</a>
+
+        {%  if event_form %}
+            {% load bootstrap4 %}
+            {% bootstrap_css %}
+            {% bootstrap_javascript jquery='full' %}
+            
+            <form method="post">
+                {% csrf_token %}
+                {{ event_form|crispy }}
+                {{ event_form.media }}
+                <button type="Add Event" class='btn btn-success'>Add Event</button>
+            </form>
+        {% endif %}
+
+        {% if all_events %}
+            <h1>Events:</h1>
+            {% for event in all_events%}
+                <h1> ({{forloop.counter}}) {{event.event_name}}</h1>
+                {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
+                {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
+                {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
+                <br>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock sidebar-content %}
