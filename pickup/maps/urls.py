@@ -3,6 +3,7 @@ from djgeojson.views import GeoJSONLayerView
 from . import views
 
 urlpatterns = [ 
+    url('test_ajax/', views.test_ajax, name='test_ajax'),        
     url('ajax/fetch_from_db/', views.fetch_from_db, name='fetch_from_db'),    
     url('ajax/user_going/', views.user_going, name='user_going'),
     url('ajax/delete_event/', views.delete_event, name='delete_event'),

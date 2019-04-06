@@ -35,7 +35,7 @@ map.on('load', function () {
     setTimeout(function() {
         coors['lat'] = geolocate._lastKnownPosition.coords.latitude;
         coors['lng'] = geolocate._lastKnownPosition.coords.longitude;
-    }, 200);
+    }, 1000);
 
     /* Create a call back function. First, it queries the database with an 
        AJAX request. Following this, it calls the callback function argument

@@ -8,6 +8,13 @@ from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
 
+def test_ajax(request):
+    print(request.GET.get("info"))
+    data = {
+        'key': 'value',
+    }
+    return JsonResponse(data)
+
 def default_map(request):
     return render(request, 'main.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 
