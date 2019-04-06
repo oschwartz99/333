@@ -13,7 +13,7 @@ from django.core import serializers
 def test_ajax(request):
     event_form = CreateEvent()
     event_form.fields['datetime'].widget = DateTimePickerInput()
-    rendered = render_to_string('test.html', {'event_form': event_form})
+    rendered = render_to_string('test.html', {'event_form': event_form}, request=request)
     data = {
         'key': rendered,
     }

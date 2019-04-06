@@ -10,9 +10,7 @@
         <a href="{% url 'list_events' %}">All Events</a>
 
         {%  if event_form %}
-            {% load bootstrap4 %}
-            {% bootstrap_css %}
-            {% bootstrap_javascript jquery='full' %}
+            {{ event_form.media }}
             
             <form method="post">
                 {% csrf_token %}
