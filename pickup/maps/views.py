@@ -46,6 +46,7 @@ def list_events(request):
     return render(request, 'add-event.html', {'all_events': all_events})
 
 def add_event(request):
+    print("in add event route")
     if request.method == 'GET':
         event_form = CreateEvent()
         event_form.fields['datetime'].widget = DateTimePickerInput()
