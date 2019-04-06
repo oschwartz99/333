@@ -21,7 +21,7 @@
                     <li><a href="{% url 'password_reset' %}" class="nav">Reset Password</a></li>
                     <li><a href="{% url 'profile_page' %}" class = "nav"> Profile Page </a></li>
                     <li><a href="{% url 'friends' %}" class="nav">Friends</a></li>
-                    <li><a href="#" id="add_event_link" class="nav">Add an event</a></li>
+                    <li><p id="add_event_link" class="nav">Add an event</p></li>
                 </ul>
             </div>
             {% endblock sidebar-content %}
@@ -68,7 +68,9 @@
         {% load static %}   
         <script src="{% static 'js/load.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/add-event.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/add-event-submit.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/geocode.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/hover.js' %}" type="text/javascript"></script>
     {% endif %}
 {% endblock js %}
 

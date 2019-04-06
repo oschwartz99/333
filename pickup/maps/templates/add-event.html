@@ -12,11 +12,11 @@
         {%  if event_form %}
             {{ event_form.media }}
             
-            <form method="post">
+            <form id="event_form">
                 {% csrf_token %}
                 {{ event_form|crispy }}
                 {{ event_form.media }}
-                <button type="Add Event" class='btn btn-success'>Add Event</button>
+                <button type="button" class='btn btn-success' id="add-event-submit">Add Event</button>
             </form>
         {% endif %}
 

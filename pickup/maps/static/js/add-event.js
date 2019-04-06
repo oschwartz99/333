@@ -20,12 +20,20 @@ $(document).ready(function() {
 
                 // if user changes the lng/lat manually, move marker
                 lng.addEventListener('change', function() {
-                    if (marker != undefined)
-                        marker.setLngLat([lng.value, marker.getLngLat()['lat']]);
+                    if (marker != undefined) {
+                        if (lng.value == "")
+                            lng.value = marker.getLngLat()['lng'];
+                        else 
+                            marker.setLngLat([lng.value, marker.getLngLat()['lat']]);
+                    }
                 });
                 lat.addEventListener('change', function() {
-                    if (marker != undefined)
-                        marker.setLngLat([marker.getLngLat()['lng'], lat.value]);
+                    if (marker != undefined) {
+                        if (lat.value == "")
+                            lat.value = marker.getLngLat()['lat'];
+                        else
+                            marker.setLngLat([marker.getLngLat()['lng'], lat.value]);
+                    }
                 });
             }
         });
