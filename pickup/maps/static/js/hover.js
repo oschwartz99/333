@@ -2,5 +2,5 @@
 function toggleUnderline() { 
     $(this).toggleClass('underline');
 }
-
-$("#add_event_link").hover(toggleUnderline, toggleUnderline);
+$(document).on("mouseenter", ".link", toggleUnderline);
+$(document).on("mouseleave", ".link", toggleUnderline);

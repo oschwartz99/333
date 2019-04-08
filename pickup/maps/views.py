@@ -44,20 +44,9 @@ def ajax_profile_sb(request):
     }
     return JsonResponse(data)
 
-
 def default_map(request):
-    return render(request, 'main.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
-
-def list_events(request):
-    all_events = Event.objects.all()
-    return render(request, 'add-event.html', {'all_events': all_events})
-
-def add_event(request):
-    print("in add event route")
-    if request.method == 'GET':
-        event_form = CreateEvent()
-        event_form.fields['datetime'].widget = DateTimePickerInput()
-    elif request.method == 'POST':
+    # An event was added
+    if request.method == 'POST':
         event_form = CreateEvent(request.POST)
         if event_form.is_valid():
             csrf_token   = get_token(request)
@@ -72,8 +61,11 @@ def add_event(request):
             new_event = Event(event_name=event_name, event_type=event_type, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
             new_event.save()
             new_event.users_going.add(user)
+
+            # Send user to home page
             return render(request, 'main.html', {'csrf_token': csrf_token})
-    return render(request, 'add-event.html', {'event_form': event_form})
+    elif request.method == 'GET':
+        return render(request, 'main.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 
 # Return all events from the database as a JSON object
 def fetch_from_db(request):

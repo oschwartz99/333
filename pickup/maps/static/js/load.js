@@ -1,3 +1,5 @@
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+// SETUP OF VARIABLES
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ';
 
 /* Dict containing all markers.
@@ -5,6 +7,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczd
    the event_id, and the value being the JS object. */
 markers = {};
 var coors = {};
+
+/* Create a marker, and a popup associated with that marker.
+    These will be displayed if an event is created. (The popup
+    is for deleting the marker).
+    These are only displayed if the listener below runs. */
+var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_add_event'>Remove</button>");
+var marker = new mapboxgl.Marker({
+    draggable: true
+})
+    .setPopup(popup);
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Initialize map object */
 const map = new mapboxgl.Map({
@@ -138,37 +152,7 @@ map.on('load', function () {
     });    
 });
 
-/* Create a marker, and a popup associated with that marker.
-    These will be displayed if an event is created. (The popup
-    is for deleting the marker).
-    These are only displayed if the listener below runs. */
-var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_add_event'>Remove</button>");
-var marker = new mapboxgl.Marker({
-    draggable: true
-})
-    .setPopup(popup);
-
-/* LISTENER: Create an event -create a draggable marker 
-    for the user to position */
-$(document).ready(function() {
-    /* Handler for clicking the "Add an event" */
-    $("#add_anchor").click(function() {
-        var eventInfo = document.getElementById("add_event");
-        marker.setLngLat(map.getCenter()).addTo(map);
-        function onDragEnd() {
-            eventInfo.style.display = 'block';
-            eventInfo.innerHTML = "Click <a id='goto_event' style='color: #00ffff;' href='/add_event/'>here</a> to add event details once you've positioned your marker. \
-                                <br>To delete the event, click the icon.";
-        }
-        marker.on('dragend', onDragEnd);
-
-        /* Continually save the coordinates of the marker */
-        setInterval(function() {
-            localStorage.setItem("lng", marker.getLngLat().lng);
-            localStorage.setItem("lat", marker.getLngLat().lat);
-        }, 10);
-    });
-});
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 
 /* LISTENER: Removing the newly added event (created here 
     because the popup is a dynamically created element so we 
@@ -179,66 +163,4 @@ $("#map").on('click', "#delete_add_event", function(){
     var eventInfo = document.getElementById("add_event");
     eventInfo.innerHTML = "";      // remove prompt
     eventInfo.style.display = '';
-});
-
-/* LISTENER: Going to/Cancelling an event */
-$("#map").on('click', ".event-action", function(event) {
-    var button = event.target;
-    
-    // User clicked cancel
-    if (button.classList.contains("btn-danger")) {
-        $.ajax({
-            url: '/ajax/user_cancelled/',
-            data: {"event_id": button.id},
-            success: function() {
-                button.className="btn btn-success event-action";
-                button.innerHTML="Going";
-                $.ajax({ // update number going
-                    url: 'ajax/get_number_going/',
-                    data: {"event_id": button.id},
-                    success: function(data) {
-                        document.getElementById("number_going").innerHTML = "Number Attending: " + data.number_going;
-                    }
-                });
-            }
-        });
-    }
-    
-    // User clicked going
-    else if (button.classList.contains("btn-success")) {
-        $.ajax({
-            url: '/ajax/user_going/',
-            data: {"event_id": button.id},
-            success: function() {
-                button.className="btn btn-danger event-action";
-                button.innerHTML="Not Going";
-                $.ajax({ // update number going
-                    url: 'ajax/get_number_going/',
-                    data: {"event_id": button.id},
-                    success: function(data) {
-                        document.getElementById("number_going").innerHTML = "Number Attending: " + data.number_going;
-                    }
-                });
-            }
-        });
-    }
-});
-
-/* LISTENER: an event was deleted by its creator */
-$("#map").on('click', ".delete_event", function(event) {
-    // Display an alert message, and check if user wants to continue    
-    if (confirm("Do you want to delete this event?")) {
-        var event_id = event.target.id.slice(7);
-
-        // remove the marker from map and markers dict
-        markers[event_id].remove();
-        delete markers[event_id];
-
-        // make an ajax request to delete the event from DB
-        $.ajax({
-            url: '/ajax/delete_event/',
-            data: {"event_id": event_id},
-            success: function() {}
-        })
-    }
 });

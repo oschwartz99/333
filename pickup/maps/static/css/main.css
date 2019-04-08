@@ -1,61 +1,19 @@
+.link {
+    color: #c5c3c3;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #ffffff;
+}
+
 .underline {
     text-decoration: underline;
     cursor: pointer;
 }
 
-#add_event {
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    position: absolute;
-    bottom: 10%;
-    left: 30%;
-    padding:5px 10px;
-    margin: 0;
-    font-size: 11px;
-    line-height: 18px;
-    border-radius: 3px;
-    display: none;
-}
-
-body {
-    color: #404040;
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-h1 {
-    font-size: 22px;
-    margin: 0;
-    font-weight: 400;
-    line-height: 20px;
-    padding: 20px 2px;
-}
-
-h2 {
-    font-size: 22px;
-    font-weight: 500;
-    padding: 20px 2px;
-    margin-left: 35px;
-}
-
-a {
-    color: #404040;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #101010;
-}
-
 .sidebar {
+    background-color: rgb(13, 146, 255);
     position: absolute;
     bottom: 0;
     width: 25%;
@@ -80,7 +38,7 @@ a:hover {
 
 .bodycontent {
     position: absolute;
-    color: #404040;
+    color: white;
     font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
     left:15%;
     top: 1%;
@@ -96,49 +54,12 @@ a:hover {
 }
 
 .heading {
-    background: #fff;
+    background: black;
     border-bottom: 1px solid #eee;
     height: 120px;
     line-height: 50px;
     padding: 0 10px;
     text-align: center;
-}
-
-.listings {
-    height: 100%;
-    overflow: auto;
-    padding-bottom: 60px;
-}
-
-.listings .item {
-    display: block;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
-    text-decoration: none;
-    font-size: medium;
-}
-
-.listings .item:last-child {
-    border-bottom: none;
-}
-
-.listings .item .title {
-    display: block;
-    color: #00853e;
-    font-weight: 700;
-}
-
-.listings .item .title small {
-    font-weight: 400;
-}
-
-.listings .item.active .title,
-.listings .item .title:hover {
-    color: #8cc63f;
-}
-
-.listings .item.active {
-    background-color: #f8f8f8;
 }
 
 ::-webkit-scrollbar {
@@ -153,7 +74,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #00853e;
+    background: #db0000;
     border-radius: 0;
 }
 
