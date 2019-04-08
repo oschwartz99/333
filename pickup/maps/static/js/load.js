@@ -120,9 +120,9 @@ map.on('load', function () {
             el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
             
             // Set the HTML in the popup
-            html = "<div class='bg-secondary text-white'><h3>" + marker.properties.event_name + "</h3></div>"
-                   + "<p class='bg-secondary text-white'>" + marker.properties.event_descr + "</p>"
-                   + "<p class='bg-secondary text-white' id='number_going'>Number Attending: " + marker.properties.number_going + "</p>";
+            html = "<div><h3>" + marker.properties.event_name + "</h3></div>"
+                   + "<p>" + marker.properties.event_descr + "</p>"
+                   + "<p id='number_going'>Number Attending: " + marker.properties.number_going + "</p>";
            
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
