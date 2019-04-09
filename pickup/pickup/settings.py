@@ -127,10 +127,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'maps'
 LOGOUT_REDIRECT_URL = 'maps'
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 AUTH_USER_MODEL = 'users.CustomUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Email settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '333proj@gmail.com'
+EMAIL_HOST_PASSWORD = 'ax*0ZVInjq0E'
+EMAIL_PORT = 587
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

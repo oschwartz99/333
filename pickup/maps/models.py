@@ -8,9 +8,6 @@ from django.utils import timezone
 from .choices import *
 
 def validate_datetime(dt):
-    print("validator running")
-    print(type(dt))
-    print(dt)
     if dt < timezone.now():
         raise ValidationError(
             ('Date must be in the future! Please refresh the page.')

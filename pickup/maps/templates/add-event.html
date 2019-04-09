@@ -9,8 +9,11 @@
         <br>
 
         {%  if event_form %}
+            {% load bootstrap4 %}
+            {% bootstrap_css %}
+            {% bootstrap_javascript jquery='full' %}
             {{ event_form.media }}
-            
+
             <form id="event_form" method="post">
                 {% csrf_token %}
                 {{ event_form|crispy }}

@@ -4,7 +4,9 @@ from . import views
 from django.conf.urls import url
 
 urlpatterns = [
-    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('signup/', views.signup, name='signup'),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate, name='activate'),
     url('profile/', views.profile_page, name='profile_page'),
     url('ajax/validate_username/', views.validate_username, name='validate_username'),
     url('ajax/validate_email/', views.validate_email, name='validate_email'),
