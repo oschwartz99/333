@@ -13,7 +13,7 @@
 }
 
 .sidebar {
-    background-color: rgb(13, 146, 255);
+    background-color: rgb(105,155,196);
     position: absolute;
     bottom: 0;
     width: 25%;
@@ -38,7 +38,7 @@
 
 .bodycontent {
     position: absolute;
-    color: white;
+    color: black;
     font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
     left:15%;
     top: 1%;
@@ -51,6 +51,7 @@
     display: inline-block;
     text-align: center;
     font-size: 14px;
+    color: white;
 }
 
 .heading {
