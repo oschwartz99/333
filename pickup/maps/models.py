@@ -19,6 +19,7 @@ class Event(models.Model):
     event_descr = models.CharField(max_length=100, default='')
     event_name = models.CharField(max_length=50, default='')
     event_type = models.CharField(max_length=50, choices=EVENT_CHOICES)
+    public = models.BooleanField(choices=PUBLIC_CHOICES, blank=False, default=True)
     datetime = models.DateTimeField(blank=False, null=True, validators=[validate_datetime])
     duration = models.TimeField(blank=False, null=True)
     location = models.CharField(max_length=50, default='')

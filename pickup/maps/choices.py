@@ -7,5 +7,10 @@ EVENT_CHOICES = (
     ("Concert", "Concert"),
     ("Study", "Study"),
     ("Speech", "Speech"),
-    ("Meal", "Meal")
+    ("Meal", "Meal"),
+)
+
+PUBLIC_CHOICES = (
+    (True, 'Public - visible to everyone'),
+    (False, 'Private - visible to your friends'),
 )
