@@ -71,6 +71,7 @@ map.on('load', function () {
                             coordinates: [data.events[key].lng, data.events[key].lat],
                         };
                         event["properties"] = {
+                            "should_display": data.events[key].should_display,
                             "number_going": data.events[key].number_going,
                             "user_going": data.events[key].user_going,
                             "users_going": data.events[key].users_going,
@@ -82,8 +83,11 @@ map.on('load', function () {
                             "location": data.events[key].location,
                         };
                     }
-                    events.push(event);
-                    eventNumber++;
+                    // only display event if user should be able to see it
+                    if (data.events[key].should_display) {
+                        events.push(event);
+                        eventNumber++;
+                    }
                 }
             }
         });

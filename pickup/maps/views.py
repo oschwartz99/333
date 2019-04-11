@@ -5,6 +5,7 @@ from django.template.context_processors import csrf
 from django.middleware.csrf import get_token
 from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
+from friendship.models import Friend
 from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
@@ -75,20 +76,30 @@ def fetch_from_db(request):
         'events':{}
     }
     for event in all_events:
+        # Set a boolean value if the logged-in user is going to a given event
         users_going = []
-        # Set a boolean value if the logged-in user 
-        # is going to a given event
         going = False
         for user_going in event.users_going.all():
             if user_going.id == request.user.id:
                 going = True
             users_going.append(user_going.first_name + " " + user_going.last_name)
         number_going = event.users_going.count()
+
+        # See if the logged in user should be able to see the event
+        if event.public:
+            should_display = True
+        elif event.user == request.user:
+            should_display = True
+        elif Friend.objects.are_friends(request.user, event.user):
+            should_display = True
+        else:
+            should_display = False
         
         dict = {
             'number_going': number_going,
             'user_going': going,
             'users_going': users_going,
+            'should_display': should_display,
             'event_id':event.id,
             'created_by': event.user == request.user, # if user created given event
             'event_descr': event.event_descr,
