@@ -136,7 +136,7 @@ def add_friend(request):
                 # catch error for when friend request has already been sent
                 if (not Friend.objects.are_friends(request.user, new_friend)
                         and not Friend.objects.can_request_send(request.user, new_friend)):
-                    Friend.objects.add_friend(request.user,  new_friend, message='Hi! I would like to add you')
+                    Friend.objects.add_friend(request.user,  new_friend, new_friend_username)
             # create a blank form
             form = AddFriendForm()
             return render(request, 'friends/add_friend.html', {'form': form})
@@ -173,8 +173,34 @@ def accept_friend_request(request):
     return render(request, 'add_friend.html')
 
 
+def change_friends(request, operation, pk):
+    return render(request, 'add_friend.html')
+    other_user = CustomUser.objects.get(pk=pk)
+    FriendshipRequest.objects.filter(
+        from_user=request.user,
+        to_user=other_user
+    ).delete()
+    FriendshipRequest.objects.filter(
+        from_user=other_user,
+        to_user=request.user
+    ).delete()
+
+    Friend.objects.add_friend(request.user, other_user, "")
+
+    friend_request = FriendshipRequest.objects.get(to_user=pk)
+    friend_request.accept()
+
+
+
 def view_friend_requests(request):
-    return render(request, 'friends/view_friend_requests.html')
+
+    friend_requests = Friend.objects.unrejected_requests(user=request.user)
+
+    friend_requests_users = []
+    for friend_request in friend_requests:
+        friend_requests_users.append(friend_request)
+
+    return render(request, 'friends/view_friend_requests.html', {'friend_requests': friend_requests})
 
 
 def view_friends(request):

@@ -16,5 +16,6 @@ urlpatterns = [
     url('add_friend/', views.add_friend, name='add_friend'),
     url('view_friend_requests', views.view_friend_requests, name='view_friend_requests'),
     url('view_friends', views.view_friends, name='view_friends'),
-    url('remove_friend/', views.remove_friend, name='remove_friend')
+    url('remove_friend/', views.remove_friend, name='remove_friend'),
+    url(r'^change_friends/(?P<operation>\D+)/(?P<pk>\d+)/$', views.change_friends, name='change_friends')
 ]
