@@ -83,6 +83,7 @@ map.on('load', function () {
                             "location": data.events[key].location,
                         };
                     }
+                    
                     // only display event if user should be able to see it
                     if (data.events[key].should_display) {
                         events.push(event);
@@ -132,11 +133,11 @@ map.on('load', function () {
 
             html += "<div><p class='link whos_going' style='color:white;' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div></div>";
 
-            html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
-            // iterate over users_going and display on popup
-            for (var i = 0; i < marker.properties.users_going.length; i++)
-                html += "<p>" + marker.properties.users_going[i] + "</p>";
-            html += "</div>"
+            // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
+            // // iterate over users_going and display on popup
+            // for (var i = 0; i < marker.properties.users_going.length; i++)
+            //     html += "<p>" + marker.properties.users_going[i] + "</p>";
+            // html += "</div>"
 
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
