@@ -73,6 +73,7 @@ map.on('load', function () {
                         event["properties"] = {
                             "number_going": data.events[key].number_going,
                             "user_going": data.events[key].user_going,
+                            "users_going": data.events[key].users_going,
                             "event_id": data.events[key].event_id,
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
@@ -120,10 +121,19 @@ map.on('load', function () {
             el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
             
             // Set the HTML in the popup
-            html = "<div><h3>" + marker.properties.event_name + "</h3></div>"
+            html = "<div id='popup-" + marker.properties.event_id + "'><h3>" 
+                   + marker.properties.event_name + "</h3>"
                    + "<p>" + marker.properties.event_descr + "</p>"
                    + "<p id='number_going'>Number Attending: " + marker.properties.number_going + "</p>";
-           
+
+            html += "<div><p class='link whos_going' style='color:white;' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div></div>";
+
+            html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
+            // iterate over users_going and display on popup
+            for (var i = 0; i < marker.properties.users_going.length; i++)
+                html += "<p>" + marker.properties.users_going[i] + "</p>";
+            html += "</div>"
+
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
                 html += "<button class='btn btn-danger event-action'" + 

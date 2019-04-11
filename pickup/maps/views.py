@@ -74,17 +74,20 @@ def fetch_from_db(request):
         'events':{}
     }
     for event in all_events:
-        # Set a boolean value is the logged-in user 
+        users_going = []
+        # Set a boolean value if the logged-in user 
         # is going to a given event
         going = False
         for user_going in event.users_going.all():
             if user_going.id == request.user.id:
                 going = True
+            users_going.append(user_going.first_name + " " + user_going.last_name)
         number_going = event.users_going.count()
         
         dict = {
             'number_going': number_going,
             'user_going': going,
+            'users_going': users_going,
             'event_id':event.id,
             'created_by': event.user == request.user, # if user created given event
             'event_descr': event.event_descr,
