@@ -218,4 +218,6 @@ def view_friend_requests(request):
 
 
 def view_friends(request):
-    return render(request, 'friends/view_friends.html')
+    friends = Friend.objects.friends(request.user)
+
+    return render(request, 'friends/view_friends.html', {'friends': friends})

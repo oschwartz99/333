@@ -15,7 +15,9 @@
         <a href="{% url 'friends' %}"> Go to Friend Page </a> <br>
         <p> This is view friends page </p>
 
-        {% friends request.user %}
+        {% for friend in friends %}
+            {{ friend.username }} <br>
+        {% endfor %}
     </div>
     
 {% endblock sidebar-content %}
