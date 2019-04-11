@@ -168,13 +168,7 @@ def remove_friend(request):
     return render(request, 'friends/remove_friend.html', {'form': form})
 
 
-def accept_friend_request(request):
-
-    return render(request, 'add_friend.html')
-
-
-def change_friends(request, operation, pk):
-    return render(request, 'add_friend.html')
+def accept_friend(request, pk):
     other_user = CustomUser.objects.get(pk=pk)
     FriendshipRequest.objects.filter(
         from_user=request.user,
@@ -190,6 +184,26 @@ def change_friends(request, operation, pk):
     friend_request = FriendshipRequest.objects.get(to_user=pk)
     friend_request.accept()
 
+    return render(request, 'friends/view_friends.html')
+
+
+def decline_friend(request, pk):
+    other_user = CustomUser.objects.get(pk=pk)
+    FriendshipRequest.objects.filter(
+        from_user=request.user,
+        to_user=other_user
+    ).delete()
+    FriendshipRequest.objects.filter(
+        from_user=other_user,
+        to_user=request.user
+    ).delete()
+
+    Friend.objects.add_friend(request.user, other_user, "")
+
+    friend_request = FriendshipRequest.objects.get(to_user=pk)
+    friend_request.reject()
+
+    return render(request, 'friends/view_friends.html')
 
 
 def view_friend_requests(request):
