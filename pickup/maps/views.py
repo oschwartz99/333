@@ -10,14 +10,17 @@ from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
 
-def ajax_add_event(request):
-    event_form = CreateEvent()
-    event_form.fields['datetime'].widget = DateTimePickerInput()
-    rendered = render_to_string('add-event.html', {'event_form': event_form}, request=request)
-    data = {
-        'page': rendered,
-    }
-    return JsonResponse(data)
+def whos_going(request):
+    event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
+    if len(event_list) != 1: # error checking
+        return HttpResponse('something failed')
+    else: 
+        users_going = event_list[0].users_going.all()
+        rendered = render_to_string('whos-going.html', {'users_going': users_going})
+        data = {
+            'page': rendered,
+        }
+        return JsonResponse(data)
 
 def ajax_add_event(request):
     event_form = CreateEvent()

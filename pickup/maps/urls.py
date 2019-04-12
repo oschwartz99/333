@@ -11,5 +11,6 @@ urlpatterns = [
     url('ajax/delete_event/', views.delete_event, name='delete_event'),
     url('ajax/user_cancelled/', views.user_cancelled, name='user_cancelled'),
     url('ajax/get_number_going/', views.get_number_going, name='get_number_going'),
+    url('ajax/whos_going/', views.whos_going, name='whos_going'),
     url('', views.default_map, name="maps"),
 ]

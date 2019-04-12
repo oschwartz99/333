@@ -1,0 +1,15 @@
+{% block sidebar-content %}
+    <div id ="testing" class="bodycontent">
+        <p class="nav link home_sb_link">Home</a>
+        <br>
+        
+        <!-- All users going to an event -->
+        <div class="card">
+            <ul class="list-group list-group-flush">        
+            {% for user in users_going %}
+                <li class="list-group-item">{{ user.first_name }} {{ user.last_name }}</li>
+            {% endfor %}
+            </ul>
+        </div>  
+    </div>
+{% endblock sidebar-content %}
