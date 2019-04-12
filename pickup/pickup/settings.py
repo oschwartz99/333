@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'friendship',
     'bootstrap_datepicker_plus',
     'bootstrap4',
+    'emoji_picker',
 ]
 
 MIDDLEWARE = [
