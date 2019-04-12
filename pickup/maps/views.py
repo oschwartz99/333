@@ -9,6 +9,7 @@ from friendship.models import Friend
 from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
+from emoji_picker.widgets import EmojiPickerTextInput
 
 # Dynamically return events that match the search
 def event_search(request):
