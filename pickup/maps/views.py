@@ -10,6 +10,23 @@ from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
 
+# Dynamically return events that match the search
+def event_search(request):
+    if request.method == 'POST':
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+    events = Event.objects.filter(event_name__contains=search_text)
+
+# Load search bar in sidebar for searching for events
+def load_event_search(request):
+    rendered = render_to_string('event-search.html')
+    data = {
+        'page': rendered
+    }
+    return JsonResponse(data)
+
+# Dynamically update sidebar with all users going
 def whos_going(request):
     event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
     if len(event_list) != 1: # error checking

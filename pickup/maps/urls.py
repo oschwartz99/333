@@ -12,5 +12,7 @@ urlpatterns = [
     url('ajax/user_cancelled/', views.user_cancelled, name='user_cancelled'),
     url('ajax/get_number_going/', views.get_number_going, name='get_number_going'),
     url('ajax/whos_going/', views.whos_going, name='whos_going'),
+    url('ajax/load_event_search/', views.load_event_search, name='load_event_search'),
+    url('ajax/event_search/', views.event_search, name='event_search'),
     url('', views.default_map, name="maps"),
 ]
