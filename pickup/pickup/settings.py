@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'friendship',
     'bootstrap_datepicker_plus',
     'bootstrap4',
-    'haystack'
+    'haystack',
+    'emoji_picker',
 ]
 
 HAYSTACK_CONNECTIONS = {

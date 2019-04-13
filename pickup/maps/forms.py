@@ -1,6 +1,7 @@
 from django import forms
 from .choices import *
 from bootstrap_datepicker_plus import DatePickerInput
+from emoji_picker.widgets import EmojiPickerTextInput, EmojiPickerTextarea
 from .models import *
 
 class CreateEvent(forms.Form):

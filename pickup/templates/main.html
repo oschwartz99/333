@@ -27,6 +27,7 @@
                     <li><a href="{% url 'friends' %}" class="nav link">Friends</a></li>
                     <li><p id="profile_sb_link" class="nav link">View Profile</p></li>
                     <li><p id="add_event_link" class="nav link">Add an event</p></li>
+                    <li><p id="search_events" class="nav link">Search for events</p></li>
                 </ul>
             </div>
                 
@@ -82,6 +83,7 @@
         <script src="{% static 'js/rsvp-or-cancel.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/delete-event.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/whos_going.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/load-event-search.js' %}" type="text/javascript"></script>
     {% endif %}
 {% endblock js %}
 

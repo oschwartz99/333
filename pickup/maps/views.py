@@ -9,15 +9,36 @@ from friendship.models import Friend
 from bootstrap_datepicker_plus import DateTimePickerInput
 from .forms import CreateEvent
 from .models import Event
+from emoji_picker.widgets import EmojiPickerTextInput
 
-def ajax_add_event(request):
-    event_form = CreateEvent()
-    event_form.fields['datetime'].widget = DateTimePickerInput()
-    rendered = render_to_string('add-event.html', {'event_form': event_form}, request=request)
+# Dynamically return events that match the search
+def event_search(request):
+    if request.method == 'POST':
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+    events = Event.objects.filter(event_name__contains=search_text)
+
+# Load search bar in sidebar for searching for events
+def load_event_search(request):
+    rendered = render_to_string('event-search.html')
     data = {
-        'page': rendered,
+        'page': rendered
     }
     return JsonResponse(data)
+
+# Dynamically update sidebar with all users going
+def whos_going(request):
+    event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
+    if len(event_list) != 1: # error checking
+        return HttpResponse('something failed')
+    else: 
+        users_going = event_list[0].users_going.all()
+        rendered = render_to_string('whos-going.html', {'users_going': users_going})
+        data = {
+            'page': rendered,
+        }
+        return JsonResponse(data)
 
 def ajax_add_event(request):
     event_form = CreateEvent()

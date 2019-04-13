@@ -74,7 +74,6 @@ map.on('load', function () {
                             "should_display": data.events[key].should_display,
                             "number_going": data.events[key].number_going,
                             "user_going": data.events[key].user_going,
-                            "users_going": data.events[key].users_going,
                             "event_id": data.events[key].event_id,
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
