@@ -44,7 +44,15 @@ INSTALLED_APPS = [
     'friendship',
     'bootstrap_datepicker_plus',
     'bootstrap4',
+    'haystack'
 ]
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

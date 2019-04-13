@@ -1,5 +1,5 @@
 # users/urls.py
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf.urls import url
 
@@ -18,5 +18,6 @@ urlpatterns = [
     url('view_friends', views.view_friends, name='view_friends'),
     url('remove_friend/', views.remove_friend, name='remove_friend'),
     url(r'accept_friend/(?P<pk>\d+)/', views.accept_friend, name='accept_friend'),
-    url(r'decline_friend/(?P<pk>\d+)/', views.decline_friend, name='decline_friend')
+    url(r'decline_friend/(?P<pk>\d+)/', views.decline_friend, name='decline_friend'),
+    url(r'search/', include('haystack.urls')),
 ]
