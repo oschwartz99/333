@@ -17,11 +17,16 @@ def event_search(request):
         search_text = request.POST['search_text']
     else:
         search_text = ''
-    events = Event.objects.filter(event_name__contains=search_text)
+    events = Event.objects.filter(event_name__contains=search_text) | \
+             Event.objects.filter(event_descr__contains=search_text) | \
+             Event.objects.filter(location__contains=search_text)
+    return render_to_response('ajax-search.html', {'events': events})
 
 # Load search bar in sidebar for searching for events
 def load_event_search(request):
-    rendered = render_to_string('event-search.html')
+    args = {}
+    args.update(csrf(request))
+    rendered = render_to_string('event-search.html', args)
     data = {
         'page': rendered
     }
