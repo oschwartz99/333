@@ -8,7 +8,6 @@ $("#sidebar").on("click", "#search_events", function(event) {
 });
 
 $("#sidebar").on("keyup", "#event-search", function() {
-	console.log("input!");
 	$.ajax({
 		type: "POST",
 		url: "/ajax/event_search/",

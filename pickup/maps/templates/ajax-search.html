@@ -1,9 +1,13 @@
 {% if events.count > 0 %}
+	<ul class="list-group">
+
 	{% for event in events %}
-	<div class='container'>
-		<p class='text-light'>{{ event.event_name }}</p>			
-	</div>
+	<li class="list-group-item">
+		{{ event.event_name }}
+	</li>			
 	{% endfor %}
+	</ul>
+
 {% else %}
 	<p>No results</p>
 {% endif %}
