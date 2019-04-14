@@ -18,19 +18,22 @@
                         <h2>Pickup</h2>
                     </div>
                 </div>
-            </div>    
-            <div class="container">
-                <ul style="list-style-type: none; font-size: medium">
-                    <li><p class="nav link home_sb_link">Home</a></li>
-                    <li><a href="{% url 'logout' %}" class="nav link">Logout</a></li>
-                    <li><a href="{% url 'password_reset' %}" class="nav link">Reset Password</a></li>
-                    <li><a href="{% url 'friends' %}" class="nav link">Friends</a></li>
-                    <li><p id="profile_sb_link" class="nav link">View Profile</p></li>
-                    <li><p id="add_event_link" class="nav link">Add an event</p></li>
-                    <li><p id="search_events" class="nav link">Search for events</p></li>
-                </ul>
             </div>
-                
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="list-group" id="list-tab" role="tablist">
+                             <p class="list-group-item active border link home_sb_link list-group-item-action" data-toggle="list" role="tab">Home</p>
+                            <a href="{% url 'logout' %}" class="border list-group-item link active" role="tab">Logout</a>
+                            <a href="{% url 'password_reset' %}" class="list-group-item link active border" data-toggle="list" role="tab">Reset Password</a>
+                            <a href="{% url 'friends' %}" class="list-group-item link list-group-item-action active border" data-toggle="list" role="tab">Friends</a>
+                            <p id="profile_sb_link" class="list-group-item link home_sb_link list-group-item-action active border" data-toggle="list" role="tab">View Profile</p>
+                            <p id="add_event_link" class="list-group-item link home_sb_link list-group-item-action active border" data-toggle="list" role="tab">Add an event</p>
+                            <p id="search_events" class="list-group-item link home_sb_link list-group-item-action active border" data-toggle="list" role="tab">Search for events</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             {% endblock sidebar-content %}
         </div>

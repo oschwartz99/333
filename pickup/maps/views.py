@@ -17,7 +17,10 @@ def event_search(request):
         search_text = request.POST['search_text']
     else:
         search_text = ''
-    events = Event.objects.filter(event_name__contains=search_text) | \
+    
+    if (search_text == ''):
+        events = None
+    else: events = Event.objects.filter(event_name__contains=search_text) | \
              Event.objects.filter(event_descr__contains=search_text) | \
              Event.objects.filter(location__contains=search_text)
     return render_to_response('ajax-search.html', {'events': events})
