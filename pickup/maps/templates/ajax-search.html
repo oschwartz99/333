@@ -1,13 +1,21 @@
+<div class="container">
+<div class="row">
+<div class="col-12">		
+<div class="list-group">
 {% if events.count > 0 %}
-	<ul class="list-group">
 
 	{% for event in events %}
-	<li class="list-group-item">
-		{{ event.event_name }}
-	</li>			
+	<div class="list-group-item border">
+		<p>{{ event.event_name }}</p>
+		<p>{{ event.event_descr }}</p>
+		<p>{{ event.location }}</p>
+	</div>
 	{% endfor %}
-	</ul>
 
 {% else %}
-	<p>No results</p>
+	<li class="list-group-item text-danger">No results</li>
 {% endif %}
+</div>
+</div>
+</div>
+</div>
