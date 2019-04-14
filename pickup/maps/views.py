@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.template.context_processors import csrf
 from django.middleware.csrf import get_token
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
 from friendship.models import Friend
 from bootstrap_datepicker_plus import DateTimePickerInput
@@ -91,7 +91,7 @@ def default_map(request):
             new_event.users_going.add(user)
 
             # Send user to home page
-            return render(request, 'main.html', {'csrf_token': csrf_token})
+            return HttpResponseRedirect('/')
     elif request.method == 'GET':
         return render(request, 'main.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 

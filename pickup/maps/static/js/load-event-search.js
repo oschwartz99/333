@@ -20,6 +20,10 @@ $("#sidebar").on("keyup", "#event-search", function() {
 	});
 });
 
+$("#sidebar").on("empty", "#event-search", function() {
+	alert("empty!");
+})
+
 function searchSuccess(data, textStatus, jqXHR) {
 	$("#event-search-results").html(data);
 }
