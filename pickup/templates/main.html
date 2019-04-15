@@ -23,14 +23,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="list-group" id="list-tab" role="tablist">
-                            <p class="list-group-item active border link home_sb_link list-group-item-action" data-toggle="list" role="tab">Home</p>
-                            <a href="{% url 'logout' %}" class="border list-group-item link active" role="tab">Logout</a>
-                            <a href="{% url 'password_reset' %}" class="border list-group-item link active" role="tab">Reset Password</a>
-                            <a href="{% url 'friends' %}" class="list-group-item link list-group-item-action active border" role="tab">Friends</a>
-                            <p id="profile_sb_link" class="list-group-item link home_sb_link list-group-item-action active border" role="tab">View Profile</p>
-                            <p id="add_event_link" class="list-group-item link home_sb_link list-group-item-action active border" role="tab">Add an event</p>
-                            <p id="search_events" class="list-group-item link home_sb_link list-group-item-action active border" role="tab">Search for events</p>
+                        <div class="list-group list-group-flush">
+                            <p class="list-group-item border home_sb_link btn btn-primary" role="tab">Home</p>
+                            <a href="{% url 'logout' %}" class="border list-group-item btn btn-primary" role="tab">Logout</a>
+                            <a href="{% url 'password_reset' %}" class="border list-group-item btn btn-primary" role="tab">Reset Password</a>
+                            <a href="{% url 'friends' %}" class="list-group-item btn btn-primary border" role="tab">Friends</a>
+                            <p id="profile_sb_link" class="list-group-item btn btn-primary border" role="tab">View Profile</p>
+                            <p id="add_event_link" class="list-group-item btn btn-primary border" role="tab">Add an event</p>
+                            <p id="search_events" class="list-group-item btn btn-primary border" role="tab">Search for events</p>
                         </div>
                     </div>
                 </div>

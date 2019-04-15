@@ -1,3 +1,16 @@
+.btn {
+    white-space: normal; 
+}
+
+.btn-primary {
+    background-color: #0000cc;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #3399ff;
+}
+
 .link {
     text-decoration: none;
 }
