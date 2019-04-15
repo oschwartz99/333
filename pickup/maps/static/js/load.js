@@ -103,9 +103,11 @@ map.on('load', function () {
         annotated markers). */
     displayEvents(function() {
         imageURLs = {
-            "Party": "https://imageog.flaticon.com/icons/png/512/65/65667.png",
-            "Concert": "https://image.flaticon.com/icons/png/512/199/199361.png",
-            
+            "Party": "https://cdn4.iconfinder.com/data/icons/valentine-event-flat-circle/96/Drinks-512.png",
+            "Concert": "https://cdn3.iconfinder.com/data/icons/education-vol-1-20/512/16-512.png",
+            "Study": "https://image.flaticon.com/icons/png/512/562/562132.png",
+            "Speech": "https://www.pngrepo.com/download/228157/lecture-lectern.png",
+            "Meal": "https://cdn3.iconfinder.com/data/icons/ios-web-user-interface-flat-circle-shadow-vol-6/512/Food_fork_kitchen_knife_meanns_restaurant-512.png",
         }
 
         var geojson = {
