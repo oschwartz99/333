@@ -129,12 +129,12 @@ map.on('load', function () {
             el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
             
             // Set the HTML in the popup
-            html = "<div id='popup-" + marker.properties.event_id + "'><h3>" 
+            html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 class='list-group-item'>" 
                    + marker.properties.event_name + "</h3>"
-                   + "<p>" + marker.properties.event_descr + "</p>"
-                   + "<p id='number_going'>Number Attending: " + marker.properties.number_going + "</p>";
+                   + "<p class='list-group-item'>" + marker.properties.event_descr + "</p>"
+                   + "<p class='list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>";
 
-            html += "<div><p class='link whos_going' style='color:white;' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div></div>";
+            html += "<p style='color: #d622be;' class='link whos_going list-group-item' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div>";
 
             // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
             // // iterate over users_going and display on popup
