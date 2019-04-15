@@ -75,6 +75,13 @@ def ajax_profile_sb(request):
     }
     return JsonResponse(data)
 
+def ajax_friends_sb(request):
+    rendered = render_to_string('friends/friends_sb.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
 def default_map(request):
     # An event was added
     if request.method == 'POST':
