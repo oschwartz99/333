@@ -42,7 +42,6 @@ def whos_going(request):
         return HttpResponse('something failed')
     else: 
         users_going = event_list[0].users_going.all()
-        print(event_list[0].users_going.all())
         rendered = render_to_string('whos-going.html', {'users_going': users_going})
         data = {
             'page': rendered,
