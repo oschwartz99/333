@@ -1,4 +1,3 @@
-import datetime
 from haystack import indexes
 from .models import CustomUser
 
@@ -12,4 +11,3 @@ class UserIndex(indexes.SearchIndex, indexes.Indexable):
 
 	def get_model(self):
 		return CustomUser
-

@@ -1,6 +1,8 @@
 from django.conf.urls import url   
 from djgeojson.views import GeoJSONLayerView                                                                                                                           
 from . import views
+from django.urls import include
+
 
 urlpatterns = [ 
     url('ajax/add_event/', views.ajax_add_event, name='ajax_add_event'),   
@@ -14,5 +16,6 @@ urlpatterns = [
     url('ajax/whos_going/', views.whos_going, name='whos_going'),
     url('ajax/load_event_search/', views.load_event_search, name='load_event_search'),
     url('ajax/event_search/', views.event_search, name='event_search'),
+    url(r'search/', include('haystack.urls')),
     url('', views.default_map, name="maps"),
 ]
