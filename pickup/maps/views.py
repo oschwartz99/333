@@ -7,6 +7,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
 from friendship.models import Friend
 from bootstrap_datepicker_plus import DateTimePickerInput
+from users.forms import CustomUserChangeForm
 from .forms import CreateEvent
 from .models import Event
 from emoji_picker.widgets import EmojiPickerTextInput

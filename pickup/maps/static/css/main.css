@@ -99,7 +99,7 @@
 }
 
 .mapboxgl-popup {
-    max-width: 200px;
+    max-width: 100%;
 }
 
 .mapboxgl-popup-close-button {

@@ -129,12 +129,12 @@ map.on('load', function () {
             el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
             
             // Set the HTML in the popup
-            html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 class='list-group-item'>" 
+            html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>" 
                    + marker.properties.event_name + "</h3>"
-                   + "<p class='list-group-item'>" + marker.properties.event_descr + "</p>"
-                   + "<p class='list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>";
+                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>" + marker.properties.event_descr + "</p>"
+                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>";
 
-            html += "<p style='color: #d622be;' class='link whos_going list-group-item' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div>";
+            html += "<p class='btn btn-warning text-light active whos_going list-group-item' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div>";
 
             // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
             // // iterate over users_going and display on popup
