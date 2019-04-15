@@ -108,6 +108,8 @@ map.on('load', function () {
             "Study": "https://image.flaticon.com/icons/png/512/562/562132.png",
             "Speech": "https://www.pngrepo.com/download/228157/lecture-lectern.png",
             "Meal": "https://cdn3.iconfinder.com/data/icons/ios-web-user-interface-flat-circle-shadow-vol-6/512/Food_fork_kitchen_knife_meanns_restaurant-512.png",
+            "Movie": "http://icons.iconarchive.com/icons/graphicloads/100-flat/256/movie-icon.png",
+            "Sports": "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-04/128/circle-flat-general-545202225-512.png",
         }
 
         var geojson = {

@@ -8,6 +8,9 @@ EVENT_CHOICES = (
     ("Study", "Study"),
     ("Speech", "Speech"),
     ("Meal", "Meal"),
+    ("Movie", "Movie"),
+    ("Sports", "Sports"),
+    ("Picnic", "Picnic"),
 )
 
 PUBLIC_CHOICES = (
