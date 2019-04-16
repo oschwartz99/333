@@ -75,6 +75,13 @@ def ajax_edit_profile(request):
     rendered = render_to_string('profile/profile_edit.html', {'form': form, 'field': field}, request=request)
     return JsonResponse({'page': rendered})
 
+def ajax_friends_sb(request):
+    rendered = render_to_string('friends/friends_sb.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
 def default_map(request):
     # User changed their profile
     if request.method == 'POST':

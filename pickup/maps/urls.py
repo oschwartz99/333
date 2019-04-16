@@ -8,6 +8,7 @@ urlpatterns = [
     url('ajax/add_event/', views.ajax_add_event, name='ajax_add_event'),   
     url('ajax/profile_sb/', views.ajax_profile_sb, name='ajax_profile_sb'),
     url('ajax/edit_profile/', views.ajax_edit_profile, name='ajax_edit_profile'),
+    url('ajax/friends_sb/', views.ajax_friends_sb, name='ajax_friends_sb'),
     url('ajax/home_sb/', views.ajax_home_sb, name='ajax_main_sb'),         
     url('ajax/fetch_from_db/', views.fetch_from_db, name='fetch_from_db'),    
     url('ajax/user_going/', views.user_going, name='user_going'),
