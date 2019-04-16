@@ -70,7 +70,7 @@
 {% block js %}
   <script>
     // Check if username is taken
-    $("#id_username").change(function () {
+    $("#id_username").keyup(function () {
       var username = $(this).val();
 
       $.ajax({
@@ -93,9 +93,8 @@
 
   <script>
     // Check if email is taken
-    $("#id_email").change(function () {
+    $("#id_email").keyup(function () {
       var email = $(this).val();
-
       $.ajax({
         url: '{% url "validate_email" %}',
         data: {

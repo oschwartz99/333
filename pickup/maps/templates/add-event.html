@@ -6,7 +6,7 @@
          <script src="{% static 'js/add-event.js' %}" type="text/javascript"></script>
 
     <div id ="testing" class="bodycontent" >
-        <p class="nav link home_sb_link">Home</a>
+        <p class="border home_sb_link btn btn-primary">Home</p>
         <br>
 
         {%  if event_form %}
@@ -19,8 +19,8 @@
                 {% csrf_token %}
                 {{ event_form|crispy }}
                 {{ event_form.media }}
-                <button type="submit" class='btn btn-success' id="add-event-submit">Add Event</button>
-                <button type="button" class='btn btn-danger home_sb_link'>Cancel</button>
+                <button type="submit" class='btn btn-success border' id="add-event-submit" style="margin-bottom: 10px;">Add Event</button>
+                <button type="button" class='btn btn-danger border home_sb_link'>Cancel</button>
             </form>
         {% endif %}
 

@@ -1,3 +1,12 @@
+#hint_id_username {
+    font-weight: bold;
+    font-color: black;
+}
+
+small {
+    color: red;
+}
+
 .btn {
     white-space: normal; 
 }

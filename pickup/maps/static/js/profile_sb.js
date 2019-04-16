@@ -11,7 +11,7 @@ $("#sidebar").on('click', "#profile_sb_link", function() {
 });
 
 $("#sidebar").on('click', ".edit-profile-link", function(event) {
-    $(document).ready(function() {
+    if (event.target.id.length > 0) {
         if (event.target.id != 'profile-email') {
             $.ajax({
                 data: {"field": event.target.id},
@@ -19,12 +19,12 @@ $("#sidebar").on('click', ".edit-profile-link", function(event) {
                 success: function(data) {
                     // replace content in page with event form
                     var sidebar = document.getElementById("sidebar");
-                    sidebar.innerHTML = data["page"]
-                }
+                    sidebar.innerHTML = data["page"];
+                },
             }); 
         }
         else alert("We're sorry: you can't change your email just yet!");
-    })
+    }
 });
 
 

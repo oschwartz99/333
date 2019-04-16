@@ -87,18 +87,16 @@ def default_map(request):
     if request.method == 'POST':
         if ("username" in request.POST) or ("first_name" in request.POST) or ("last_name" in request.POST):
             if "username" in request.POST:
-                form = UsernameChangeForm(request.POST)
+                form = UsernameChangeForm(request.POST, instance=request.user)
                 if form.is_valid():
                     request.user.username = form.cleaned_data['username']
                     request.user.save()
-                    print("saved!")
             elif ("last_name" in request.POST) and ("first_name" in request.POST):
                 form = NameChangeForm(request.POST)
                 if form.is_valid():
                     request.user.first_name = form.cleaned_data['first_name']
                     request.user.last_name = form.cleaned_data['last_name']
                     request.user.save()
-                    print('saved!')
             return HttpResponseRedirect('/')            
         
         # User created an event
