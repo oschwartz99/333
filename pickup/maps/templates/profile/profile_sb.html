@@ -4,18 +4,25 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <!-- Profile Information -->
-    <div id='profile' class="bodycontent" >
-        <div class="text-center" style="margin-top: 10%">
-
-        <h1>My Profile</h1><br>
-        <p><b>Username:</b> {{ user.username }}</p>
-        <p><b>First Name:</b> {{ user.first_name }}</p>
-        <p><b>Last Name:</b> {{ user.last_name }}</p>
-        <p><b>Email:</b> {{ user.email  }}</p>
-
-        <br>
-        <p class="nav link home_sb_link">Home</p>
-        <p class="link" id="profile_edit_link">Edit Profile</p>
+        <div class='container'>
+            <div class="row">
+                <div class="col text-center text-light">
+                    <h3 style="font-family: courier;">My Profile</h3>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="list-group list-group-flush">
+                        <p class="list-group-item border home_sb_link btn btn-warning" role="tab"><b>Home</b></p>
+                        <p class="edit-profile-link list-group-item border btn btn-warning" id="profile-username" role="tab"><b>Username:</b> {{ user.username }}</p>
+                        <p class="edit-profile-link list-group-item border btn btn-warning" role="tab" id="profile-first_name"><b>First Name:</b> {{ user.first_name }}</p>
+                        <p class="edit-profile-link list-group-item border btn btn-warning" role="tab" id="profile-last_name"><b>Last Name:</b> {{ user.last_name }}</p>
+                        <p class="edit-profile-link list-group-item border btn btn-warning" role="tab" id="profile-email"><b>Email:</b> {{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock sidebar-content %}

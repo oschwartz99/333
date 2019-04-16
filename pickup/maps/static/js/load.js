@@ -134,7 +134,7 @@ map.on('load', function () {
                    + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>" + marker.properties.event_descr + "</p>"
                    + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>";
 
-            html += "<p class='btn btn-warning text-light active whos_going list-group-item' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div>";
+            html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + event.properties.event_id + "'>See who's going</p></div>";
 
             // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
             // // iterate over users_going and display on popup
@@ -144,8 +144,8 @@ map.on('load', function () {
 
             // "Going" or "Cancel" button, depending on if user is attending
             if (marker.properties.user_going) 
-                html += "<button class='btn btn-danger event-action'" + 
-                        "id='" + marker.properties.event_id + "'" + ">Not Going</button>";
+                html += "<div class='container'><button class='btn btn-danger event-action'" + 
+                        "id='" + marker.properties.event_id + "'" + ">Not Going</button></div>";
             else 
                 html += "<button class='btn btn-success event-action'" + 
                         "id='" + marker.properties.event_id + "'" + ">Going</button>";

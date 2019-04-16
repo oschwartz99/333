@@ -13,13 +13,22 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
-
     class Meta:
         model = CustomUser
-        fields = ('email',
-                  'first_name',
+        fields = ('first_name',
                   'last_name',
-                  'password')
+                  'username')
+
+class UsernameChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = ('username',)
+
+class NameChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = ('first_name',
+                  'last_name',)
 
 
 class AddFriendForm(forms.Form):

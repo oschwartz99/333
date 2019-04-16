@@ -7,7 +7,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
 from friendship.models import Friend
 from bootstrap_datepicker_plus import DateTimePickerInput
-from users.forms import CustomUserChangeForm
+from users.forms import CustomUserChangeForm, UsernameChangeForm, NameChangeForm
 from .forms import CreateEvent
 from .models import Event
 from emoji_picker.widgets import EmojiPickerTextInput
@@ -67,35 +67,55 @@ def ajax_home_sb(request):
 
 def ajax_profile_sb(request):
     rendered = render_to_string('profile/profile_sb.html', request=request)
-    if request.GET.get("which") == "edit":
-        form = CustomUserChangeForm(instance=request.user)
-        rendered = render_to_string('profile/profile_edit.html', {'form': form} ,request=request)
-    data = {
-        'page': rendered,
-    }
-    return JsonResponse(data)
+    return JsonResponse({'page': rendered})
+
+def ajax_edit_profile(request):
+    form = CustomUserChangeForm()
+    field = request.GET.get("field")[8:]
+    rendered = render_to_string('profile/profile_edit.html', {'form': form, 'field': field}, request=request)
+    return JsonResponse({'page': rendered})
 
 def default_map(request):
-    # An event was added
+    # User changed their profile
     if request.method == 'POST':
-        event_form = CreateEvent(request.POST)
-        if event_form.is_valid():
-            csrf_token   = get_token(request)
-            event_descr = event_form.cleaned_data['event_descr']
-            event_name   = event_form.cleaned_data['event_name']
-            event_type   = event_form.cleaned_data['event_type']
-            public       = event_form.cleaned_data['public']
-            datetime    = event_form.cleaned_data['datetime']
-            location     = event_form.cleaned_data['location']
-            lat          = event_form.cleaned_data['lat']
-            lng          = event_form.cleaned_data['lng']
-            user         = request.user
-            new_event = Event(event_name=event_name, event_type=event_type, public=public, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
-            new_event.save()
-            new_event.users_going.add(user)
+        if ("username" in request.POST) or ("first_name" in request.POST) or ("last_name" in request.POST):
+            if "username" in request.POST:
+                form = UsernameChangeForm(request.POST)
+                if form.is_valid():
+                    request.user.username = form.cleaned_data['username']
+                    request.user.save()
+                    print("saved!")
+            elif ("last_name" in request.POST) and ("first_name" in request.POST):
+                form = NameChangeForm(request.POST)
+                if form.is_valid():
+                    request.user.first_name = form.cleaned_data['first_name']
+                    request.user.last_name = form.cleaned_data['last_name']
+                    request.user.save()
+                    print('saved!')
+            return HttpResponseRedirect('/')            
+        
+        # User created an event
+        else:
+            event_form = CreateEvent(request.POST)
+            if event_form.is_valid():
+                csrf_token   = get_token(request)
+                event_descr = event_form.cleaned_data['event_descr']
+                event_name   = event_form.cleaned_data['event_name']
+                event_type   = event_form.cleaned_data['event_type']
+                public       = event_form.cleaned_data['public']
+                datetime    = event_form.cleaned_data['datetime']
+                location     = event_form.cleaned_data['location']
+                lat          = event_form.cleaned_data['lat']
+                lng          = event_form.cleaned_data['lng']
+                user         = request.user
+                new_event = Event(event_name=event_name, event_type=event_type, public=public, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
+                new_event.save()
+                new_event.users_going.add(user)
 
-            # Send user to home page
-            return HttpResponseRedirect('/')
+                # Send user to home page
+                return HttpResponseRedirect('/')
+    
+    # User requested the home page via GET
     elif request.method == 'GET':
         return render(request, 'main.html', {'mapbox_access_token': 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczdXRheWMifQ.3VeYeV_c-231Lab62H2XtQ'})
 
