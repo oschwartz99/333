@@ -1,6 +1,8 @@
 # users/views.py
 from django.urls import reverse_lazy
-from django.views import generic
+from haystack.inputs import AutoQuery, Exact, Clean
+from haystack.query import SearchQuerySet
+from haystack.forms import SearchForm
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
@@ -18,6 +20,7 @@ from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
+
 
 def signup(request):
     if request.method == 'POST':
@@ -44,6 +47,7 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -57,6 +61,7 @@ def activate(request, uidb64, token):
         return redirect('maps')
     else:
         return HttpResponse('Activation link is invalid!')
+
 
 def profile_page(request):
     args = {'user': request.user}
@@ -124,27 +129,21 @@ def username_present(username):
     return False
 
 
-def add_friend(request):
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = AddFriendForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            new_friend_username = form.cleaned_data['username']
-            # check whether requested user exists.
-            if username_present(new_friend_username):
-                new_friend = CustomUser.objects.get(username=new_friend_username)
-                # catch error for when friend request has already been sent
-                if (not Friend.objects.are_friends(request.user, new_friend)
-                        and not Friend.objects.can_request_send(request.user, new_friend)):
-                    Friend.objects.add_friend(request.user,  new_friend, new_friend_username)
-            # create a blank form
-            form = AddFriendForm()
-            return render(request, 'friends/add_friend.html', {'form': form})
-    else:
-        form = AddFriendForm()
+def add_friend(request, pk):
+    form = AddFriendForm()
 
-    return render(request, 'friends/add_friend.html', {'form': form})
+    new_friend = CustomUser.objects.get(pk=pk)
+
+    # check whether requested user exists.
+    if new_friend:
+        # catch error for when friend request has already been sent
+        if (not Friend.objects.are_friends(request.user, new_friend)
+                and not Friend.objects.can_request_send(request.user, new_friend)):
+            Friend.objects.add_friend(request.user, new_friend, message='')
+            # create a blank form
+            return redirect('/users/search_users/')
+
+    return redirect('/users/search_users/')
 
 
 def remove_friend(request):
@@ -222,3 +221,19 @@ def view_friends(request):
     friends = Friend.objects.friends(request.user)
 
     return render(request, 'friends/view_friends.html', {'friends': friends})
+
+
+def search_users(request):
+    if request.method == 'GET':
+        # create a form instance and populate it with data from the request:
+        form = AddFriendForm(request.GET)
+        # check whether it's valid:
+        if form.is_valid():
+            user_searched = form.cleaned_data['username']
+            users = SearchQuerySet().models(CustomUser).autocomplete(text=user_searched).exclude(username=request.user.username)
+            form = AddFriendForm()
+            return render(request, 'friends/add_friend.html', {'form': form, 'query': users})
+        else:
+            form = AddFriendForm()
+
+        return render(request, 'friends/add_friend.html', {'form': form})

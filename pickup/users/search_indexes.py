@@ -3,9 +3,8 @@ from .models import CustomUser
 
 
 class UserIndex(indexes.SearchIndex, indexes.Indexable):
-	text = indexes.CharField(document=True, use_template=True)
-	username = indexes.CharField(model_attr='username')
-	email = indexes.CharField(model_attr='email')
+	text = indexes.EdgeNgramField(document=True, use_template=True)
+	username = indexes.EdgeNgramField(model_attr="username")
 	first_name = indexes.CharField(model_attr="first_name")
 	last_name = indexes.CharField(model_attr="last_name")
 
