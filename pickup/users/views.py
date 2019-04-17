@@ -103,6 +103,7 @@ def profile_edit(request):
         return render(request, 'profile_edit.html', args)
 
 
+# Change password page
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
@@ -118,19 +119,28 @@ def change_password(request):
         return render(request, 'profile_password.html', args)
 
 
+# Page with friend features
 def friends_page(request):
-    args = {'user': request.user}
     return render(request, 'friends/friends_page.html')
 
 
+# Helper method to see if a user exists
 def username_present(username):
     if CustomUser.objects.filter(username=username).exists():
         return True
     return False
 
 
+# Helper method that returns list of friends going to an event.
+def friends_attending(user, event):
+    friends = list(Friend.objects.friends(user))
+    user_attending = event.users_going.all()
+
+    return list(set(friends) & set(user_attending))
+
+
+# Backend method to add a friend
 def add_friend(request, pk):
-    form = AddFriendForm()
 
     new_friend = CustomUser.objects.get(pk=pk)
 
@@ -146,6 +156,7 @@ def add_friend(request, pk):
     return redirect('/users/search_users/')
 
 
+# Remove a friend
 def remove_friend(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -168,6 +179,7 @@ def remove_friend(request):
     return render(request, 'friends/remove_friend.html', {'form': form})
 
 
+# accept a friend request
 def accept_friend(request, pk):
     other_user = CustomUser.objects.get(pk=pk)
     FriendshipRequest.objects.filter(
@@ -187,6 +199,7 @@ def accept_friend(request, pk):
     return render(request, 'friends/view_friends.html')
 
 
+# decline a friend request
 def decline_friend(request, pk):
     other_user = CustomUser.objects.get(pk=pk)
     FriendshipRequest.objects.filter(
@@ -206,6 +219,7 @@ def decline_friend(request, pk):
     return render(request, 'friends/view_friends.html')
 
 
+# View your friend requests
 def view_friend_requests(request):
 
     friend_requests = Friend.objects.unrejected_requests(user=request.user)
@@ -217,12 +231,14 @@ def view_friend_requests(request):
     return render(request, 'friends/view_friend_requests.html', {'friend_requests': friend_requests})
 
 
+# View your friends list
 def view_friends(request):
     friends = Friend.objects.friends(request.user)
 
     return render(request, 'friends/view_friends.html', {'friends': friends})
 
 
+# Page for searching for users
 def search_users(request):
     if request.method == 'GET':
         # create a form instance and populate it with data from the request:
