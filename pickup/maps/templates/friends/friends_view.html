@@ -1,0 +1,31 @@
+{% block sidebar-content %}
+    {% load crispy_forms_tags %}
+    {% load friendshiptags %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- Friends Information -->
+        <div class='container'>
+            <div class="row">
+                <div class="col text-center text-light">
+                    <h3 style="font-family: courier;">My Friends</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="list-group list-group-flush">
+                        <p class="list-group-item border home_sb_link btn btn-warning" role="tab"><b>Home</b></p>
+                        <p> These are all my friends:</p>
+                        {% for friend in friends %}
+                            {{ friend.username }} <br>
+                        {% endfor %}
+                        <p id="friends_sb_link" class="list-group-item btn btn-primary border" role="tab">Return</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock sidebar-content %}
