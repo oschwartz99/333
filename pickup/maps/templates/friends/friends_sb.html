@@ -5,17 +5,31 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <!-- Friends Information -->
-    <div id='friends' class="bodycontent" >
-        <div class="text-center" style="margin-top: 10%">
+        <div class='container'>
+            <div class="row">
+                <div class="col text-center text-light">
+                    <h3 style="font-family: courier;">My Friends</h3>
+                </div>
+            </div>
+        </div>
 
-        <p> This is the maps friends page </p>
-        <a href="{% url 'add_friend' %}" class="nav" > Add a friend</a> <br>
-        <a href="{% url 'view_friend_requests' %}" class="nav" > View friend requests</a> <br>
-        <a href="{% url 'view_friends' %}" class="nav" >  View friends</a> <br>
-        <a href="{% url 'remove_friend' %}" class="nav" > Remove friend</a>
-
-        <br>
-        <p class="nav link home_sb_link">Home</p>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="list-group list-group-flush">
+                        <p class="list-group-item border home_sb_link btn btn-warning" role="tab"><b>Home</b></p>
+                        <br>
+                        <a href="{% url 'add_friend' %}" class="nav" > Add a friend</a> <br>
+                        <a href="{% url 'view_friend_requests' %}" class="nav" > View friend requests</a> <br>
+                        <a href="{% url 'view_friends' %}" class="nav" >  View friends</a> <br>
+                        <a href="{% url 'remove_friend' %}" class="nav" > Remove friend</a>
+                        <p id="friends_view_link" class="list-group-item btn btn-primary border" role="tab">View Friends</p>
+                        <p id="friends_add_link" class="list-group-item btn btn-primary border" role="tab">Add Friends</p>
+                        <p id="friends_remove_link" class="list-group-item btn btn-primary border" role="tab">Remove Friends</p>
+                        <p id="friends_requests_link" class="list-group-item btn btn-primary border" role="tab">View Friend Requests</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 {% endblock sidebar-content %}
