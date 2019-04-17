@@ -82,6 +82,34 @@ def ajax_friends_sb(request):
     }
     return JsonResponse(data)
 
+def ajax_friends_view(request):
+    rendered = render_to_string('friends/friends_view.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
+def ajax_friends_add(request):
+    rendered = render_to_string('friends/friends_add.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
+def ajax_friends_remove(request):
+    rendered = render_to_string('friends/friends_remove.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
+def ajax_friends_requests(request):
+    rendered = render_to_string('friends/friends_requests.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
 def default_map(request):
     # User changed their profile
     if request.method == 'POST':
