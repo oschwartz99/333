@@ -1,5 +1,6 @@
 #!/bin/bash
 
+python3 manage.py rebuild_index
 rm db.sqlite3
 rm maps/migrations/00*
 rm users/migrations/00*
