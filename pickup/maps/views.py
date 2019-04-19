@@ -47,8 +47,7 @@ def whos_going(request):
     if len(event_list) != 1: # error checking
         return HttpResponse('something failed')
     else: 
-        users_going = event_list[0].users_going.all()
-        rendered = render_to_string('whos-going.html', {'users_going': users_going})
+        rendered = render_to_string('whos-going.html', {'users_going': event_list[0].users_going.all()})
         data = {
             'page': rendered,
         }
