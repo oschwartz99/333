@@ -21,9 +21,14 @@ def event_search(request):
     
     if (search_text == ''):
         events = None
-    else: events = Event.objects.filter(event_name__contains=search_text) | \
-             Event.objects.filter(event_descr__contains=search_text) | \
-             Event.objects.filter(location__contains=search_text)
+    else: 
+        events = list(Event.objects.filter(event_name__contains=search_text) | \
+            Event.objects.filter(event_descr__contains=search_text) | \
+            Event.objects.filter(location__contains=search_text))
+        for event in events:
+            if not event.public:
+                if not (request.user in event.users_going.all()):
+                    events.remove(event)
     return render_to_response('ajax-search.html', {'events': events})
 
 # Load search bar in sidebar for searching for events
