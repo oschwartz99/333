@@ -75,6 +75,9 @@ map.on('load', function () {
                             "number_going": data.events[key].number_going,
                             "user_going": data.events[key].user_going,
                             "event_id": data.events[key].event_id,
+                            "date": data.events[key].date,
+                            "start_time": data.events[key].start_time,
+                            "end_time": data.events[key].end_time,
                             "created_by": data.events[key].created_by,
                             "event_name": key.toString(),
                             "event_descr": data.events[key].event_descr,
@@ -132,7 +135,13 @@ map.on('load', function () {
             html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>" 
                    + marker.properties.event_name + "</h3>"
                    + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>" + marker.properties.event_descr + "</p>"
-                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>";
+                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>"
+                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Date: " + marker.properties.date + "</p>"
+                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>From: " + marker.properties.start_time + "</p>"
+                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>To: " + marker.properties.end_time + "</p>";
+
+
+
 
             html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p></div>";
 

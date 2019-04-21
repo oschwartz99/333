@@ -11,6 +11,7 @@ from users.forms import CustomUserChangeForm, UsernameChangeForm, NameChangeForm
 from .forms import CreateEvent
 from .models import Event
 from emoji_picker.widgets import EmojiPickerTextInput
+from datetime import *
 
 def testing(request):
     return render(request, 'testing.html')
@@ -185,6 +186,7 @@ def fetch_from_db(request):
             should_display = True
         else:
             should_display = False
+
         
         dict = {
             'number_going': number_going,
@@ -192,6 +194,9 @@ def fetch_from_db(request):
             'users_going': users_going,
             'should_display': should_display,
             'event_id':event.id,
+            'date': event.date,
+            'start_time': event.start_time,
+            'end_time': event.end_time,
             'created_by': event.user == request.user, # if user created given event
             'event_descr': event.event_descr,
             'event_type': event.event_type,
@@ -199,7 +204,9 @@ def fetch_from_db(request):
             'lng': event.lng,
             'lat': event.lat,
         }
-        data['events'][event.event_name] = dict
+
+        if (datetime.now().date() <= event.date):
+            data['events'][event.event_name] = dict
     return JsonResponse(data)
 
 # Update the given event to show the user is going
