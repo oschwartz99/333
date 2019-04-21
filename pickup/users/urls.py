@@ -2,6 +2,7 @@
 from django.urls import path, include
 from . import views
 from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('signup/', views.signup, name='signup'),
@@ -21,4 +22,5 @@ urlpatterns = [
     url(r'accept_friend/(?P<pk>\d+)/', views.accept_friend, name='accept_friend'),
     url(r'decline_friend/(?P<pk>\d+)/', views.decline_friend, name='decline_friend'),
     url(r'search/', include('haystack.urls')),
+
 ]

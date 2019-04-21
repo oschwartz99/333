@@ -32,15 +32,17 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'pickup333.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'maps',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    
     'crispy_forms',
-    'maps',
+    
     'friendship',
     'bootstrap_datepicker_plus',
     'bootstrap4',

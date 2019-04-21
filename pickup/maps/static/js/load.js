@@ -47,8 +47,13 @@ map.on('load', function () {
 
     /* Save lat and lng of current position (for geocode.js) */
     setTimeout(function() {
+        try {
         coors['lat'] = geolocate._lastKnownPosition.coords.latitude;
         coors['lng'] = geolocate._lastKnownPosition.coords.longitude;
+        }
+        catch {
+            console.log("waiting for geolocation to be tracked...")
+        }
     }, 1000);
 
     /* Create a call back function. First, it queries the database with an 
