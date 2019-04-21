@@ -12,6 +12,9 @@ from .forms import CreateEvent
 from .models import Event
 from emoji_picker.widgets import EmojiPickerTextInput
 
+def testing(request):
+    return render(request, 'testing.html')
+
 # Dynamically return events that match the search
 def event_search(request):
     if request.method == 'POST':

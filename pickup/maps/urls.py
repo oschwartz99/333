@@ -23,5 +23,6 @@ urlpatterns = [
     url('ajax/load_event_search/', views.load_event_search, name='load_event_search'),
     url('ajax/event_search/', views.event_search, name='event_search'),
     url(r'search/', include('haystack.urls')),
+    url("testing/", views.testing, name="testing"),
     url('', views.default_map, name="maps"),
 ]
