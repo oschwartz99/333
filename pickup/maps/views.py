@@ -22,9 +22,9 @@ def event_search(request):
     if (search_text == ''):
         events = None
     else: 
-        events = list(Event.objects.filter(event_name__contains=search_text) | \
+        events = Event.objects.filter(event_name__contains=search_text) | \
             Event.objects.filter(event_descr__contains=search_text) | \
-            Event.objects.filter(location__contains=search_text))
+            Event.objects.filter(location__contains=search_text)
         for event in events:
             if not event.public:
                 if not (request.user in event.users_going.all()):
@@ -55,7 +55,6 @@ def whos_going(request):
 
 def ajax_add_event(request):
     event_form = CreateEvent()
-    event_form.fields['datetime'].widget = DateTimePickerInput()
     rendered = render_to_string('add-event.html', {'event_form': event_form}, request=request)
     data = {
         'page': rendered,
@@ -136,11 +135,11 @@ def default_map(request):
             event_form = CreateEvent(request.POST)
             if event_form.is_valid():
                 csrf_token   = get_token(request)
-                event_descr = event_form.cleaned_data['event_descr']
+                event_descr  = event_form.cleaned_data['event_descr']
                 event_name   = event_form.cleaned_data['event_name']
                 event_type   = event_form.cleaned_data['event_type']
                 public       = event_form.cleaned_data['public']
-                datetime    = event_form.cleaned_data['datetime']
+                datetime     = event_form.cleaned_data['datetime']
                 location     = event_form.cleaned_data['location']
                 lat          = event_form.cleaned_data['lat']
                 lng          = event_form.cleaned_data['lng']

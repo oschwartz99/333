@@ -16,3 +16,9 @@ PUBLIC_CHOICES = (
     (True, 'Public - visible to everyone'),
     (False, 'Private - visible to your friends'),
 )
+
+TIME_CHOICES = (
+	('06:00:00', '6 am'),
+    ('07:00:00', '7 am'),
+    ('00:00:00', '8 am'), 
+)

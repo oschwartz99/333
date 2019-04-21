@@ -1,4 +1,5 @@
 $("#sidebar").on('click', "#add_event_link", function() {
+
     $.ajax({
         url: '/ajax/add_event/',
         success: function(data) {

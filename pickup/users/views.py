@@ -69,7 +69,6 @@ def profile_page(request):
 
 
 def validate_username(request):
-    print("validating!")
     username = request.GET.get('username', None)
     data = {
         'is_taken': CustomUser.objects.filter(username__iexact=username).exists()
