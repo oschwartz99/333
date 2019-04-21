@@ -13,6 +13,11 @@
                 {% csrf_token %}
                 {{ event_form|crispy }}
                 {{ event_form.media }}
+                                
+                <div>
+                    <p id="date-error-msg" style="text-align: center; font-weight: bold; font-size: 14px; color: black;"></p>
+                </div>
+
                 <button type="submit" class='btn btn-success border' id="add-event-submit" style="margin-bottom: 10px;">Add Event</button>
                 <button type="button" class='btn btn-danger border home_sb_link'>Cancel</button>
             </form>
@@ -28,6 +33,44 @@
                 <br>
             {% endfor %}
         {% endif %}
+
+        
     </div>
 
+    
+
+
+    <img src="{% static 'pixel.png' %}" onload='
+        function invalid() {
+            document.getElementById("add-event-submit").disabled = true;
+            document.getElementById("date-error-msg").innerText = "Starting time must be less than ending time.";
+        }
+        function valid() {
+            document.getElementById("add-event-submit").disabled = false;
+            document.getElementById("date-error-msg").innerText = "";
+        }
+
+        var start = parseInt($("#id_start_time").val().substring(0, 2));
+        var end   = parseInt($("#id_end_time").val().substring(0, 2));
+
+        if (start >= end) invalid();
+
+        $(document).on("change", "#id_start_time", function() {
+            start = parseInt($("#id_start_time").val().substring(0, 2));
+            end   = parseInt($("#id_end_time").val().substring(0, 2));
+
+            if (start >= end) invalid();
+            else valid();
+        });
+
+        $(document).on("change", "#id_end_time", function() {
+            start = parseInt($("#id_start_time").val().substring(0, 2));
+            end   = parseInt($("#id_end_time").val().substring(0, 2));
+
+            if (start >= end) invalid();
+            else valid();
+        });
+
+
+    '>
 {% endblock sidebar-content %}

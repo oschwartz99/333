@@ -36,8 +36,10 @@ $("#sidebar").on('click', "#add_event_link", function() {
                 }
             });
 
-            $("#id_datetime").datepicker();
-            $("#id_datetime").datepicker("show");
+            $("#id_date").datepicker({
+                minDate: 0,
+            });
+            $("#id_date").datepicker("show");
         }
     });
 });

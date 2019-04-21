@@ -142,12 +142,14 @@ def default_map(request):
                 event_name   = event_form.cleaned_data['event_name']
                 event_type   = event_form.cleaned_data['event_type']
                 public       = event_form.cleaned_data['public']
-                datetime     = event_form.cleaned_data['datetime']
+                date         = event_form.cleaned_data['date']
+                start_time   = event_form.cleaned_data['start_time']
+                end_time   = event_form.cleaned_data['end_time']
                 location     = event_form.cleaned_data['location']
                 lat          = event_form.cleaned_data['lat']
                 lng          = event_form.cleaned_data['lng']
                 user         = request.user
-                new_event = Event(event_name=event_name, event_type=event_type, public=public, datetime=datetime, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
+                new_event = Event(event_name=event_name, event_type=event_type, public=public, date=date, start_time=start_time, end_time=end_time, event_descr=event_descr, location=location, lat=lat, lng=lng, user=user)
                 new_event.save()
                 new_event.users_going.add(user)
 
