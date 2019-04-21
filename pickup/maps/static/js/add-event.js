@@ -35,6 +35,9 @@ $("#sidebar").on('click', "#add_event_link", function() {
                         marker.setLngLat([marker.getLngLat()['lng'], lat.value]);
                 }
             });
+
+            $("#id_datetime").datepicker();
+            $("#id_datetime").datepicker("show");
         }
     });
 });
