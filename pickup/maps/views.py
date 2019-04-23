@@ -11,6 +11,7 @@ from users.forms import CustomUserChangeForm, UsernameChangeForm, NameChangeForm
 from .forms import CreateEvent
 from .models import Event
 from emoji_picker.widgets import EmojiPickerTextInput
+from haystack.query import SearchQuerySet
 from datetime import *
 
 def testing(request):
@@ -40,14 +41,22 @@ def event_search(request):
     
     if (search_text == ''):
         events = None
-    else: 
-        events = Event.objects.filter(event_name__contains=search_text) | \
-            Event.objects.filter(event_descr__contains=search_text) | \
-            Event.objects.filter(location__contains=search_text)
-        for event in events:
+    else:
+        # broad search for only one query
+        event_search = SearchQuerySet().models(Event).autocomplete(text=search_text)
+        # search for all public events
+        # events_public = event_search.exclude(public=False)
+        # search for private events created by user
+        events_by_user = event_search.filter(created_by=request.user)
+
+        friends = Friend.objects.friends(request.user)
+
+        for event in event_search:
             if not event.public:
-                if not (request.user in event.users_going.all()):
-                    events.remove(event)
+                if not (event.created_by in friends):
+                    event_search.remove(event)
+
+    events = event_search | events_by_user
     return render_to_response('ajax-search.html', {'events': events})
 
 # Load search bar in sidebar for searching for events
