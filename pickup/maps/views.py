@@ -43,15 +43,12 @@ def event_search(request):
         events = None
     else:
         # broad search for only one query
-        event_search = SearchQuerySet().models(Event).autocomplete(text=search_text)
-        # search for all public events
-        # events_public = event_search.exclude(public=False)
-        # search for private events created by user
+        event_search_all = SearchQuerySet().models(Event).autocomplete(text=search_text)
+        # include events made by user
         events_by_user = event_search.filter(created_by=request.user)
-
         friends = Friend.objects.friends(request.user)
 
-        for event in event_search:
+        for event in event_search_all:
             if not event.public:
                 if not (event.created_by in friends):
                     event_search.remove(event)
