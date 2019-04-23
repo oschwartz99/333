@@ -71,3 +71,11 @@ OPENING THE APP:
 - You can run the app locally on a Unix system with ```heroku local web```
 - You can run the app locally on Windows with ```heroku local web -f Procfile.windows```
 - You can run the app on Heroku's web server with ```heroku open```
+
+RUNNING THE SEARCH ENGINE: 
+- We are using Haystack with Whoosh as the backend search engine. 
+- Whoosh uses its own database that allows more efficient search than database queries
+- You must build this database the first time before you ```run server``` to ensure the models are built. It automatically updates afterwards
+- Run ```pythony3 manage.py rebuild_index``` to build the search index
+- You can change which points of data are searchable with the search_indexes.py in each app (maps, users, etc.) Look at the other fields as examples.
+- You can search for items using the SearchQuerySet() api from haystack. Make sure you import the library. Use event search in maps/view.py as an example.
