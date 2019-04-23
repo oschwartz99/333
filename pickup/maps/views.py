@@ -16,6 +16,21 @@ from datetime import *
 def testing(request):
     return render(request, 'testing.html')
 
+def upcoming(request):
+    rendered = render_to_string('upcoming.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
+def upcoming_events(request):
+    events = Event.objects.all()
+    upcoming = []
+    for event in events:
+        if request.user in event.users_going.all():
+            upcoming.append(event)
+    return render_to_response('upcoming-events.html', {'upcoming': upcoming})
+
 # Dynamically return events that match the search
 def event_search(request):
     if request.method == 'POST':

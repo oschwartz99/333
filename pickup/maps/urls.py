@@ -5,6 +5,8 @@ from django.urls import include
 
 
 urlpatterns = [ 
+    url('ajax/upcoming/', views.upcoming, name='upcoming'),
+    url('ajax/upcoming_events/', views.upcoming_events, name='upcoming_events'),
     url('ajax/add_event/', views.ajax_add_event, name='ajax_add_event'),   
     url('ajax/profile_sb/', views.ajax_profile_sb, name='ajax_profile_sb'),
     url('ajax/edit_profile/', views.ajax_edit_profile, name='ajax_edit_profile'),
