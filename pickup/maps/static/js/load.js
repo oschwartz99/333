@@ -149,6 +149,7 @@ map.on('load', function () {
 
 
             html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p></div>";
+            html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going" + marker.properties.event_id + "'>See friends going</p></div>";
 
             // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
             // // iterate over users_going and display on popup

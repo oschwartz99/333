@@ -27,7 +27,7 @@ SECRET_KEY = 'qbjbp%603y(@f@#9r!x_y4w^s&r6#n!v#@7osjy!+ldk4uva*7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'pickup333.herokuapp.com', 'https://ancient-woodland-92314.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'pickup333.herokuapp.com']
 
 
 # Application definition
@@ -160,4 +160,3 @@ EMAIL_PORT = 587
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-

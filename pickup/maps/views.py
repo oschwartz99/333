@@ -69,10 +69,31 @@ def load_event_search(request):
 # Dynamically update sidebar with all users going
 def whos_going(request):
     event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
+
     if len(event_list) != 1: # error checking
         return HttpResponse('something failed')
     else: 
         rendered = render_to_string('whos-going.html', {'users_going': event_list[0].users_going.all()})
+        data = {
+            'page': rendered,
+        }
+        return JsonResponse(data)
+
+
+def friends_going(request):
+    event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
+    if len(event_list) != 1: # error checking
+        return HttpResponse('something failed')
+    else:
+        friends = Friend.objects.friends(request.user)
+        users_going = event_list[0].users_going.all()
+        friends_user_going = []
+
+        for user in users_going:
+            if user in friends:
+                friends_user_going.append(user)
+
+        rendered = render_to_string('friends-going.html', {'friends_going': friends_user_going})
         data = {
             'page': rendered,
         }
