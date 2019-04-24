@@ -16,6 +16,8 @@ pickup/maps/migrations/*
 pickup/users/__pycache*
 pickup/users/migrations/*
 pickup/maps/__pycache*
+pickup/whoosh_index/*
+pickup/pickup/whoosh_index/*
 
 # Compiled source #
 ###################
