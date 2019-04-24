@@ -45,15 +45,15 @@ def event_search(request):
         # broad search for only one query
         event_search_all = SearchQuerySet().models(Event).autocomplete(text=search_text)
         # include events made by user
-        events_by_user = event_search.filter(created_by=request.user)
+        events_by_user = event_search_all.filter(created_by=request.user)
         friends = Friend.objects.friends(request.user)
 
         for event in event_search_all:
             if not event.public:
                 if not (event.created_by in friends):
-                    event_search.remove(event)
+                    event_search_all.remove(event)
 
-    events = event_search | events_by_user
+    events = event_search_all | events_by_user
     return render_to_response('ajax-search.html', {'events': events})
 
 # Load search bar in sidebar for searching for events
