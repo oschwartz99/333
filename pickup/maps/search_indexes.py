@@ -10,7 +10,9 @@ class EventIndex(indexes.SearchIndex, indexes.Indexable):
 	created_by = indexes.CharField(model_attr='user')
 	event_type = indexes.CharField(model_attr='event_type')
 	public = indexes.BooleanField(model_attr='public')
-
+	lng = indexes.FloatField(model_attr='lng')
+	lat = indexes.FloatField(model_attr='lat')
+	id = indexes.CharField(model_attr='pk')
 
 	def get_model(self):
 		return Event
