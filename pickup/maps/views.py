@@ -42,18 +42,21 @@ def event_search(request):
     if (search_text == ''):
         events = None
     else:
-        # broad search for only one query
+        # return all queries that match the search
         event_search_all = SearchQuerySet().models(Event).autocomplete(text=search_text)
-        # include events made by user
-        events_by_user = event_search_all.filter(created_by=request.user)
         friends = Friend.objects.friends(request.user)
 
         for event in event_search_all:
-            if not event.public:
+            # check if event has already passed
+            if datetime.now() > event.date:
+                event_search_all.remove(event)
+            # do not show event if it private and not created by the user or their friends
+            if not event.public and event.created_by != request.user:
                 if not (event.created_by in friends):
                     event_search_all.remove(event)
 
-    events = event_search_all | events_by_user
+        events = event_search_all
+
     return render_to_response('ajax-search.html', {'events': events})
 
 # Load search bar in sidebar for searching for events
