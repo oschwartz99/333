@@ -13,6 +13,8 @@ from .models import Event
 from emoji_picker.widgets import EmojiPickerTextInput
 from haystack.query import SearchQuerySet
 from datetime import *
+from django.utils import timezone
+import pytz
 
 def testing(request):
     return render(request, 'testing.html')
@@ -49,12 +51,17 @@ def event_search(request):
 
         for event in event_search_all:
             # check if event has already passed
-            if datetime.now() > event.date:
-                event_search_all.remove(event)
+            if timezone.is_aware(event.date):
+                if timezone.now() > event.date:
+                    event_search_all.exclude(id=event.id)
+            else:
+                if datetime.now() > event.date:
+                    event_search_all.exclude(id=event.id)
+
             # do not show event if it private and not created by the user or their friends
             if not event.public and event.created_by != request.user:
                 if not (event.created_by in friends):
-                    event_search_all.remove(event)
+                    event_search_all.exclude(id=event.id)
 
         events = event_search_all
 
