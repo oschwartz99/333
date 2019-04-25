@@ -29,7 +29,8 @@ def upcoming_events(request):
     upcoming = []
     for event in events:
         if request.user in event.users_going.all():
-            upcoming.append(event)
+            if datetime.now().date() <= event.date:
+                upcoming.append(event)
     return render_to_response('upcoming-events.html', {'upcoming': upcoming})
 
 # Dynamically return events that match the search
