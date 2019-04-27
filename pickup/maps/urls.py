@@ -7,11 +7,12 @@ from django.urls import include
 urlpatterns = [ 
     url('ajax/upcoming/', views.upcoming, name='upcoming'),
     url('ajax/upcoming_events/', views.upcoming_events, name='upcoming_events'),
+    url('ajax/friends_view_site/', views.friends_view_site, name='friends_view_site'),
+    url('ajax/friends_view/', views.friends_view, name='friends_view'),
     url('ajax/add_event/', views.ajax_add_event, name='ajax_add_event'),   
     url('ajax/profile_sb/', views.ajax_profile_sb, name='ajax_profile_sb'),
     url('ajax/edit_profile/', views.ajax_edit_profile, name='ajax_edit_profile'),
     url('ajax/friends_sb/', views.ajax_friends_sb, name='ajax_friends_sb'),
-    url('ajax/friends_view/', views.ajax_friends_view, name='ajax_friends_view'),
     url('ajax/friends_add/', views.ajax_friends_add, name='ajax_friends_add'),
     url('ajax/friends_requests/', views.ajax_friends_requests, name='ajax_friends_requests'),
     url('ajax/friends_remove/', views.ajax_friends_remove, name='ajax_friends_remove'),

@@ -9,13 +9,21 @@ $("#sidebar").on('click', "#friends_sb_link", function() {
     });
 });
 
-$("#sidebar").on('click', "#friends_view_link", function() {
-    console.log("clicked view friends");
+$("#sidebar").on('click', "#friends_view_site", function() {
     $.ajax({
-        url: '/ajax/friends_view/',
+        data: {},
+        url: '/ajax/friends_view_site/',
         success: function(data) {
             var sidebar = document.getElementById("sidebar");
             sidebar.innerHTML = data["page"]
+
+            $.ajax({
+                data: {},
+                url: 'ajax/friends_view/',
+                success: function(data) {
+                    $("#friends_view").html(data)
+                }
+            })
         }
     });
 });
