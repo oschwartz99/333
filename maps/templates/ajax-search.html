@@ -1,0 +1,27 @@
+<div class="container">
+<div class="row">
+<div class="col-12">		
+<div class="list-group">
+{% if events.count > 0 %}
+
+	{% for event in events %}
+	<div class="list-group-item border">
+		<p>{{ event.event_name }}</p>
+		<p>{{ event.event_descr }}</p>
+		<p>{{ event.location }}</p>
+		<p class="link" id="see-{{ event.id }}">See on map</p>
+		<script type="text/javascript">
+			$("#see-{{ event.id }}").click(function() {
+				map.setCenter([{{ event.lng }}, {{ event.lat }} ]);
+			});
+		</script>
+	</div>
+	{% endfor %}
+
+{% else %}
+	<li class="list-group-item text-danger">No results</li>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
