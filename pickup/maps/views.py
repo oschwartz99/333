@@ -35,6 +35,17 @@ def upcoming_events(request):
                 upcoming.append(event)
     return render_to_response('upcoming-events.html', {'upcoming': upcoming})
 
+def friends_view_site(request):
+    rendered = render_to_string('friends/friends_view_site.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
+def friends_view(request):
+    friends = Friend.objects.friends(request.user)
+    return render_to_response('friends/friends_view.html', {'friends': friends})
+
 # Dynamically return events that match the search
 def event_search(request):
     if request.method == 'POST':
@@ -133,13 +144,6 @@ def ajax_edit_profile(request):
 
 def ajax_friends_sb(request):
     rendered = render_to_string('friends/friends_sb.html', request=request)
-    data = {
-        'page': rendered,
-    }
-    return JsonResponse(data)
-
-def ajax_friends_view(request):
-    rendered = render_to_string('friends/friends_view.html', request=request)
     data = {
         'page': rendered,
     }
