@@ -59,12 +59,13 @@ HOSTING ON HEROKU:
 
 
 DEPLOYING CODE TO HEROKU: 
-- Beware, as the following lines will delete any committed changes that have not yet been pushed. Uncommitted changes are okay.
-- Initialize another local git repository. ```cd pickup``` then ```git init``` 
-- If you have any changes, then add them with then ```git add .``` and commit with ```git commit -m "My first commit"```
+- Beware, as the following lines will delete any committed changes that have not yet been pushed. Uncommitted changes are okay.j
+- From the home directory holding the README.md file, ```cd pickup``` into the folder holding the manage.py and other files
+- Initialize another local git repository  ```git init``` 
+- If you have any changes, then add them with then ```git add``` and commit with ```git commit -m "My first commit"```
 - Add the remote to your local repository from Heroku with ```heroku git:remote -a pickup333```
-- If you wish to deploy code from your local repository's master branch to the heroku remote, run ```git push heroku-django master```
-- If you want to deploy from a non-master branch, then use ```git push heroku-django testbranch:master``` substituting testbranch
+- If you wish to deploy code from your local repository's master branch to the heroku remote, run ```git push heroku master```
+- After deploying the code and receiving the success signal, ensure there is a heroku dyno running with ```heroku ps:scale web=1```
 
 OPENING THE APP:
 - Run ```python manage.py collectstatic``` to prepare the app locally. 
