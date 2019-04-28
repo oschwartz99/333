@@ -1,31 +1,20 @@
-{% block sidebar-content %}
-    {% load crispy_forms_tags %}
-    {% load friendshiptags %}
-    {% load static %}
-        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="list-group">
+{% if friends|length > 0 %}
+    {% for friend in friends %}
+    <div class="list-group-item border">
+        <p>{{ friend.username }}</p>
+        <p>{{ friend.first_name }}</p>
+        <p>{{ friend.last_name }}</p>
+    </div>
+    {% endfor %}
 
-    <!-- Friends Information -->
-        <div class='container'>
-            <div class="row">
-                <div class="col text-center text-light">
-                    <h3 style="font-family: courier;">My Friends</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="list-group list-group-flush">
-                        <p class="list-group-item border home_sb_link btn btn-warning" role="tab"><b>Home</b></p>
-                        <p> These are all my friends:</p>
-                        {% for friend in friends %}
-                            {{ friend.username }} <br>
-                        {% endfor %}
-                        <p id="friends_sb_link" class="list-group-item btn btn-primary border" role="tab">Return</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-{% endblock sidebar-content %}
+{% else %}
+    <li class="list-group-item text-danger">You currently have no friends</li>
+{% endif %}
+</div>
+</div>
+</div>
+</div>

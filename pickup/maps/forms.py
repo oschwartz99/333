@@ -15,3 +15,11 @@ class CreateEvent(forms.Form):
     end_time     = forms.ChoiceField(choices=TIME_CHOICES, label="When will your event end?")
     lng          = forms.FloatField()
     lat          = forms.FloatField()
+
+
+class AddFriendForm(forms.Form):
+    username = forms.CharField(label="Username", max_length=50)
+
+
+class RemoveFriendForm(forms.Form):
+    username = forms.CharField(label="Username", max_length=50)
