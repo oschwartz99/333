@@ -1,0 +1,25 @@
+<!-- users/templates/profile_page.html -->
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+{% load friendshiptags %}
+
+{% block title %}Friends{% endblock title %}
+
+{% block sidebar-content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- Profile Information -->
+    <div id='friends' class="bodycontent">
+        <p> This is the friends page </p>
+        <a class="nav link home_sb_link">Home</a> <br>
+        <a href="{% url 'search_users' %}" class="nav" > Search for Friends</a> <br>
+        <a href="{% url 'view_friend_requests' %}" class="nav" > View friend requests</a> <br>
+        <a href="{% url 'view_friends' %}" class="nav" >  View friends</a> <br>
+        <a href="{% url 'remove_friend' %}" class="nav" > Remove friend</a>
+
+
+    </div>
+
+{% endblock sidebar-content %}

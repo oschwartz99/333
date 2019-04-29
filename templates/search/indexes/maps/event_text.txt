@@ -1,0 +1,4 @@
+{{ object.user }}
+{{ object.event_name}}
+{{ object.location}}
+{{ object.event_desc}}

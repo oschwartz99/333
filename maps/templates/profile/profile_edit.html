@@ -1,0 +1,59 @@
+{% block sidebar-content %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <div class='container'>
+        <div class="row">
+            <div class="col text-center text-light">
+                <h3 style="font-family: courier;">Edit Profile</h3>
+            </div>
+        </div>
+    </div>  
+
+    <p class="border home_sb_link btn btn-primary">Home</p>
+
+    <!-- Profile Information -->
+    <div class="container">
+        {% load crispy_forms_tags %}
+        <form method="post">
+            {% csrf_token %}
+            {% if field == "username" %}
+                {{ form.username|as_crispy_field }}
+                            {% elif field == "first_name" or field == "last_name" %}
+                {{ form.first_name|as_crispy_field }}
+                {{ form.last_name|as_crispy_field }}
+            {% endif %}
+            <button id="edit-profile-button" class="btn btn-success border" type="submit">Submit</button>
+            <p id="profile_sb_link" class="list-group-item btn btn-primary border" role="tab">Return</p>
+        </form>
+    </div>
+
+    <img src="{% static 'pixel.png' %}" onload='
+        $("#id_username").keyup(function () {
+            var username = $(this).val();
+            $.ajax({
+                url: "users/ajax/validate_username/",
+                data: {
+                "username": username
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.is_taken) {
+                        document.getElementById("hint_id_username").innerHTML = "Already taken!";
+                        document.getElementById("edit-profile-button").disabled = true;
+                    }
+                    else {
+                        document.getElementById("hint_id_username").innerHTML = "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.";
+                        document.getElementById("edit-profile-button").disabled = false;
+                    }
+                },
+                error: function() {
+                    console.log("something went wrong");
+                }
+            });
+        });    
+    '></img>
+    
+
+{% endblock sidebar-content %}

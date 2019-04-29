@@ -1,0 +1,133 @@
+{% block sidebar-content %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+    <div id ="testing" class="bodycontent" >
+        <p class="border home_sb_link btn btn-primary">Home</p>
+        <br>
+
+        {%  if event_form %}
+            <form id="event_form" method="post">
+                {% csrf_token %}
+                {{ event_form|crispy }}
+                {{ event_form.media }}
+                                
+                <div>
+                    <p id="date-error-msg" style="text-align: center; font-weight: bold; font-size: 14px; color: black;"></p>
+                </div>
+
+                <button type="submit" class='btn btn-success border' id="add-event-submit" style="margin-bottom: 10px;">Add Event</button>
+                <button type="button" class='btn btn-danger border home_sb_link'>Cancel</button>
+            </form>
+        {% endif %}
+
+        {% if all_events %}
+            <h1>Events:</h1>
+            {% for event in all_events%}
+                <h1> ({{forloop.counter}}) {{event.event_name}}</h1>
+                {% if event.user != '-1'%} <li> Created By: {{event.user}} </li> {% endif %}
+                {% if event.event_descr != '-1'%} <li> Description: {{event.event_descr}} </li> {% endif %}
+                {% if event.location != '-1'%} <li> Location: {{event.location}} </li> {% endif %}
+                <br>
+            {% endfor %}
+        {% endif %}
+
+        
+    </div>
+
+    
+
+    <!-- jQuery to check form date/time fields are valid -->
+    <img src="{% static 'pixel.png' %}" onload='
+        // maintain state
+        var valid_date = false;
+        var valid_time = false;
+
+
+        // disable button if start time is greater than end time        
+        function handleState(date, time) {
+            if (date && time) {
+                document.getElementById("add-event-submit").disabled = false;
+                document.getElementById("date-error-msg").innerText = "";
+            }
+            else if (date && !time) {
+                document.getElementById("add-event-submit").disabled = true;
+                document.getElementById("date-error-msg").innerText = "Starting time must be less than ending time.";
+            }
+            else if (!date && time) {
+                document.getElementById("add-event-submit").disabled = true;
+                document.getElementById("date-error-msg").innerText = "Date cannot be in the past, or of invalid format.";
+
+            }
+            else { // neither date nor time are valid
+                document.getElementById("add-event-submit").disabled = true;
+                document.getElementById("date-error-msg").innerText = "Starting time must be less than ending time. Date cannot be in the past, or of invalid format.";
+            }
+        }
+
+        var start = parseInt($("#id_start_time").val().substring(0, 2));
+        var end   = parseInt($("#id_end_time").val().substring(0, 2));
+
+        if (start >= end) {
+            valid_time = false;
+            handleState(valid_date, valid_time);
+        }
+
+        $(document).on("change", "#id_start_time", function() {
+            start = parseInt($("#id_start_time").val().substring(0, 2));
+            end   = parseInt($("#id_end_time").val().substring(0, 2));
+
+            if (start >= end) {
+                valid_time = false;
+                handleState(valid_date, valid_time);
+            }
+            else {
+                valid_time = true;
+                handleState(valid_date, valid_time);
+            }
+        });
+
+        $(document).on("change", "#id_end_time", function() {
+            start = parseInt($("#id_start_time").val().substring(0, 2));
+            end   = parseInt($("#id_end_time").val().substring(0, 2));
+
+            if (start >= end) {
+                valid_time = false;
+                handleState(valid_date, valid_time);
+            }
+            else {
+                valid_time = true;
+                handleState(valid_date, valid_time);
+            }
+        });
+
+        // disable button if date is in the past 
+        var date;
+        var today = new Date();
+        today.setHours(0,0,0,0);
+
+        // call handler on keyup and on change
+        function handler(event) {
+            date = new Date(event.target.value);
+            if (isNaN(date)) {
+                valid_date = false;
+                handleState(valid_date, valid_time);
+            }
+            else if (date < today) {
+                valid_date = false;
+                handleState(valid_date, valid_time);
+            }
+            else {
+                valid_date = true;
+                handleState(valid_date, valid_time);
+            }
+
+        }
+        $("#id_date").on("keyup", handler);
+        $("#id_date").on("change", handler);
+
+        
+    '>
+{% endblock sidebar-content %}

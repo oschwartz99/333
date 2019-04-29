@@ -1,0 +1,25 @@
+<!-- users/templates/profile_page.html -->
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Edit Profile Page{% endblock title %}
+
+{% block sidebar-content %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- Profile Information -->
+    <div id='profile' class='bodycontent'>
+        <a href="{% url 'maps' %}">Home</a>
+        <br>
+        <p> This is the Edit Profile Page</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+    </div>
+{% endblock sidebar-content %}

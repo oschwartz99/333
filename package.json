@@ -1,0 +1,20 @@
+{
+  "name": "django-app",
+  "version": "1.0.0",
+  "dependencies": {},
+  "description": "CURRENT PROGRESS: - Creating user login page/sign up page (see tutorial below)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oschwartz99/333.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oschwartz99/333/issues"
+  },
+  "homepage": "https://github.com/oschwartz99/333#readme"
+}
