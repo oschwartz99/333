@@ -30,6 +30,8 @@ const map = new mapboxgl.Map({
 
 /* Modify map with icons & other settings */
 map.on('load', function () {
+    console.log("map load triggered");
+
     // Add compass, zoom, and geolocate
     const geolocate = new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -120,68 +122,99 @@ map.on('load', function () {
             "Sports": "https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-04/128/circle-flat-general-545202225-512.png",
         }
 
+        console.log("displayEvents called");
+
         var geojson = {
             type: "FeatureCollection",
             features: [],
         };
+        
+
+        var numberPushed = 0;
         for (i = 0; i < eventNumber; i++) {
             geojson["features"].push(events[i]);
+            numberPushed++;
         }
 
-        // add markers to map
-        geojson.features.forEach(function(marker) {
-
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
-            el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
-            
-            // Set the HTML in the popup
-            html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>" 
-                   + marker.properties.event_name + "</h3>"
-                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>" + marker.properties.event_descr + "</p>"
-                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>"
-                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Date: " + marker.properties.date + "</p>"
-                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>From: " + marker.properties.start_time + "</p>"
-                   + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>To: " + marker.properties.end_time + "</p>";
-
-
-
-
-            html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p></div>";
-            html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going" + marker.properties.event_id + "'>See friends going</p></div>";
-
-            // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
-            // // iterate over users_going and display on popup
-            // for (var i = 0; i < marker.properties.users_going.length; i++)
-            //     html += "<p>" + marker.properties.users_going[i] + "</p>";
-            // html += "</div>"
-
-            // "Going" or "Cancel" button, depending on if user is attending
-            if (marker.properties.user_going) 
-                html += "<div class='container'><button class='btn btn-danger event-action'" + 
-                        "id='" + marker.properties.event_id + "'" + ">Not Going</button></div>";
-            else 
-                html += "<button class='btn btn-success event-action'" + 
-                        "id='" + marker.properties.event_id + "'" + ">Going</button>";
-            
-            // If logged-in user created the event, add a 'delete' button
-            if (marker.properties.created_by)
-                html += "<button style='margin-top:10px;'"
-                        + "class='btn btn-danger delete_event'"
-                        + "id='delete-" + marker.properties.event_id + "'>Delete Event</button>";
         
-            // make a marker for each feature and add to the map
-            var new_marker = new mapboxgl.Marker(el)
-                .setLngLat(marker.geometry.coordinates)
-                .setPopup(new mapboxgl.Popup()
-                    .setHTML(html)
-                )
-                .addTo(map);
 
-            // append marker to markers dict
-            markers[marker.properties.event_id] = new_marker;
-        });
+        var count = 0;
+        var maxTries = 10;
+        while (true) {
+            try {
+                console.log("trying...");
+                // add markers to map
+                if (numberPushed != eventNumber) {
+                    console.log("error!");
+                    throw "events haven't been pushed yet"
+                }
+                
+                else {
+                    geojson.features.forEach(function(marker) {
+                        console.log("in foreach function");
+
+                        // create a HTML element for each feature
+                        var el = document.createElement('div');
+                        el.className = 'marker';
+                        el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
+                        // el.style.backgroundImage = "url('../Party.png')"
+
+                        
+                        // Set the HTML in the popup
+                        html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>" 
+                               + marker.properties.event_name + "</h3>"
+                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>" + marker.properties.event_descr + "</p>"
+                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>"
+                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Date: " + marker.properties.date + "</p>"
+                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>From: " + marker.properties.start_time + "</p>"
+                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>To: " + marker.properties.end_time + "</p>";
+
+
+
+
+                        html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p></div>";
+                        html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going" + marker.properties.event_id + "'>See friends going</p></div>";
+
+                        // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
+                        // // iterate over users_going and display on popup
+                        // for (var i = 0; i < marker.properties.users_going.length; i++)
+                        //     html += "<p>" + marker.properties.users_going[i] + "</p>";
+                        // html += "</div>"
+
+                        // "Going" or "Cancel" button, depending on if user is attending
+                        if (marker.properties.user_going) 
+                            html += "<div class='container'><button class='btn btn-danger event-action'" + 
+                                    "id='" + marker.properties.event_id + "'" + ">Not Going</button></div>";
+                        else 
+                            html += "<button class='btn btn-success event-action'" + 
+                                    "id='" + marker.properties.event_id + "'" + ">Going</button>";
+                        
+                        // If logged-in user created the event, add a 'delete' button
+                        if (marker.properties.created_by)
+                            html += "<button style='margin-top:10px;'"
+                                    + "class='btn btn-danger delete_event'"
+                                    + "id='delete-" + marker.properties.event_id + "'>Delete Event</button>";
+                    
+                        // make a marker for each feature and add to the map
+                        var new_marker = new mapboxgl.Marker(el)
+                            .setLngLat(marker.geometry.coordinates)
+                            .setPopup(new mapboxgl.Popup()
+                                .setHTML(html)
+                            )
+                            .addTo(map);
+
+                        // append marker to markers dict
+                        markers[marker.properties.event_id] = new_marker;
+                    });
+                }    
+                console.log("breaking");
+                break;
+            } 
+            catch {
+                count++;
+                if (count == maxTries) throw "ran out of tries";
+            }
+        }
     });    
 });
 
