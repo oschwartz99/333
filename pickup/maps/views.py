@@ -90,7 +90,7 @@ def friends_search(request):
         search_text = ''
 
     if (search_text == ''):
-        events = None
+        friends = None
     else:
         friends = SearchQuerySet().models(Event).autocomplete(text=search_text)
     return render_to_response('friends/friends_add.html', {'friends': friends})
