@@ -88,6 +88,29 @@ def load_event_search(request):
     }
     return JsonResponse(data)
 
+
+def friends_search(request):
+    if request.method == 'POST':
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+
+    if (search_text == ''):
+        events = None
+    else:
+        friends = SearchQuerySet().models(Event).autocomplete(text=search_text)
+    return render_to_response('friends/friends_add.html', {'friends': friends})
+
+
+def load_friends_search(request):
+    args = {}
+    args.update(csrf(request))
+    rendered = render_to_string('friends/friends_add_site.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
 # Dynamically update sidebar with all users going
 def whos_going(request):
     event_list = list(Event.objects.filter(id=request.GET.get("event_id")))
@@ -148,13 +171,6 @@ def ajax_edit_profile(request):
 
 def ajax_friends_sb(request):
     rendered = render_to_string('friends/friends_sb.html', request=request)
-    data = {
-        'page': rendered,
-    }
-    return JsonResponse(data)
-
-def ajax_friends_add(request):
-    rendered = render_to_string('friends/friends_add.html', request=request)
     data = {
         'page': rendered,
     }

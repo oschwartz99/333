@@ -28,16 +28,36 @@ $("#sidebar").on('click', "#friends_view_site", function() {
     });
 });
 
-$("#sidebar").on('click', "#friends_add_link", function() {
-    console.log("clicked view friends");
+$("#sidebar").on("click", "#search_friends", function(event) {
     $.ajax({
-        url: '/ajax/friends_add/',
+        url: '/ajax/load_friends_search/',
         success: function(data) {
-            var sidebar = document.getElementById("sidebar");
-            sidebar.innerHTML = data["page"]
-        }
+            document.getElementById("sidebar").innerHTML = data['page'];
+        },
     });
 });
+
+$("#sidebar").on("keyup", "#friends_search", function() {
+	$.ajax({
+		type: "POST",
+		url: "/ajax/friends_search/",
+		data: {
+			'search_text': $("#friends_search").val(),
+			'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
+		},
+		success: searchSuccess,
+		dataType: 'html',
+	});
+});
+
+$("#sidebar").on("empty", "#friends_search", function() {
+	alert("empty!");
+})
+
+function searchSuccess(data, textStatus, jqXHR) {
+	$("#friend_search_results").html(data);
+}
+
 
 $("#sidebar").on('click', "#friends_requests_link", function() {
     console.log("clicked view friend requests");
