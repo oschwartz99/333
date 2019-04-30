@@ -1,0 +1,15 @@
+{% block sidebar-content %}
+    <div id ="testing" class="bodycontent">
+        <div class="home_sb_link btn btn-primary" style="margin-bottom: 5%">Home</div>
+        <br>
+        
+        <!-- All users going to an event -->
+        <div class="card">
+            <ul class="list-group">        
+            {% for friend in friends_going %}
+                <li class="list-group-item btn-warning active">{{ friend.first_name }} {{ friend.last_name }}</li>
+            {% endfor %}
+            </ul>
+        </div>  
+    </div>
+{% endblock sidebar-content %}

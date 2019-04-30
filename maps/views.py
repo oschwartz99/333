@@ -57,12 +57,14 @@ def event_search(request):
         events = None
     else:
         # return all queries that match the search
-        event_search_all = list(SearchQuerySet().models(Event).autocomplete(text=search_text))
+        event_search_all = SearchQuerySet().models(Event).autocomplete(text=search_text)
         friends = Friend.objects.friends(request.user)
         events = []
         for event in event_search_all:
+
             # do not show event if it private and not created by the user or their friends
-            if event.public or event.created_by == request.user or event.created_by in friends:
+            if event.public or event.created_by != request.user or event.created_by in friends:
+                # check if event has already passed
                 if timezone.is_aware(event.date):
                     if timezone.now() <= event.date:
                         events.append(event)
@@ -79,29 +81,6 @@ def load_event_search(request):
     rendered = render_to_string('event-search.html', args)
     data = {
         'page': rendered
-    }
-    return JsonResponse(data)
-
-
-def friends_search(request):
-    if request.method == 'POST':
-        search_text = request.POST['search_text']
-    else:
-        search_text = ''
-
-    if (search_text == ''):
-        events = None
-    else:
-        friends = SearchQuerySet().models(Event).autocomplete(text=search_text)
-    return render_to_response('friends/friends_add.html', {'friends': friends})
-
-
-def load_friends_search(request):
-    args = {}
-    args.update(csrf(request))
-    rendered = render_to_string('friends/friends_add_site.html', request=request)
-    data = {
-        'page': rendered,
     }
     return JsonResponse(data)
 
@@ -165,6 +144,13 @@ def ajax_edit_profile(request):
 
 def ajax_friends_sb(request):
     rendered = render_to_string('friends/friends_sb.html', request=request)
+    data = {
+        'page': rendered,
+    }
+    return JsonResponse(data)
+
+def ajax_friends_add(request):
+    rendered = render_to_string('friends/friends_add.html', request=request)
     data = {
         'page': rendered,
     }

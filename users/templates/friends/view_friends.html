@@ -1,0 +1,23 @@
+<!-- users/templates/profile_page.html -->
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+{% load friendshiptags %}
+
+{% block title %}Add Friends{% endblock title %}
+
+{% block sidebar-content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- Profile Information -->
+    <div id='friends' class="bodycontent">
+        <a href="{% url 'friends' %}"> Go to Friend Page </a> <br>
+        <p> This is view friends page </p>
+
+        {% for friend in friends %}
+            {{ friend.username }} <br>
+        {% endfor %}
+    </div>
+    
+{% endblock sidebar-content %}

@@ -1,0 +1,15 @@
+{% block sidebar-content %}
+    <div id ="testing" class="bodycontent">
+        <p class="border home_sb_link btn btn-primary">Home</p>
+
+   		<div>
+   			{% csrf_token %}
+          <div class="active-cyan-3 active-cyan-4 mb-4">
+            <input class="form-control" type="text" placeholder="Search by name, description, or location" aria-label="Search" id="event-search">
+          </div>
+        	<div id="event-search-results">
+        	</div>
+   		</div>	
+
+    </div>
+{% endblock sidebar-content %}
