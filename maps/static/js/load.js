@@ -102,10 +102,7 @@ map.on('load', function () {
             }
         });
 
-        /* Give the AJAX enough time to complete before loading images */
-        setTimeout(function() {
-            callback();
-        }, 50);
+        setTimeout(callback, 1000);
     }
 
     /* Executes an instance of the above function, complete with a callback. 
@@ -143,6 +140,8 @@ map.on('load', function () {
         while (true) {
             try {
                 console.log("trying...");
+                console.log("number pushed: " + numberPushed);
+                console.log("event number:  " + eventNumber);
                 // add markers to map
                 if (numberPushed != eventNumber) {
                     console.log("error!");
@@ -156,7 +155,7 @@ map.on('load', function () {
                         // create a HTML element for each feature
                         var el = document.createElement('div');
                         el.className = 'marker';
-                        el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')"
+                        el.style.backgroundImage = "url('" + imageURLs[marker.properties.event_type] + "')";
                         // el.style.backgroundImage = "url('../Party.png')"
 
                         
@@ -206,9 +205,10 @@ map.on('load', function () {
                         // append marker to markers dict
                         markers[marker.properties.event_id] = new_marker;
                     });
+                    console.log("breaking");
+                    break;
                 }    
-                console.log("breaking");
-                break;
+                
             } 
             catch {
                 count++;
