@@ -10,6 +10,7 @@ from bootstrap_datepicker_plus import DateTimePickerInput
 from users.forms import CustomUserChangeForm, UsernameChangeForm, NameChangeForm
 from .forms import CreateEvent
 from .models import Event
+from users.models import CustomUser
 from emoji_picker.widgets import EmojiPickerTextInput
 from haystack.query import SearchQuerySet
 from datetime import *
@@ -116,7 +117,7 @@ def friends_search(request):
     if (search_text == ''):
         friends = None
     else:
-        friends = SearchQuerySet().models(Event).autocomplete(text=search_text)
+        friends = SearchQuerySet().models(CustomUser).autocomplete(text=search_text)
     return render_to_response('friends/friends_add.html', {'friends': friends})
 
 
