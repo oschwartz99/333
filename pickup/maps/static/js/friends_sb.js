@@ -48,7 +48,7 @@ $("#sidebar").on('click', "#friends_requests_site", function() {
 });
 
 $("#sidebar").on('click', "#search_friends", function() {
-    console.log("triggered");
+    console.log("clicked add friend");
     $.ajax({
         url: '/ajax/load_friends_search/',
         success: function(data) {
@@ -57,8 +57,9 @@ $("#sidebar").on('click', "#search_friends", function() {
     });
 });
 
-$("#sidebar").on("keyup", "#friends_search", function() {
-	$.ajax({
+$("#sidebar").on("keyup", "#friend_search", function() {
+	console.log("typed in search friend box");
+    $.ajax({
 		type: "POST",
 		url: "/ajax/friends_search/",
 		data: {
@@ -70,7 +71,7 @@ $("#sidebar").on("keyup", "#friends_search", function() {
 	});
 });
 
-$("#sidebar").on("empty", "#friends_search", function() {
+$("#sidebar").on("empty", "#friend_search", function() {
 	alert("empty!");
 })
 
