@@ -79,3 +79,6 @@ RUNNING THE SEARCH ENGINE:
 - Run ```pythony3 manage.py rebuild_index``` to build the search index
 - You can change which points of data are searchable with the search_indexes.py in each app (maps, users, etc.) Look at the other fields as examples.
 - You can search for items using the SearchQuerySet() api from haystack. Make sure you import the library. Use event search in maps/view.py as an example.
+
+COLORS:
+-ED9E00
