@@ -1,0 +1,21 @@
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="list-group">
+{% if friends.count > 0 %}
+
+	{% for friend in friends %}
+	<div class="list-group-item border">
+		<p>{{ friend.username }}</p>
+        <p>{{ friend.first_name }}</p>
+        <p>{{ friend.last_name }}</p>
+	</div>
+	{% endfor %}
+
+{% else %}
+	<li class="list-group-item text-danger">No results</li>
+{% endif %}
+</div>
+</div>
+</div>
+</div>

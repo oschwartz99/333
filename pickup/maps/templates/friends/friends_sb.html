@@ -1,0 +1,31 @@
+{% block sidebar-content %}
+    {% load crispy_forms_tags %}
+    {% load friendshiptags %}
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+<!-- Friends Information -->
+        <div class='container'>
+            <div class="row">
+                <div class="col text-center text-light">
+                    <h3 style="font-family: courier;">My Friends</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="list-group list-group-flush">
+                        <p class="list-group-item border home_sb_link btn btn-warning" role="tab"><b>Home</b></p>
+                        <br>
+                        <a href="{% url 'search_users' %}" class="nav" > Add a friend</a> <br>
+                        <a href="{% url 'view_friend_requests' %}" class="nav" > View friend requests</a> <br>
+                        <a href="{% url 'remove_friend' %}" class="nav" > Remove friend</a>
+                        <p id="friends_view_site" class="list-group-item btn btn-primary border" role="tab">View Friends</p>
+                        <p id="search_friends" class="list-group-item btn btn-primary border" role="tab">Add Friends</p>
+                        <p id="friends_requests_site" class="list-group-item btn btn-primary border" role="tab">Friend Requests</p>
+                        <p id="friends_remove_link" class="list-group-item btn btn-primary border" role="tab">Remove Friends</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock sidebar-content %}
