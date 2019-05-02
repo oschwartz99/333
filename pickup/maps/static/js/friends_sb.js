@@ -47,7 +47,8 @@ $("#sidebar").on('click', "#friends_requests_site", function() {
     });
 });
 
-$("#sidebar").on("click", "#search_friends", function(event) {
+$("#sidebar").on('click', "#search_friends", function() {
+    console.log("triggered");
     $.ajax({
         url: '/ajax/load_friends_search/',
         success: function(data) {
