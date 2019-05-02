@@ -2,12 +2,10 @@
 <div class="row">
 <div class="col-12">
 <div class="list-group">
-{% if friends|length > 0 %}
-    {% for friend in friends %}
+{% if friend_requests|length > 0 %}
+    {% for request in friend_requests %}
     <div class="list-group-item border">
-        <p>{{ friend.username }}</p>
-        <p>{{ friend.first_name }}</p>
-        <p>{{ friend.last_name }}</p>
+        <p>{{ request.from_user.username }}</p>
     </div>
     {% endfor %}
 

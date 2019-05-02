@@ -60,8 +60,13 @@ def friends_requests_site(request):
 
 
 def friends_requests(request):
-    friends = Friend.objects.friends(request.user)
-    return render_to_response('friends/friends_requests.html', {'friends': friends})
+    friend_requests = Friend.objects.unrejected_requests(user=request.user)
+
+    friend_requests_users = []
+    for friend_request in friend_requests:
+        friend_requests_users.append(friend_request)
+
+    return render_to_response('friends/friends_requests.html', {'friend_requests': friend_requests})
 
 
 # Dynamically return events that match the search
