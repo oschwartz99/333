@@ -109,22 +109,17 @@ def load_event_search(request):
 
 
 def friends_search(request):
+    users = None
     if request.method == 'POST':
         search_text = request.POST['search_text']
     else:
         search_text = ''
 
-    if (search_text == ''):
-        users = None
-    else:
-        users = list(SearchQuerySet().models(CustomUser).autocomplete(text=search_text))
-
-    if users is not None:
-        for user in users:
-            print(user.username)
-            # if user == request.user:
-                # del user
-    print(len(users))
+    if search_text != '':
+        users = (CustomUser.objects.filter(username__contains=search_text) | \
+                CustomUser.objects.filter(first_name__contains=search_text) | \
+                CustomUser.objects.filter(last_name__contains=search_text)) & \
+                CustomUser.objects.exclude(username=request.user.username)
 
     return render_to_response('friends/friends_add.html', {'users': users})
 
