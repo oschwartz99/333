@@ -171,8 +171,8 @@ map.on('load', function () {
 
 
 
-                        html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p></div>";
-                        html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going" + marker.properties.event_id + "'>See friends going</p></div>";
+                        html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
+                        html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";
 
                         // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
                         // // iterate over users_going and display on popup
@@ -182,11 +182,11 @@ map.on('load', function () {
 
                         // "Going" or "Cancel" button, depending on if user is attending
                         if (marker.properties.user_going)
-                            html += "<div class='container'><button class='btn btn-danger event-action'" +
-                                    "id='" + marker.properties.event_id + "'" + ">Not Going</button></div>";
+                            html += "<p class='btn btn-danger event-action active list-group-item'" +
+                                    "id='" + marker.properties.event_id + "'" + ">Not Going</p></div>";
                         else
-                            html += "<button class='btn btn-success event-action'" +
-                                    "id='" + marker.properties.event_id + "'" + ">Going</button>";
+                            html += "<p class='btn btn-success event-action active list-group-item'" +
+                                    "id='" + marker.properties.event_id + "'" + ">Going</p></div>";
 
                         // If logged-in user created the event, add a 'delete' button
                         if (marker.properties.created_by)

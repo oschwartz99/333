@@ -8,7 +8,7 @@ $("#map").on('click', ".event-action", function(event) {
             url: '/ajax/user_cancelled/',
             data: {"event_id": button.id},
             success: function() {
-                button.className="btn btn-success event-action";
+                button.className="btn btn-success event-action list-group-item";
                 button.innerHTML="Going";
                 $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
@@ -27,7 +27,7 @@ $("#map").on('click', ".event-action", function(event) {
             url: '/ajax/user_going/',
             data: {"event_id": button.id},
             success: function() {
-                button.className="btn btn-danger event-action";
+                button.className="btn btn-danger event-action list-group-item";
                 button.innerHTML="Not Going";
                 $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
