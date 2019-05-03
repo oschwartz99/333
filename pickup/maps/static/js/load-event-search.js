@@ -15,15 +15,8 @@ $("#sidebar").on("keyup", "#event-search", function() {
 			'search_text': $("#event-search").val(),
 			'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
 		},
-		success: searchSuccess,
-		dataType: 'html',
+		success: function(data) {
+			$("#event-search-results").html(data);
+		},
 	});
 });
-
-$("#sidebar").on("empty", "#event-search", function() {
-	alert("empty!");
-})
-
-function searchSuccess(data, textStatus, jqXHR) {
-	$("#event-search-results").html(data);
-}
