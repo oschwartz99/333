@@ -122,7 +122,23 @@ def send_req(request):
     return HttpResponse('')
 
 def accept_req(request):
-    
+    username = request.GET.get("username")
+    other_user = CustomUser.objects.get(username=username)
+
+    FriendshipRequest.objects.filter(
+        from_user=request.user,
+        to_user=other_user
+    ).delete()
+    FriendshipRequest.objects.filter(
+        from_user=other_user,
+        to_user=request.user
+    ).delete()
+
+    Friend.objects.add_friend(request.user, other_user, "")
+
+    friend_request = FriendshipRequest.objects.get(to_user=username)
+    friend_request.accept()
+    return HttpResponse('')
 
 def friends_search(request):
     users = None
