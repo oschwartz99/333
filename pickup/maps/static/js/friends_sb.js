@@ -59,27 +59,20 @@ $("#sidebar").on('click', "#search_friends", function() {
 
 $("#sidebar").on("keyup", "#friend_search", function() {
 	console.log("typed in search friend box");
+    console.log($("#friend_search").val());
     $.ajax({
 		type: "POST",
 		url: "/ajax/friends_search/",
 		data: {
-			'search_text': $("#friends_search").val(),
+			'search_text': $("#friend_search").val(),
 			'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
 		},
-		success: searchSuccess,
+		success: function(data) {
+            $("#friend_search_results").html(data);
+        },
 		dataType: 'html',
 	});
 });
-
-$("#sidebar").on("empty", "#friend_search", function() {
-	alert("empty!");
-})
-
-function searchSuccess(data, textStatus, jqXHR) {
-	$("#friend_search_results").html(data);
-}
-
-
 
 $("#sidebar").on('click', "#friends_remove_link", function() {
     console.log("clicked remove friends");
