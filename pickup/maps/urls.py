@@ -29,6 +29,7 @@ urlpatterns = [
     url('ajax/load_friends_search/', views.load_friends_search, name='load_friends_search'),
     url('ajax/friends_search/', views.friends_search, name='friends_search'),
     url('ajax/send_req/', views.send_req, name='send_req'),
+    url('ajax/accept_req/', views.accept_req, name='accept_req'),
     url("testing/", views.testing, name="testing"),
     url('', views.default_map, name="maps"),
 ]

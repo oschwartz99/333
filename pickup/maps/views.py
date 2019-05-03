@@ -121,6 +121,9 @@ def send_req(request):
             Friend.objects.add_friend(request.user, to_add, message='')
     return HttpResponse('')
 
+def accept_req(request):
+    
+
 def friends_search(request):
     users = None
     if request.method == 'POST':
@@ -133,6 +136,14 @@ def friends_search(request):
                 CustomUser.objects.filter(first_name__contains=search_text) | \
                 CustomUser.objects.filter(last_name__contains=search_text)) & \
                 CustomUser.objects.exclude(username=request.user.username)
+        
+        # Don't include people the user has already sent a friend request to
+        # or if they are already friends
+        for user in users:
+            if Friend.objects.can_request_send(request.user, user) or \
+                Friend.objects.are_friends(request.user, user):
+                users = users.exclude(username=user.username)
+
 
     return render_to_response('friends/friends_add.html', {'users': users})
 
