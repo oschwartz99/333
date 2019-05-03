@@ -15,6 +15,9 @@ from emoji_picker.widgets import EmojiPickerTextInput
 from haystack.query import SearchQuerySet
 from datetime import *
 from django.utils import timezone
+from friendship.models import Friend, Block, FriendshipRequest
+from friendship.exceptions import AlreadyExistsError, AlreadyFriendsError
+from friendship.models import Friend, Follow, Block
 
 
 def testing(request):
@@ -107,6 +110,16 @@ def load_event_search(request):
     }
     return JsonResponse(data)
 
+def send_req(request):
+    username = request.GET.get("username")
+    to_add = CustomUser.objects.get(username=username)
+
+    if to_add:
+        # catch error for when friend request has already been sent
+        if (not Friend.objects.are_friends(request.user, to_add)
+                and not Friend.objects.can_request_send(request.user, to_add)):
+            Friend.objects.add_friend(request.user, to_add, message='')
+    return HttpResponse('')
 
 def friends_search(request):
     users = None

@@ -4,4 +4,12 @@ $("#sidebar").on("click", ".send", function(event) {
 	event.target.classList.add("btn-success");
 	event.target.innerText = "Friend request sent"
 	event.target.disabled = true;
+
+	$.ajax({
+		data: {
+			"username": event.target.id.substr(8),
+		},
+		url: '/ajax/send_req/',
+		success: function() {}
+	});
 });
