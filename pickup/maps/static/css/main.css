@@ -14,11 +14,20 @@ small {
 }
 
 .btn {
-    white-space: normal; 
+    white-space: normal;
+}
+
+.btn-side {
+    text-align: center;
+    white-space: normal;
+}
+
+.btn-side:hover {
+    background-color: rgba(238, 182, 14, 0.6);
 }
 
 .btn-primary {
-    background-color: #FFFFFF;
+    background-color: #004fed;
     width: 100%;
 }
 
