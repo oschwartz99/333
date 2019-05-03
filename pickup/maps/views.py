@@ -136,7 +136,7 @@ def accept_req(request):
 
     Friend.objects.add_friend(request.user, other_user, "")
 
-    friend_request = FriendshipRequest.objects.get(to_user=username)
+    friend_request = FriendshipRequest.objects.get(to_user=other_user.pk)
     friend_request.accept()
     return HttpResponse('')
 
@@ -154,7 +154,7 @@ def reject_req(request):
 
     Friend.objects.add_friend(request.user, other_user, "")
 
-    friend_request = FriendshipRequest.objects.get(to_user=username)
+    friend_request = FriendshipRequest.objects.get(to_user=other_user.pk)
     friend_request.reject()
     return HttpResponse('')
 
