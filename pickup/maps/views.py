@@ -115,10 +115,18 @@ def friends_search(request):
         search_text = ''
 
     if (search_text == ''):
-        friends = None
+        users = None
     else:
-        friends = SearchQuerySet().models(CustomUser).autocomplete(text=search_text)
-    return render_to_response('friends/friends_add.html', {'friends': friends})
+        users = list(SearchQuerySet().models(CustomUser).autocomplete(text=search_text))
+
+    if users is not None:
+        for user in users:
+            print(user.username)
+            # if user == request.user:
+                # del user
+    print(len(users))
+
+    return render_to_response('friends/friends_add.html', {'users': users})
 
 
 def load_friends_search(request):
