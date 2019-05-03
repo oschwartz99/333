@@ -7,6 +7,8 @@
     <div class="list-group-item border">
         <p>{{ request.from_user.first_name }} {{ request.from_user.last_name }}</p>
         <button id='send-to-{{request.from_user.username}}' class='btn btn-primary accept'>Accept</button>
+        <button id='send-to-{{request.from_user.username}}' class='btn btn-primary reject'>Reject</button>
+
     </div>
     {% endfor %}
 
