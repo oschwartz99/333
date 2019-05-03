@@ -119,42 +119,27 @@ def send_req(request):
         if (not Friend.objects.are_friends(request.user, to_add)
                 and not Friend.objects.can_request_send(request.user, to_add)):
             Friend.objects.add_friend(request.user, to_add, message='')
+        if FriendshipRequest.objects.filter(from_user=to_add, to_user=request.user):
+            FriendshipRequest.objects.filter(from_user=to_add, to_user=request.user).delete()
+            friends_request = FriendshipRequest.objects.get(to_user=to_add.pk)
+            friends_request.accept()
+
     return HttpResponse('')
 
 def accept_req(request):
     username = request.GET.get("username")
     other_user = CustomUser.objects.get(username=username)
 
-    FriendshipRequest.objects.filter(
-        from_user=request.user,
-        to_user=other_user
-    ).delete()
-    FriendshipRequest.objects.filter(
-        from_user=other_user,
-        to_user=request.user
-    ).delete()
-
-    Friend.objects.add_friend(request.user, other_user, "")
-
-    friend_request = FriendshipRequest.objects.get(to_user=other_user.pk)
+    friend_request = FriendshipRequest.objects.get(from_user=other_user.pk, to_user=request.user.pk)
     friend_request.accept()
+
     return HttpResponse('')
 
 def reject_req(request):
     username = request.GET.get("username")
     other_user = CustomUser.objects.get(username=username)
-    FriendshipRequest.objects.filter(
-        from_user=request.user,
-        to_user=other_user
-    ).delete()
-    FriendshipRequest.objects.filter(
-        from_user=other_user,
-        to_user=request.user
-    ).delete()
 
-    Friend.objects.add_friend(request.user, other_user, "")
-
-    friend_request = FriendshipRequest.objects.get(to_user=other_user.pk)
+    friend_request = FriendshipRequest.objects.get(from_user=other_user.pk, to_user=request.user.pk)
     friend_request.reject()
     return HttpResponse('')
 
