@@ -84,18 +84,19 @@ def event_search(request):
         events = None
     else:
         # return all queries that match the search
-        event_search_all = list(SearchQuerySet().models(Event).autocomplete(text=search_text))
+        # event_search_all = list(SearchQuerySet().models(Event).autocomplete(text=search_text))
+        event_search_all = list(Event.objects.filter(event_descr__contains=search_text) |
+                                Event.objects.filter(event_name__contains=search_text) |
+                                Event.objects.filter(event_type__contains=search_text) |
+                                Event.objects.filter(location__contains=search_text)
+            )
         friends = Friend.objects.friends(request.user)
         events = []
         for event in event_search_all:
             # do not show event if it private and not created by the user or their friends
-            if event.public or event.created_by == request.user or event.created_by in friends:
-                if timezone.is_aware(event.date):
-                    if timezone.now() <= event.date:
-                        events.append(event)
-                else:
-                    if datetime.now() <= event.date:
-                        events.append(event)
+            if event.public or event.user == request.user or event.user in friends:
+                if date.today() <= event.date:
+                    events.append(event)
 
     return render_to_response('ajax-search.html', {'events': events})
 
