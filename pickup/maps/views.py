@@ -144,6 +144,15 @@ def reject_req(request):
     friend_request.reject()
     return HttpResponse('')
 
+def remove_friend(request):
+    username = request.GET.get("username")
+    friend = CustomUser.objects.get(username=username)
+
+    if Friend.objects.are_friends(request.user, friend):
+        Friend.objects.remove_friend(request.user, friend)
+
+    return HttpResponse('')
+
 def friends_search(request):
     users = None
     if request.method == 'POST':

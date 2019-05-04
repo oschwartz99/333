@@ -73,14 +73,3 @@ $("#sidebar").on("keyup", "#friend_search", function() {
 		dataType: 'html',
 	});
 });
-
-$("#sidebar").on('click', "#friends_remove_link", function() {
-    console.log("clicked remove friends");
-    $.ajax({
-        url: '/ajax/friends_remove/',
-        success: function(data) {
-            var sidebar = document.getElementById("sidebar");
-            sidebar.innerHTML = data["page"]
-        }
-    });
-});

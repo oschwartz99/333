@@ -15,8 +15,7 @@ urlpatterns = [
     url('ajax/friends_view/', views.friends_view, name='friends_view'),
     url('ajax/friends_requests_site/', views.friends_requests_site, name='friends_requests_site'),
     url('ajax/friends_requests/', views.friends_requests, name='friends_requests'),
-    url('ajax/friends_remove/', views.ajax_friends_remove, name='ajax_friends_remove'),
-    url('ajax/home_sb/', views.ajax_home_sb, name='ajax_main_sb'),         
+    url('ajax/home_sb/', views.ajax_home_sb, name='ajax_main_sb'),
     url('ajax/fetch_from_db/', views.fetch_from_db, name='fetch_from_db'),    
     url('ajax/user_going/', views.user_going, name='user_going'),
     url('ajax/delete_event/', views.delete_event, name='delete_event'),
@@ -31,6 +30,7 @@ urlpatterns = [
     url('ajax/send_req/', views.send_req, name='send_req'),
     url('ajax/accept_req/', views.accept_req, name='accept_req'),
     url('ajax/reject_req/', views.reject_req, name='reject_req'),
+    url('ajax/remove_friend/', views.remove_friend, name='remove_friend'),
     url("testing/", views.testing, name="testing"),
     url('', views.default_map, name="maps"),
 ]

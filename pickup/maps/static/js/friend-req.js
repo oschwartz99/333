@@ -45,3 +45,19 @@ $("#sidebar").on("click", ".reject", function(event) {
 	 	success: function() {}
 	});
 });
+
+$("#sidebar").on("click", ".remove", function(event) {
+	console.log(event.target);
+	event.target.classList.remove("btn-primary");
+	event.target.classList.add("btn-success");
+	event.target.innerText = "Friend removed"
+	event.target.disabled = true;
+
+	$.ajax({
+		data: {
+	 		"username": event.target.id.substr(8),
+	 	},
+	 	url: '/ajax/remove_friend/',
+	 	success: function() {}
+	});
+});
