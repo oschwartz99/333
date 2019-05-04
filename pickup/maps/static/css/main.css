@@ -24,6 +24,7 @@ small {
 
 .btn-side:hover {
     background-color: rgba(238, 182, 14, 0.6);
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -43,10 +44,6 @@ small {
 
 .link {
     text-decoration: none;
-}
-
-.link:hover {
-    text-decoration: underline;
 }
 
 .underline {

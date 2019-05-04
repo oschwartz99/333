@@ -183,10 +183,10 @@ map.on('load', function () {
                         // "Going" or "Cancel" button, depending on if user is attending
                         if (marker.properties.user_going)
                             html += "<p class='btn btn-danger event-action active list-group-item'" +
-                                    "id='" + marker.properties.event_id + "'" + ">Not Going</p></div>";
+                                    "id='" + marker.properties.event_id + "'" + ">You're going. Cancel RSVP?</p></div>";
                         else
                             html += "<p class='btn btn-success event-action active list-group-item'" +
-                                    "id='" + marker.properties.event_id + "'" + ">Going</p></div>";
+                                    "id='" + marker.properties.event_id + "'" + ">You're not going. RSVP?</p></div>";
 
                         // If logged-in user created the event, add a 'delete' button
                         if (marker.properties.created_by)

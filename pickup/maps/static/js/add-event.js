@@ -18,6 +18,9 @@ $("#sidebar").on('click', "#add_event_link", function() {
                 document.getElementById("id_lat").value = marker.getLngLat()['lat']
             });
 
+            // set autocomplete to be OFF in the date field
+            $("#id_date").attr("autocomplete", "off");
+
             // if user changes the lng/lat manually, move marker
             lng.addEventListener('change', function() {
                 if (marker != undefined) {

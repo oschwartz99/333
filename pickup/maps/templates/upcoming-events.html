@@ -6,15 +6,26 @@
 
     {% for event in upcoming %}
     <div class="list-group-item border">
-        <p>{{ event.event_name }}</p>
-        <p>{{ event.event_descr }}</p>
-        <p>{{ event.location }}</p>
-        <!-- <p class="link" id="see-{{ event.id }}">See on map</p>
-        <script type="text/javascript">
-            document.$("#see-{{ event.id }}").click(function() {
-                map.setCenter([{{ event.lng }}, {{ event.lat }} ]);
-            });
-        </script> -->
+        <p class="text-center">{{ event.event_name }}</p>
+        <p>About: {{ event.event_descr }}<br><br>
+        {% if event.public %}
+            Visible to everyone
+        {% else %}
+            Visible to {{ event.user }}'s friends
+        {% endif %}
+        </p>
+
+
+        <p>Happening in: {{ event.location }}</p>
+        <div class="text-center">
+            <p class="link btn btn-success text-center" id="see-{{ event.id }}">See on map</p>
+            <script type="text/javascript">
+                $("#see-{{ event.id }}").click(function() {
+                    map.setCenter([{{ event.lng }}, {{ event.lat }} ]);
+                });
+            </script>
+        </div>
+        
     </div>
     {% endfor %}
 

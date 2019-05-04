@@ -8,8 +8,8 @@ $("#map").on('click', ".event-action", function(event) {
             url: '/ajax/user_cancelled/',
             data: {"event_id": button.id},
             success: function() {
-                button.className="btn btn-success event-action list-group-item";
-                button.innerHTML="Going";
+                button.className="btn btn-success active event-action list-group-item";
+                button.innerHTML="You're not going. RSVP?";
                 $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},
@@ -27,8 +27,8 @@ $("#map").on('click', ".event-action", function(event) {
             url: '/ajax/user_going/',
             data: {"event_id": button.id},
             success: function() {
-                button.className="btn btn-danger event-action list-group-item";
-                button.innerHTML="Not Going";
+                button.className="btn btn-danger active event-action list-group-item";
+                button.innerHTML="You're going. Cancel RSVP?";
                 $.ajax({ // update number going
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},
