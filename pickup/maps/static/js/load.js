@@ -178,15 +178,14 @@ map.on('load', function () {
 
 
                         // Set the HTML in the popup
-                        html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>"
-                               + marker.properties.event_name + " - " + marker.properties.event_descr + "<br>"
-                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " have RSVP'd.</p></h3>"
-                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Happening on " + marker.properties.date
-                               + " from " + parseTime(marker.properties.start_time) + " to " + parseTime(marker.properties.end_time) + "</p>";
-
+                        html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default; font-size: 14pt;' class='btn btn-default list-group-item'>"
+                               + marker.properties.event_name + "<br>" + marker.properties.event_descr
+                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " have RSVP'd.</p>"
+                               + "<p style='font-style: italic'>Happening on <b>" + marker.properties.date.substring(5).slice(0, -3) + "/" + marker.properties.date.substring(5).substring(3)
+                               + "</b> from <b>" + parseTime(marker.properties.start_time) + "</b> to <b>" + parseTime(marker.properties.end_time) + "</b></p></h3>";
 
                         // html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
-                        html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";
+                        html += "<p class='btn btn-dark text-light active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";
 
                         // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
                         // // iterate over users_going and display on popup

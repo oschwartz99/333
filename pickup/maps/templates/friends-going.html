@@ -5,10 +5,14 @@
         
         <!-- All users going to an event -->
         <div class="card">
-            <ul class="list-group">        
-            {% for friend in friends_going %}
-                <li class="list-group-item btn-warning active">{{ friend.first_name }} {{ friend.last_name }}</li>
-            {% endfor %}
+            <ul class="list-group">
+            {% if friend|length > 0 %}        
+                {% for friend in friends_going %}
+                    <li class="list-group-item btn-warning active">{{ friend.first_name }} {{ friend.last_name }}</li>
+                {% endfor %}
+            {% else %}
+                <li class="list-group-item text-danger">None of your friends are going</li>
+            {% endif %}
             </ul>
         </div>  
     </div>
