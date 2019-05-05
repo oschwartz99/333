@@ -180,7 +180,7 @@ map.on('load', function () {
                         // Set the HTML in the popup
                         html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>"
                                + marker.properties.event_name + " - " + marker.properties.event_descr + "<br>"
-                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " has RSVP'd.</p></h3>"
+                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " have RSVP'd.</p></h3>"
                                + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Happening on " + marker.properties.date
                                + " from " + parseTime(marker.properties.start_time) + " to " + parseTime(marker.properties.end_time) + "</p>";
 

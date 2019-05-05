@@ -4,9 +4,9 @@
 <div class="list-group">
 {% if friend_requests|length > 0 %}
     {% for request in friend_requests %}
-    <div class="list-group-item border">
+    <div class="list-group-item border text-center">
         <p>{{ request.from_user.first_name }} {{ request.from_user.last_name }}</p>
-        <p>{{ user.username }}</p>
+        <p class="username">Username: {{  request.from_user.username }}</p>
         <div class="text-center">
         	<button id='accept-{{request.from_user.username}}' class='btn btn-success accept btn-block'>Accept</button>
         	<button id='reject-{{request.from_user.username}}' class='btn btn-danger reject btn-block'>Reject</button>

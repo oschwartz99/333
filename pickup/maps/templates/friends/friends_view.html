@@ -4,10 +4,9 @@
 <div class="list-group">
 {% if friends|length > 0 %}
     {% for friend in friends %}
-    <div class="list-group-item border">
-        <p>{{ friend.username }}</p>
-        <p>{{ friend.first_name }}</p>
-        <p>{{ friend.last_name }}</p>
+    <div class="list-group-item border text-center">
+        <p>{{ friend.first_name }} {{ friend.last_name }}</p>
+		<p class="username">Username: {{ friend.username }}</p>
         <button id='send-to-{{friend.username}}' class='btn btn-danger remove btn-block'>Remove friend</button>
     </div>
     {% endfor %}
