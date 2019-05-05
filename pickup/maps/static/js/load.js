@@ -100,6 +100,8 @@ map.on('load', function () {
                             "number_going": data.events[key].number_going,
                             "user_going": data.events[key].user_going,
                             "event_id": data.events[key].event_id,
+                            "public": data.events[key].public,
+                            "author": data.events[key].author,
                             "date": data.events[key].date,
                             "start_time": data.events[key].start_time,
                             "end_time": data.events[key].end_time,
@@ -180,9 +182,17 @@ map.on('load', function () {
                         // Set the HTML in the popup
                         html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default; font-size: 14pt;' class='btn btn-default list-group-item'>"
                                + marker.properties.event_name + "<br>" + marker.properties.event_descr
-                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " have RSVP'd.</p>"
+                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " have RSVP'd</p>"
                                + "<p style='font-style: italic'>Happening on <b>" + marker.properties.date.substring(5).slice(0, -3) + "/" + marker.properties.date.substring(5).substring(3)
-                               + "</b> from <b>" + parseTime(marker.properties.start_time) + "</b> to <b>" + parseTime(marker.properties.end_time) + "</b></p></h3>";
+                               + "</b> from <b>" + parseTime(marker.properties.start_time) + "</b> to <b>" + parseTime(marker.properties.end_time) + "</b></p>"
+
+                        if (marker.properties.public)
+                            html += "<p style='font-size: 10pt;'>This event is visible to everyone</p>"
+                        else if (marker.properties.created_by)
+                            html += "<p style='font-size: 10pt;'>This event is only visible to you and your friends"
+                        else
+                            html += "<p style='font-size: 10pt;'>This event is only visible to " + marker.properties.author + "'s friends"
+                        html += "</h3>";
 
                         // html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
                         html += "<p class='btn btn-dark text-light active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";

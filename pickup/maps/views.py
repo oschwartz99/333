@@ -345,8 +345,10 @@ def fetch_from_db(request):
             'user_going': going,
             'users_going': users_going,
             'should_display': should_display,
+            'author': (event.user.first_name + " " + event.user.last_name),
             'event_id': event.id,
             'date': event.date,
+            'public': event.public,
             'start_time': event.start_time,
             'end_time': event.end_time,
             'created_by': event.user == request.user,  # if user created given event
