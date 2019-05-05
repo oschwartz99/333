@@ -3,6 +3,10 @@
     font-color: black;
 }
 
+.username {
+    font-style: italic;
+}
+
 small {
     color: red;
 }

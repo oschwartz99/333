@@ -5,9 +5,9 @@
 {% if users.count > 0 %}
 
 	{% for user in users %}
-	<div class="list-group-item border">
+	<div class="list-group-item border text-center">
         <p>{{ user.first_name }} {{ user.last_name }}</p>
-		<p>{{ user.username }}</p>
+		<p class="username">Username: {{ user.username }}</p>
 	</div>
 	<button id='send-to-{{user.username}}' class='btn btn-primary send'>Send friend request</button>
 	{% endfor %}
