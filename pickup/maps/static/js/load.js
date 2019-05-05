@@ -8,6 +8,24 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY29zMzMzIiwiYSI6ImNqdDYzY3A0ZDBkMGc0YXF4azczd
 markers = {};
 var coors = {};
 
+// convert a time string like "00:00:00" to "12AM"
+function parseTime(time) {
+    time = time.slice(0, -3);
+    sign = "AM";
+    hours = parseInt(time.substring(0, 2));
+    if (hours > 12) {
+        sign = "PM";
+        hours -= 12;
+    }
+    else if (hours == 12)
+        sign = "PM";
+    else if (hours == 0)
+        hours = 12;
+    return String(hours) + sign;
+}
+
+
+
 /* Create a marker, and a popup associated with that marker.
     These will be displayed if an event is created. (The popup
     is for deleting the marker).
@@ -161,17 +179,13 @@ map.on('load', function () {
 
                         // Set the HTML in the popup
                         html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default;' class=' btn btn-primary active list-group-item'>"
-                               + marker.properties.event_name + "</h3>"
-                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>" + marker.properties.event_descr + "</p>"
-                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item' id='number-going-" + marker.properties.event_id + "'>Number Attending: " + marker.properties.number_going + "</p>"
-                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Date: " + marker.properties.date + "</p>"
-                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>From: " + marker.properties.start_time + "</p>"
-                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>To: " + marker.properties.end_time + "</p>";
+                               + marker.properties.event_name + " - " + marker.properties.event_descr + "<br>"
+                               + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " has RSVP'd.</p></h3>"
+                               + "<p style='cursor:default;' class='btn btn-primary active list-group-item'>Happening on " + marker.properties.date
+                               + " from " + parseTime(marker.properties.start_time) + " to " + parseTime(marker.properties.end_time) + "</p>";
 
 
-
-
-                        html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
+                        // html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
                         html += "<p class='btn btn-warning text-dark active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";
 
                         // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
