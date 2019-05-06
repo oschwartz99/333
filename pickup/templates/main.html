@@ -26,7 +26,7 @@
                         <div class="list-group list-group-flush">
                             <p class="list-group-item home_sb_link btn-side" role="tab">Home</p>
                             <p id="profile_sb_link" class="list-group-item btn-side" role="tab">View Profile</p>
-                            <p id="friends_sb_link" class="list-group-item btn-side" role="tab">Friends</p>
+                            <p id="friends_sb_link" class="list-group-item btn-side" role="tab">Friends <span class="badge badge-primary" id="home-notifs"></span></p>
                             <p id="upcoming" class="list-group-item btn-side" role="tab">View My Upcoming Events</p>
                             <p id="add_event_link" class="list-group-item btn-side" role="tab">Add an event</p>
                             <p id="search_events" class="list-group-item btn-side" role="tab">Search for events</p>
@@ -90,6 +90,7 @@
         <script src="{% static 'js/friends_sb.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/upcoming.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/friend-req.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/notifs.js' %}" type="text/javascript"></script>
         <script> $('sidebar').on('focus',".datepicker_recurring_start", function(){
                 $(this).datepicker();
             });</script>

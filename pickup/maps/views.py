@@ -19,6 +19,12 @@ from friendship.models import Friend, Block, FriendshipRequest
 from friendship.exceptions import AlreadyExistsError, AlreadyFriendsError
 from friendship.models import Friend, Follow, Block
 
+def notifs(request):
+    notifs = FriendshipRequest.objects.filter(to_user=request.user)
+    data = {
+        "notifs": len(notifs),
+    }
+    return JsonResponse(data)
 
 def testing(request):
     return render(request, 'testing.html')

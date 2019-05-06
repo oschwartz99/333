@@ -31,6 +31,7 @@ urlpatterns = [
     url('ajax/accept_req/', views.accept_req, name='accept_req'),
     url('ajax/reject_req/', views.reject_req, name='reject_req'),
     url('ajax/remove_friend/', views.remove_friend, name='remove_friend'),
+    url('ajax/notifs/', views.notifs, name='notifs'),
     url("testing/", views.testing, name="testing"),
     url('', views.default_map, name="maps"),
 ]
