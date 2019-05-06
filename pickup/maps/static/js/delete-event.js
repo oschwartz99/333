@@ -12,7 +12,9 @@ $("#map").on('click', ".delete_event", function(event) {
         $.ajax({
             url: '/ajax/delete_event/',
             data: {"event_id": event_id},
-            success: function() {}
+            success: function() {
+                setTimeout(updateUpcomingNotifs, 100);
+            }
         })
     }
 });

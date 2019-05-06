@@ -4,7 +4,6 @@ function updateReqNotifs() {
 		data: {},
 		success: function(data) {
 			if ($("#home-notifs").length > 0) {
-				console.log("should change notifs");
 				if (data["notifs"] == 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend request";
 				else if (data["notifs"] > 1)
@@ -17,6 +16,7 @@ function updateReqNotifs() {
 }
 
 function updateUpcomingNotifs() {
+	console.log("calling upcoming update");
 	$.ajax({
 		url: "/ajax/upcoming_events_number/",
 		data: {},
@@ -24,6 +24,8 @@ function updateUpcomingNotifs() {
 			if ($("#upcoming-number").length > 0) {
 				if (data["number"] > 0)
 					document.getElementById("upcoming-number").innerHTML = data["number"] + " coming up";
+				else 
+					document.getElementById("upcoming-number").innerHTML = "";
 			}
 		}
 	});
@@ -36,7 +38,3 @@ $(document).ready(function() {
 $("#sidebar").on("click", "#friends_sb_link", updateReqNotifs);
 $("#sidebar").on("click", ".home_sb_link", updateReqNotifs);
 $("#sidebar").on("click", ".home_sb_link", updateUpcomingNotifs);
-$(document).on("click", ".event-action", updateUpcomingNotifs);
-
-
-
