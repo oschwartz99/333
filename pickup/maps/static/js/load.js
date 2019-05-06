@@ -201,7 +201,7 @@ map.on('load', function () {
                             + marker.properties.date.substring(0,4) + marker.properties.date.substring(5, 7) + marker.properties.date.substring(8, 10)
                             + "T" + marker.properties.end_time.substring(0, 2) + marker.properties.end_time.substring(3, 5) +  marker.properties.start_time.substring(6, 8)
                             + "' "
-                            +"class='btn text-light btn-primary btn-block'>Add to your Google Calendar</a><p>"
+                            +"class='btn text-light btn-primary btn-block active'>Add to your Google Calendar</a><p>"
 
                         html += "</h3>";
 
