@@ -21,9 +21,19 @@ small {
     white-space: normal;
 }
 
+.btn-good {
+    background-color: rgb(220,220,220);
+    color: black;
+}
+
+.btn-reject {
+
+}
+
 .btn-side {
     text-align: center;
     white-space: normal;
+    font-size: large;
 }
 
 .btn-side:hover {
@@ -32,8 +42,10 @@ small {
 }
 
 .btn-primary {
-    background-color: #004fed;
+    color: black;
+    background-color:white;
     width: 100%;
+    border-color: black;
 }
 
 .btn-warning {
@@ -43,7 +55,8 @@ small {
 }
 
 .btn-primary:hover {
-    background-color: #3399ff;
+    background-color: rgba(238, 182, 14, 0.6);
+    color: black;
 }
 
 .link {

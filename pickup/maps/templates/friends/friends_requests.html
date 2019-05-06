@@ -8,7 +8,7 @@
         <p>{{ request.from_user.first_name }} {{ request.from_user.last_name }}</p>
         <p class="username">Username: {{  request.from_user.username }}</p>
         <div class="text-center">
-        	<button id='accept-{{request.from_user.username}}' class='btn btn-success accept btn-block'>Accept</button>
+        	<button id='accept-{{request.from_user.username}}' class='btn btn-good accept btn-block'>Accept</button>
         	<button id='reject-{{request.from_user.username}}' class='btn btn-danger reject btn-block'>Reject</button>
         </div>
     </div>
