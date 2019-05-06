@@ -3,8 +3,12 @@ function updateReqNotifs() {
 		url: "/ajax/notifs/",
 		data: {},
 		success: function(data) {
-			if ($("#home-notifs").length > 0)
-				document.getElementById("home-notifs").innerHTML = data["notifs"];
+			if ($("#home-notifs").length > 0) {
+				if (data[notifs] == 1)
+					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend request";
+				else if (data[notifs] > 1)
+					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend requests";
+			}
 			else if ($("#friends-notifs").length > 0)
 				document.getElementById("friends-notifs").innerHTML = data["notifs"];
 		}
@@ -16,10 +20,12 @@ function updateUpcomingNotifs() {
 		url: "/ajax/upcoming_events_number/",
 		data: {},
 		success: function(data) {
-			if ($("#upcoming-number").length > 0)
-				document.getElementById("upcoming-number").innerHTML = data["number"];
+			if ($("#upcoming-number").length > 0) {
+				if (data["number"] > 0)
+					document.getElementById("upcoming-number").innerHTML = data["number"] + " coming up";
+			}
 		}
-	})
+	});
 }
 
 $(document).ready(function() {
@@ -29,5 +35,7 @@ $(document).ready(function() {
 $("#sidebar").on("click", "#friends_sb_link", updateReqNotifs);
 $("#sidebar").on("click", ".home_sb_link", updateReqNotifs);
 $("#sidebar").on("click", ".home_sb_link", updateUpcomingNotifs);
+$(document).on("click", ".event-action", updateUpcomingNotifs);
+
 
 
