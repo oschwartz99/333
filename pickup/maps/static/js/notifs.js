@@ -1,11 +1,8 @@
-function updateNotifs(event) {
+function updateReqNotifs() {
 	$.ajax({
 		url: "/ajax/notifs/",
 		data: {},
 		success: function(data) {
-			console.log("success");
-			console.log("number of reqs: " + data["notifs"]);
-			console.log($("#home-notifs").length);
 			if ($("#home-notifs").length > 0)
 				document.getElementById("home-notifs").innerHTML = data["notifs"];
 			else if ($("#friends-notifs").length > 0)
@@ -14,6 +11,23 @@ function updateNotifs(event) {
 	});
 }
 
-$(document).ready(updateNotifs());
-$("#sidebar").on("click", "#friends_sb_link", updateNotifs);
-$("#sidebar").on("click", ".home_sb_link", updateNotifs);
+function updateUpcomingNotifs() {
+	$.ajax({
+		url: "/ajax/upcoming_events_number/",
+		data: {},
+		success: function(data) {
+			if ($("#upcoming-number").length > 0)
+				document.getElementById("upcoming-number").innerHTML = data["number"];
+		}
+	})
+}
+
+$(document).ready(function() {
+	updateUpcomingNotifs();
+	updateReqNotifs();
+});
+$("#sidebar").on("click", "#friends_sb_link", updateReqNotifs);
+$("#sidebar").on("click", ".home_sb_link", updateReqNotifs);
+$("#sidebar").on("click", ".home_sb_link", updateUpcomingNotifs);
+
+

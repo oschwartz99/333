@@ -37,6 +37,18 @@ def upcoming(request):
     }
     return JsonResponse(data)
 
+def upcoming_events_number(request):
+    events = Event.objects.all()
+    upcoming = []
+    for event in events:
+        if request.user in event.users_going.all():
+            if datetime.now().date() <= event.date:
+                upcoming.append(event)
+
+    data = {
+        "number": len(upcoming)
+    }
+    return JsonResponse(data)
 
 def upcoming_events(request):
     events = Event.objects.all()
