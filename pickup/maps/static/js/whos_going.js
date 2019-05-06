@@ -1,5 +1,5 @@
 $("#map").on("click", ".whos_going", function(event) {
-    var eventId = event.target.id.slice(-1);
+    var eventId = event.target.id.slice(13);
 
     /* Create AJAX route which says to the database:
     here is the event id, return a rendered string
