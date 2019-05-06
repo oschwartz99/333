@@ -20,7 +20,7 @@ from friendship.exceptions import AlreadyExistsError, AlreadyFriendsError
 from friendship.models import Friend, Follow, Block
 
 def notifs(request):
-    notifs = FriendshipRequest.objects.filter(to_user=request.user)
+    notifs = Friend.objects.unrejected_requests(user=request.user)
     data = {
         "notifs": len(notifs),
     }
