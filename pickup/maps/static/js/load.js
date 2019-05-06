@@ -191,8 +191,19 @@ map.on('load', function () {
                         else if (marker.properties.created_by)
                             html += "<p style='font-size: 10pt;'>This event is only visible to you and your friends"
                         else
-                            html += "<p style='font-size: 10pt;'>This event is only visible to " + marker.properties.author + "'s friends"
+                            html += "<p style='font-size: 10pt;'>This event is only visible to " + marker.properties.author + "'s friends<br>"
+                        
+                        html += "<a style='margin-top: 2%;' class='btn text-light btn-primary btn-block'>Add to your Google Calendar</a><p>"
+
+
                         html += "</h3>";
+
+
+
+
+
+
+
 
                         // html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
                         html += "<p class='btn btn-dark text-light active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";

@@ -6,9 +6,12 @@
         <!-- All users going to an event -->
         <div class="card">
             <ul class="list-group">
-            {% if friend|length > 0 %}        
+            {% if friends_going|length > 0 %}        
                 {% for friend in friends_going %}
-                    <li class="list-group-item btn-warning active">{{ friend.first_name }} {{ friend.last_name }}</li>
+                <div class="list-group-item border text-center">
+                    <p>{{ friend.first_name }} {{ friend.last_name }}</p>
+                    <p class="username">Username: {{ friend.username }}</p>
+                </div>
                 {% endfor %}
             {% else %}
                 <li class="list-group-item text-danger">None of your friends are going</li>

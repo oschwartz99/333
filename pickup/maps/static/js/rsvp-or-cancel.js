@@ -14,7 +14,7 @@ $("#map").on('click', ".event-action", function(event) {
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},
                     success: function(data) {
-                        document.getElementById("number-going-" + button.id).innerHTML = data.number_going + " have RSVP'd.";
+                        document.getElementById("number-going-" + button.id).innerHTML = data.number_going + " have RSVP'd";
                     }
                 });
             }
@@ -33,7 +33,7 @@ $("#map").on('click', ".event-action", function(event) {
                     url: 'ajax/get_number_going/',
                     data: {"event_id": button.id},
                     success: function(data) {
-                        document.getElementById("number-going-" + button.id).innerHTML = data.number_going + " have RSVP'd.";
+                        document.getElementById("number-going-" + button.id).innerHTML = data.number_going + " have RSVP'd";
                     }
                 });
             }

@@ -4,9 +4,10 @@ function updateReqNotifs() {
 		data: {},
 		success: function(data) {
 			if ($("#home-notifs").length > 0) {
-				if (data[notifs] == 1)
+				console.log("should change notifs");
+				if (data["notifs"] == 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend request";
-				else if (data[notifs] > 1)
+				else if (data["notifs"] > 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend requests";
 			}
 			else if ($("#friends-notifs").length > 0)
