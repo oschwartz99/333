@@ -193,8 +193,15 @@ map.on('load', function () {
                         else
                             html += "<p style='font-size: 10pt;'>This event is only visible to " + marker.properties.author + "'s friends<br>"
                         
-                        html += "<a style='margin-top: 2%;' class='btn text-light btn-primary btn-block'>Add to your Google Calendar</a><p>"
-
+                        html += "<a style='margin-top: 2%;' target='_blank' href='https://calendar.google.com/calendar/render?"
+                            + "action=TEMPLATE&text=" + escape(marker.properties.event_name)
+                            + "&dates=" + marker.properties.date.substring(0,4) + marker.properties.date.substring(5, 7) + marker.properties.date.substring(8, 10)
+                            + "T" + marker.properties.start_time.substring(0, 2) + marker.properties.start_time.substring(3, 5) +  marker.properties.start_time.substring(6, 8)
+                            + "/"
+                            + marker.properties.date.substring(0,4) + marker.properties.date.substring(5, 7) + marker.properties.date.substring(8, 10)
+                            + "T" + marker.properties.end_time.substring(0, 2) + marker.properties.end_time.substring(3, 5) +  marker.properties.start_time.substring(6, 8)
+                            + "' "
+                            +"class='btn text-light btn-primary btn-block'>Add to your Google Calendar</a><p>"
 
                         html += "</h3>";
 
