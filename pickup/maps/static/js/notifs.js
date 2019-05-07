@@ -3,6 +3,7 @@ function updateReqNotifs() {
 		url: "/ajax/notifs/",
 		data: {},
 		success: function(data) {
+			console.log("updating friend req notifs");
 			if ($("#home-notifs").length > 0) {
 				if (data["notifs"] == 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend request";

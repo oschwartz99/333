@@ -181,7 +181,7 @@ map.on('load', function () {
 
                         // Set the HTML in the popup
                         html = "<div class='list-group' style='margin-bottom: 20px;' id='popup-" + marker.properties.event_id + "'><h3 style='cursor:default; font-size: 14pt;' class='btn btn-default list-group-item'>"
-                               + marker.properties.event_name + "<br>" + marker.properties.event_descr
+                               + "<p style='font-size: 16pt; font-weight: bold;'>" + marker.properties.event_name + "</p>" + marker.properties.event_descr
                                + "<p id='number-going-" + marker.properties.event_id + "'>" + marker.properties.number_going + " have RSVP'd</p>"
                                + "<p style='font-style: italic'>Happening on <b>" + marker.properties.date.substring(5).slice(0, -3) + "/" + marker.properties.date.substring(5).substring(3)
                                + "</b> from <b>" + parseTime(marker.properties.start_time) + "</b> to <b>" + parseTime(marker.properties.end_time) + "</b></p>"
@@ -203,7 +203,7 @@ map.on('load', function () {
                             + "' "
                             +"class='btn text-light btn-primary btn-block active'>Add to your Google Calendar</a><p>"
 
-                        html += "</h3>";
+                        
 
 
 
@@ -213,7 +213,7 @@ map.on('load', function () {
 
 
                         // html += "<p class='btn btn-warning text-dark active whos_going list-group-item' id='whos_going_" + marker.properties.event_id + "'>See who's going</p>";
-                        html += "<p class='btn btn-dark text-light active friends_going list-group-item' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";
+                        html += "<p class='btn btn-warning btn-block text-light active friends_going' id='friends_going_" + marker.properties.event_id + "'>See friends going</p>";
 
                         // html += "<div style='display: none;' id='hidden-" + marker.properties.event_id +"'>"
                         // // iterate over users_going and display on popup
@@ -223,10 +223,10 @@ map.on('load', function () {
 
                         // "Going" or "Cancel" button, depending on if user is attending
                         if (marker.properties.user_going)
-                            html += "<p class='btn btn-danger event-action active list-group-item'" +
+                            html += "<p class='btn btn-danger event-action active btn-block'" +
                                     "id='" + marker.properties.event_id + "'" + ">You're going. Cancel RSVP?</p></div>";
                         else
-                            html += "<p class='btn btn-success event-action active list-group-item'" +
+                            html += "<p class='btn btn-success event-action active btn-block'" +
                                     "id='" + marker.properties.event_id + "'" + ">You're not going. RSVP?</p></div>";
 
                         // If logged-in user created the event, add a 'delete' button
@@ -234,6 +234,7 @@ map.on('load', function () {
                             html += "<button style='margin-top:10px;'"
                                     + "class='btn btn-danger delete_event'"
                                     + "id='delete-" + marker.properties.event_id + "'>Delete Event</button>";
+                        html += "</h3>";
 
                         // make a marker for each feature and add to the map
                         var new_marker = new mapboxgl.Marker(el)
