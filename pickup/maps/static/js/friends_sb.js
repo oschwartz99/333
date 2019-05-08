@@ -5,6 +5,7 @@ $("#sidebar").on('click', "#friends_sb_link", function() {
         success: function(data) {
             var sidebar = document.getElementById("sidebar");
             sidebar.innerHTML = data["page"]
+            setTimeout(updateReqNotifs, 200);
         }
     });
 });

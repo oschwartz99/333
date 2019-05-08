@@ -5,8 +5,10 @@ $("#sidebar").on('click', ".home_sb_link", function() {
             // replace content in page with event form
             document.getElementById("sidebar").innerHTML = data["page"];
             marker.remove(); // remove marker if it's on map
+            setTimeout(function() {
+            	updateReqNotifs();
+            	updateUpcomingNotifs();
+            }, 200);
         }
     });
-});
-
-   
+});  

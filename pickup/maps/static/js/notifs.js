@@ -4,13 +4,14 @@ function updateReqNotifs() {
 		data: {},
 		success: function(data) {
 			console.log("updating friend req notifs");
-			if ($("#home-notifs").length > 0) {
+			console.log()
+			if (document.getElementById("home-notifs") != null) {
 				if (data["notifs"] == 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend request";
 				else if (data["notifs"] > 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend requests";
 			}
-			else if ($("#friends-notifs").length > 0)
+			else if (document.getElementById("friends-notifs") != null)
 				document.getElementById("friends-notifs").innerHTML = data["notifs"];
 		}
 	});
@@ -36,6 +37,3 @@ $(document).ready(function() {
 	updateUpcomingNotifs();
 	updateReqNotifs();
 });
-$("#sidebar").on("click", "#friends_sb_link", updateReqNotifs);
-$("#sidebar").on("click", ".home_sb_link", updateReqNotifs);
-$("#sidebar").on("click", ".home_sb_link", updateUpcomingNotifs);
