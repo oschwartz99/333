@@ -1,4 +1,4 @@
-# PICKUP Project
+# meetup
 ### N.B. we will be using python3 (3.7.2) (as Python 2.7 is soon to be deprecated). Currently using MapBox, Django (2.1.7), MongoDB
 
 CURRENT PROGRESS:
