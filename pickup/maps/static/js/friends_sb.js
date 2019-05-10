@@ -1,5 +1,4 @@
 $("#sidebar").on('click', "#friends_sb_link", function() {
-    console.log("clicked friends page");
     $.ajax({
         url: '/ajax/friends_sb/',
         success: function(data) {
@@ -49,7 +48,6 @@ $("#sidebar").on('click', "#friends_requests_site", function() {
 });
 
 $("#sidebar").on('click', "#search_friends", function() {
-    console.log("clicked add friend");
     $.ajax({
         url: '/ajax/load_friends_search/',
         success: function(data) {
@@ -59,8 +57,6 @@ $("#sidebar").on('click', "#search_friends", function() {
 });
 
 $("#sidebar").on("keyup", "#friend_search", function() {
-	console.log("typed in search friend box");
-    console.log($("#friend_search").val());
     $.ajax({
 		type: "POST",
 		url: "/ajax/friends_search/",

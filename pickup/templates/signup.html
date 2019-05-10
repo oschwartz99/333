@@ -104,7 +104,6 @@
         success: function (data) {
           if (data.is_taken) {
             document.getElementById("id_hint_email").innerHTML = "<p style='color:red;'>That email is already in use!</p>";
-            console.log("taken!");
           }
           else {
             document.getElementById("id_hint_email").innerHTML = "Required.";

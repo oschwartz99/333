@@ -3,8 +3,6 @@ function updateReqNotifs() {
 		url: "/ajax/notifs/",
 		data: {},
 		success: function(data) {
-			console.log("updating friend req notifs");
-			console.log()
 			if (document.getElementById("home-notifs") != null) {
 				if (data["notifs"] == 1)
 					document.getElementById("home-notifs").innerHTML = data["notifs"] + " friend request";
@@ -18,7 +16,6 @@ function updateReqNotifs() {
 }
 
 function updateUpcomingNotifs() {
-	console.log("calling upcoming update");
 	$.ajax({
 		url: "/ajax/upcoming_events_number/",
 		data: {},
