@@ -4,7 +4,7 @@ function loadGeocoder() {
         var geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             placeholder: 'Search for places near you',
-            bbox: [coors['lng']-2, coors['lat']-2, coors['lng']+2, coors['lat']+2],
+            bbox: [coors['lng']-45, coors['lat']-45, coors['lng']+45, coors['lat']+45],
             proximity: {
                 longitude: coors['lng'],
                 latitude: coors['lat'],
