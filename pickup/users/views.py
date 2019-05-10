@@ -30,7 +30,7 @@ def signup(request):
             user.is_active = False
             user.save()
             current_site = get_current_site(request)
-            mail_subject = 'Activate your Pickup account.'
+            mail_subject = 'Activate your Meetup account.'
             message = render_to_string('acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -42,7 +42,7 @@ def signup(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('You need to verify your email address - check your email for an email from our team.')
+            return HttpResponse('You need to verify your email address - check your inbox for an email from our team.')
     else:
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
