@@ -103,10 +103,10 @@ def event_search(request):
     else:
         # return all queries that match the search
         # event_search_all = list(SearchQuerySet().models(Event).autocomplete(text=search_text))
-        event_search_all = list(Event.objects.filter(event_descr__contains=search_text) |
-                                Event.objects.filter(event_name__contains=search_text) |
-                                Event.objects.filter(event_type__contains=search_text) |
-                                Event.objects.filter(location__contains=search_text)
+        event_search_all = list(Event.objects.filter(event_descr__icontains=search_text) |
+                                Event.objects.filter(event_name__icontains=search_text) |
+                                Event.objects.filter(event_type__icontains=search_text) |
+                                Event.objects.filter(location__icontains=search_text)
             )
         friends = Friend.objects.friends(request.user)
         events = []
@@ -179,9 +179,9 @@ def friends_search(request):
         search_text = ''
 
     if search_text != '':
-        users = (CustomUser.objects.filter(username__contains=search_text) | \
-                CustomUser.objects.filter(first_name__contains=search_text) | \
-                CustomUser.objects.filter(last_name__contains=search_text)) & \
+        users = (CustomUser.objects.filter(username__icontains=search_text) | \
+                CustomUser.objects.filter(first_name__icontains=search_text) | \
+                CustomUser.objects.filter(last_name__icontains=search_text)) & \
                 CustomUser.objects.exclude(username=request.user.username)
         
         # Don't include people the user has already sent a friend request to
