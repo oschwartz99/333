@@ -33,8 +33,8 @@ function parseTime(time) {
 var popup = new mapboxgl.Popup().setHTML("<button class='btn btn-sm btn-danger' id='delete_add_event'>Remove</button>");
 var marker = new mapboxgl.Marker({
     draggable: true
-})
-    .setPopup(popup);
+});
+    // .setPopup(popup);
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 
