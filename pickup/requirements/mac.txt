@@ -61,7 +61,7 @@ Pillow==4.1.1
 psycopg2==2.7.7
 psycopg2-binary==2.7.7
 ptyprocess==0.6.0
-py==1.4.34
+py==1.10.0
 pycairo==1.18.0
 pycparser==2.19
 pycrypto==2.6.1
